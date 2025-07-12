@@ -10,75 +10,71 @@
   </el-menu-item>
 </template>
 
-<script>
+<script setup>
 import { isExternal } from "@/utils/validate";
 import path from "path";
 import { faToElIcon } from "@/utils/vab";
+import { useRouter, useRoute } from "vue-router";
 
-export default {
+defineOptions({
   name: "VabMenuItem",
-  props: {
-    routeChildren: {
-      type: Object,
-      default() {
-        return null;
-      },
-    },
-    item: {
-      type: Object,
-      default() {
-        return null;
-      },
-    },
-    fullPath: {
-      type: String,
-      default: "",
-    },
-  },
-  methods: {
-    handlePath(routePath) {
-      if (isExternal(routePath)) {
-        return routePath;
-      }
-      if (isExternal(this.fullPath)) {
-        return this.fullPath;
-      }
-      return path.resolve(this.fullPath, routePath);
-    },
-    handleLink() {
-      const routePath = this.routeChildren.path;
-      const target = this.routeChildren.meta.target;
+});
 
-      if (target === "_blank") {
-        if (isExternal(routePath)) {
-          window.open(routePath);
-        } else if (isExternal(this.fullPath)) {
-          window.open(this.fullPath);
-        } else if (
-          this.$route.path !== path.resolve(this.fullPath, routePath)
-        ) {
-          let routeData = this.$router.resolve(
-            path.resolve(this.fullPath, routePath)
-          );
-          window.open(routeData.href);
-        }
-      } else {
-        if (isExternal(routePath)) {
-          window.location.href = routePath;
-        } else if (isExternal(this.fullPath)) {
-          window.location.href = this.fullPath;
-        } else if (
-          this.$route.path !== path.resolve(this.fullPath, routePath)
-        ) {
-          this.$router.push(path.resolve(this.fullPath, routePath));
-        }
-      }
-    },
-    // 将路由中的icon名称转换为Element Plus图标组件
-    getIconComponent(iconName) {
-      // 直接使用导入的faToElIcon函数
-      return faToElIcon(iconName);
-    },
+const router = useRouter();
+const route = useRoute();
+
+const props = defineProps({
+  routeChildren: {
+    type: Object,
+    default: () => null,
   },
+  item: {
+    type: Object,
+    default: () => null,
+  },
+  fullPath: {
+    type: String,
+    default: "",
+  },
+});
+
+const handlePath = (routePath) => {
+  if (isExternal(routePath)) {
+    return routePath;
+  }
+  if (isExternal(props.fullPath)) {
+    return props.fullPath;
+  }
+  return path.resolve(props.fullPath, routePath);
+};
+
+const handleLink = () => {
+  const routePath = props.routeChildren.path;
+  const target = props.routeChildren.meta.target;
+
+  if (target === "_blank") {
+    if (isExternal(routePath)) {
+      window.open(routePath);
+    } else if (isExternal(props.fullPath)) {
+      window.open(props.fullPath);
+    } else if (route.path !== path.resolve(props.fullPath, routePath)) {
+      let routeData = router.resolve(path.resolve(props.fullPath, routePath));
+      window.open(routeData.href);
+    }
+  } else {
+    if (isExternal(routePath)) {
+      window.location.href = routePath;
+    } else if (isExternal(props.fullPath)) {
+      window.location.href = props.fullPath;
+    } else if (route.path !== path.resolve(props.fullPath, routePath)) {
+      router.push(path.resolve(props.fullPath, routePath));
+    }
+  }
+};
+
+// 将路由中的icon名称转换为Element Plus图标组件
+const getIconComponent = (iconName) => {
+  // 直接使用导入的faToElIcon函数
+  return faToElIcon(iconName);
 };
 </script>

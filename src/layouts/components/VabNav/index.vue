@@ -34,52 +34,39 @@
   </div>
 </template>
 
-<script>
-import { mapActions, mapGetters } from "vuex";
+<script setup>
+import { ref, computed, onBeforeUnmount } from "vue";
+import { useStore } from "vuex";
 import { Refresh, SwitchButton, Expand, Fold } from "@element-plus/icons-vue";
 
-export default {
+defineOptions({
   name: "VabNav",
-  components: {
-    Refresh,
-    SwitchButton,
-    Expand,
-    Fold,
-  },
-  data() {
-    return {
-      pulse: false,
-      timeOutID: null,
-    };
-  },
-  computed: {
-    ...mapGetters({
-      collapse: "settings/collapse",
-      visitedRoutes: "tabsBar/visitedRoutes",
-      device: "settings/device",
-      routes: "routes/routes",
-    }),
-  },
-  methods: {
-    ...mapActions({
-      changeCollapse: "settings/changeCollapse",
-    }),
-    handleCollapse() {
-      this.changeCollapse();
-    },
-    async refreshRoute() {
-      this.$eventBus.emit("reload-router-view");
-      this.pulse = true;
-      this.timeOutID = setTimeout(() => {
-        this.pulse = false;
-      }, 1000);
-    },
-  },
+});
 
-  beforeDestroy() {
-    clearTimeout(this.timeOutID);
-  },
+const store = useStore();
+const pulse = ref(false);
+let timeOutID = null;
+
+const collapse = computed(() => store.getters["settings/collapse"]);
+const visitedRoutes = computed(() => store.getters["tabsBar/visitedRoutes"]);
+const device = computed(() => store.getters["settings/device"]);
+const routes = computed(() => store.getters["routes/routes"]);
+
+const handleCollapse = () => {
+  store.dispatch("settings/changeCollapse");
 };
+
+const refreshRoute = async () => {
+  window.$eventBus.emit("reload-router-view");
+  pulse.value = true;
+  timeOutID = setTimeout(() => {
+    pulse.value = false;
+  }, 1000);
+};
+
+onBeforeUnmount(() => {
+  clearTimeout(timeOutID);
+});
 </script>
 
 <style lang="scss" scoped>

@@ -51,98 +51,92 @@
   </div>
 </template>
 
-<script>
-import { mapActions, mapGetters } from "vuex";
+<script setup>
+import { ref, computed, onBeforeMount, onBeforeUnmount, nextTick } from "vue";
+import { useStore } from "vuex";
 import { tokenName } from "@/config";
 
-export default {
-  name: "Layout",
-  data() {
-    return {
-      oldLayout: "",
-      controller: new window.AbortController(),
-      timeOutID: null,
-    };
-  },
-  computed: {
-    ...mapGetters({
-      layout: "settings/layout",
-      tabsBar: "settings/tabsBar",
-      collapse: "settings/collapse",
-      header: "settings/header",
-      device: "settings/device",
-    }),
-    classObj() {
-      return {
-        mobile: this.device === "mobile",
-      };
-    },
-  },
-  beforeMount() {
-    window.addEventListener("resize", this.handleResize);
-  },
-  beforeDestroy() {
-    window.removeEventListener("resize", this.handleResize);
-    this.controller.abort();
-    clearTimeout(this.timeOutID);
-  },
-  mounted() {
-    this.oldLayout = this.layout;
-    const userAgent = navigator.userAgent;
-    const isMobile = this.handleIsMobile();
-    if (isMobile) {
-      if (isMobile) {
-        //横向布局时如果是手机端访问那么改成纵向版
-        this.$store.dispatch("settings/changeLayout", "vertical");
-      } else {
-        this.$store.dispatch("settings/changeLayout", this.oldLayout);
-      }
-      this.$store.dispatch("settings/toggleDevice", "mobile");
-      this.timeOutID = setTimeout(() => {
-        this.$store.dispatch("settings/foldSideBar");
-      }, 2000);
-    } else {
-      this.$store.dispatch("settings/openSideBar");
-    }
-    this.$nextTick(() => {
-      window.addEventListener(
-        "storage",
-        (e) => {
-          if (e.key === tokenName || e.key === null) window.location.reload();
-          if (e.key === tokenName && e.value === null) window.location.reload();
-        },
-        {
-          capture: false,
-          signal: this.controller?.signal,
-        }
-      );
-    });
-  },
-  methods: {
-    ...mapActions({
-      handleFoldSideBar: "settings/foldSideBar",
-    }),
-    handleIsMobile() {
-      return document.body.getBoundingClientRect().width - 1 < 992;
-    },
-    handleResize() {
-      if (!document.hidden) {
-        const isMobile = this.handleIsMobile();
-        if (isMobile) {
-          //横向布局时如果是手机端访问那么改成纵向版
-          this.$store.dispatch("settings/changeLayout", "vertical");
-        } else {
-          this.$store.dispatch("settings/changeLayout", this.oldLayout);
-        }
+const store = useStore();
 
-        this.$store.dispatch(
-          "settings/toggleDevice",
-          isMobile ? "mobile" : "desktop"
-        );
-      }
-    },
-  },
+const oldLayout = ref("");
+const controller = ref(new window.AbortController());
+let timeOutID = null;
+
+const layout = computed(() => store.getters["settings/layout"]);
+const tabsBar = computed(() => store.getters["settings/tabsBar"]);
+const collapse = computed(() => store.getters["settings/collapse"]);
+const header = computed(() => store.getters["settings/header"]);
+const device = computed(() => store.getters["settings/device"]);
+
+const classObj = computed(() => {
+  return {
+    mobile: device.value === "mobile",
+  };
+});
+
+const handleFoldSideBar = () => {
+  store.dispatch("settings/foldSideBar");
 };
+
+const handleIsMobile = () => {
+  return document.body.getBoundingClientRect().width - 1 < 992;
+};
+
+const handleResize = () => {
+  if (!document.hidden) {
+    const isMobile = handleIsMobile();
+    if (isMobile) {
+      //横向布局时如果是手机端访问那么改成纵向版
+      store.dispatch("settings/changeLayout", "vertical");
+    } else {
+      store.dispatch("settings/changeLayout", oldLayout.value);
+    }
+
+    store.dispatch("settings/toggleDevice", isMobile ? "mobile" : "desktop");
+  }
+};
+
+onBeforeMount(() => {
+  window.addEventListener("resize", handleResize);
+});
+
+onBeforeUnmount(() => {
+  window.removeEventListener("resize", handleResize);
+  controller.value.abort();
+  clearTimeout(timeOutID);
+});
+
+// 相当于mounted
+oldLayout.value = layout.value;
+const isMobile = handleIsMobile();
+if (isMobile) {
+  //横向布局时如果是手机端访问那么改成纵向版
+  store.dispatch("settings/changeLayout", "vertical");
+} else {
+  store.dispatch("settings/changeLayout", oldLayout.value);
+}
+store.dispatch("settings/toggleDevice", isMobile ? "mobile" : "desktop");
+if (isMobile) {
+  timeOutID = setTimeout(() => {
+    store.dispatch("settings/foldSideBar");
+  }, 2000);
+} else {
+  store.dispatch("settings/openSideBar");
+}
+
+nextTick(() => {
+  window.addEventListener(
+    "storage",
+    (e) => {
+      if (e.key === tokenName || e.key === null) window.location.reload();
+      if (e.key === tokenName && e.value === null) window.location.reload();
+    },
+    {
+      capture: false,
+      signal: controller.value?.signal,
+    }
+  );
+});
 </script>
 
 <style lang="scss" scoped>

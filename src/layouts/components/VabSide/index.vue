@@ -18,42 +18,40 @@
     </el-menu>
   </el-scrollbar>
 </template>
-<script>
+
+<script setup>
 import variables from "@/styles/variables.scss";
-import { mapGetters } from "vuex";
+import { computed } from "vue";
+import { useStore } from "vuex";
+import { useRoute } from "vue-router";
 import { defaultOopeneds, uniqueOpened } from "@/config";
 
-export default {
+defineOptions({
   name: "VabSide",
-  data() {
-    return {
-      uniqueOpened,
-    };
-  },
-  computed: {
-    ...mapGetters({
-      collapse: "settings/collapse",
-      routes: "routes/routes",
-    }),
-    defaultOpens() {
-      if (this.collapse) {
-      }
-      return defaultOopeneds;
-    },
-    activeMenu() {
-      const route = this.$route;
-      const { meta, path } = route;
-      if (meta.activeMenu) {
-        return meta.activeMenu;
-      }
-      return path;
-    },
-    variables() {
-      return variables;
-    },
-  },
-};
+});
+
+const store = useStore();
+const route = useRoute();
+
+const collapse = computed(() => store.getters["settings/collapse"]);
+const routes = computed(() => store.getters["routes/routes"]);
+
+const defaultOpens = computed(() => {
+  if (collapse.value) {
+    // 原代码这里是空的，保持一致
+  }
+  return defaultOopeneds;
+});
+
+const activeMenu = computed(() => {
+  const { meta, path } = route;
+  if (meta.activeMenu) {
+    return meta.activeMenu;
+  }
+  return path;
+});
 </script>
+
 <style lang="scss" scoped>
 @mixin active {
   &:hover {
