@@ -31,7 +31,6 @@ const data = [
         meta: {
           title: "权限控制",
           permissions: ["admin", "editor"],
-          badge: "New",
         },
       },
       {

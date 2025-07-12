@@ -4,13 +4,6 @@
       <component :is="getIconComponent(routeChildren.meta.icon)" />
     </el-icon>
     <span>{{ routeChildren.meta.title }}</span>
-    <el-tag
-      v-if="routeChildren.meta && routeChildren.meta.badge"
-      effect="dark"
-      type="danger"
-    >
-      {{ routeChildren.meta.badge }}
-    </el-tag>
   </el-menu-item>
 </template>
 

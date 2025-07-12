@@ -32,7 +32,9 @@
           <div class="icon-container" @click="handleIconClick(item)">
             <div class="icon-header">
               <div class="icon-wrapper" :style="{ background: item.color }">
-                <vab-icon :icon="['fas', item.icon]" />
+                <el-icon>
+                  <component :is="getIconComponent(item.icon)" />
+                </el-icon>
               </div>
               <div class="icon-title">{{ item.title }}</div>
             </div>
@@ -44,11 +46,11 @@
             <div class="icon-footer">
               <div class="icon-stats">
                 <div class="stat-item">
-                  <vab-icon :icon="['fas', 'eye']" />
+                  <el-icon><View /></el-icon>
                   <span>{{ getRandomViews() }}</span>
                 </div>
                 <div class="stat-item">
-                  <vab-icon :icon="['fas', 'heart']" />
+                  <el-icon><Heart /></el-icon>
                   <span>{{ getRandomLikes() }}</span>
                 </div>
               </div>
@@ -58,9 +60,9 @@
       </el-col>
       <el-col :lg="6" :md="12" :sm="24" :xl="6" :xs="24">
         <el-card shadow="never">
-          <div slot="header">
+          <template #header>
             <span>访问量</span>
-          </div>
+          </template>
           <div class="chart-container">
             <div class="chart-header">
               <div class="chart-title">
@@ -79,11 +81,11 @@
             <div class="chart-footer">
               <div class="trend-info">
                 <div class="trend-item">
-                  <vab-icon class="trend-up" :icon="['fas', 'arrow-up']" />
+                  <el-icon class="trend-up"><ArrowUp /></el-icon>
                   <span class="trend-text">较昨日增长 12.5%</span>
                 </div>
                 <div class="trend-item">
-                  <vab-icon class="trend-icon" :icon="['fas', 'users']" />
+                  <el-icon class="trend-icon"><User /></el-icon>
                   <span class="trend-text">活跃用户 2.3K</span>
                 </div>
               </div>
@@ -93,9 +95,9 @@
       </el-col>
       <el-col :lg="6" :md="12" :sm="24" :xl="6" :xs="24">
         <el-card shadow="never">
-          <div slot="header">
+          <template #header>
             <span>授权数</span>
-          </div>
+          </template>
           <div class="chart-container">
             <div class="chart-header">
               <div class="chart-title">
@@ -114,11 +116,11 @@
             <div class="chart-footer">
               <div class="trend-info">
                 <div class="trend-item">
-                  <vab-icon class="trend-up" :icon="['fas', 'arrow-up']" />
+                  <el-icon class="trend-up"><ArrowUp /></el-icon>
                   <span class="trend-text">较昨日增长 8.3%</span>
                 </div>
                 <div class="trend-item">
-                  <vab-icon class="trend-icon" :icon="['fas', 'clock']" />
+                  <el-icon class="trend-icon"><Clock /></el-icon>
                   <span class="trend-text">今日新增 156</span>
                 </div>
               </div>
@@ -128,9 +130,9 @@
       </el-col>
       <el-col :lg="6" :md="12" :sm="24" :xl="6" :xs="24">
         <el-card shadow="never">
-          <div slot="header">
+          <template #header>
             <span>用户活跃度</span>
-          </div>
+          </template>
           <div class="chart-container">
             <div class="chart-header">
               <div class="chart-title">
@@ -149,11 +151,11 @@
             <div class="chart-footer">
               <div class="trend-info">
                 <div class="trend-item">
-                  <vab-icon class="trend-up" :icon="['fas', 'arrow-up']" />
+                  <el-icon class="trend-up"><ArrowUp /></el-icon>
                   <span class="trend-text">较昨日增长 15.2%</span>
                 </div>
                 <div class="trend-item">
-                  <vab-icon class="trend-icon" :icon="['fas', 'clock']" />
+                  <el-icon class="trend-icon"><Clock /></el-icon>
                   <span class="trend-text">在线时长 2.5h</span>
                 </div>
               </div>
@@ -163,9 +165,9 @@
       </el-col>
       <el-col :lg="6" :md="12" :sm="24" :xl="6" :xs="24">
         <el-card shadow="never">
-          <div slot="header">
+          <template #header>
             <span>系统性能</span>
-          </div>
+          </template>
           <div class="chart-container">
             <div class="chart-header">
               <div class="chart-title">
@@ -184,11 +186,11 @@
             <div class="chart-footer">
               <div class="trend-info">
                 <div class="trend-item">
-                  <vab-icon class="trend-up" :icon="['fas', 'check-circle']" />
+                  <el-icon class="trend-up"><CheckCircle /></el-icon>
                   <span class="trend-text">运行正常</span>
                 </div>
                 <div class="trend-item">
-                  <vab-icon class="trend-icon" :icon="['fas', 'server']" />
+                  <el-icon class="trend-icon"><Monitor /></el-icon>
                   <span class="trend-text">响应时间 120ms</span>
                 </div>
               </div>
@@ -484,48 +486,46 @@ import { dependencies, devDependencies } from "../../../package.json";
 import { getNoticeList } from "@/api/notice";
 import { random } from "lodash-es";
 import {
-  Brush,
-  Eye,
+  View,
   Heart,
   ArrowUp,
   User,
   Clock,
   CheckCircle,
-  Server,
-  Box,
-  Picture,
+  Monitor,
+  Bell,
+  Reading,
+  Present,
+  Globe,
+  Mug,
   Grid,
-  Setting,
-  Laptop,
-  Location,
-  HomeFilled,
-  Warning,
+  VideoPlay,
   More,
   Promotion,
+  Picture,
 } from "@element-plus/icons-vue";
 
 export default {
   name: "Index",
   components: {
     VabChart,
-    Brush,
-    Eye,
+    View,
     Heart,
     ArrowUp,
     User,
     Clock,
     CheckCircle,
-    Server,
-    Box,
-    Picture,
+    Monitor,
+    Bell,
+    Reading,
+    Present,
+    Globe,
+    Mug,
     Grid,
-    Setting,
-    Laptop,
-    Location,
-    HomeFilled,
-    Warning,
+    VideoPlay,
     More,
     Promotion,
+    Picture,
   },
   data() {
     return {
@@ -1120,7 +1120,7 @@ export default {
   margin: 0 !important;
   background: #f5f7f8 !important;
 
-  ::v-deep {
+  :deep() {
     .el-alert {
       padding: $base-padding;
 
@@ -1151,7 +1151,7 @@ export default {
     display: flex;
     flex-direction: column;
 
-    ::v-deep {
+    :deep() {
       .el-card__body {
         flex: 1;
         display: flex;
@@ -1661,7 +1661,7 @@ export default {
     display: flex;
     flex-direction: column;
 
-    ::v-deep {
+    :deep() {
       .el-card__body {
         flex: 1;
         display: flex;

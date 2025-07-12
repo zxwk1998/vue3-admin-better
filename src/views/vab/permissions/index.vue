@@ -9,10 +9,7 @@
     />
 
     <!-- 权限切换卡片 -->
-    <el-card
-      class="permission-card"
-      shadow="hover"
-    >
+    <el-card class="permission-card" shadow="hover">
       <template #header>
         <div class="card-header">
           <vab-icon :icon="['fas', 'exchange-alt']" />
@@ -33,32 +30,17 @@
           :inline="true"
           :model="form"
         >
-          <el-form-item
-            class="account-selector"
-            label="切换账号"
-          >
-            <el-radio-group
-              v-model="form.account"
-              class="account-radio-group"
-            >
-              <el-radio-button
-                class="account-radio"
-                label="admin"
-              >
+          <el-form-item class="account-selector" label="切换账号">
+            <el-radio-group v-model="form.account" class="account-radio-group">
+              <el-radio-button class="account-radio" label="admin">
                 <vab-icon :icon="['fas', 'crown']" />
                 <span>管理员</span>
               </el-radio-button>
-              <el-radio-button
-                class="account-radio"
-                label="editor"
-              >
+              <el-radio-button class="account-radio" label="editor">
                 <vab-icon :icon="['fas', 'edit']" />
                 <span>编辑者</span>
               </el-radio-button>
-              <el-radio-button
-                class="account-radio"
-                label="test"
-              >
+              <el-radio-button class="account-radio" label="test">
                 <vab-icon :icon="['fas', 'user']" />
                 <span>测试员</span>
               </el-radio-button>
@@ -95,10 +77,7 @@
     </el-card>
 
     <!-- 按钮权限演示卡片 -->
-    <el-card
-      class="permission-card"
-      shadow="hover"
-    >
+    <el-card class="permission-card" shadow="hover">
       <template #header>
         <div class="card-header">
           <vab-icon :icon="['fas', 'mouse-pointer']" />
@@ -125,11 +104,7 @@
               <vab-icon :icon="['fas', 'edit']" />
               我是拥有["editor"]权限的按钮
             </el-button>
-            <el-button
-              v-permissions="['test']"
-              class="demo-btn"
-              type="warning"
-            >
+            <el-button v-permissions="['test']" class="demo-btn" type="warning">
               <vab-icon :icon="['fas', 'user']" />
               我是拥有["test"]权限的按钮
             </el-button>
@@ -139,10 +114,7 @@
     </el-card>
 
     <!-- 路由权限演示卡片 -->
-    <el-card
-      class="permission-card"
-      shadow="hover"
-    >
+    <el-card class="permission-card" shadow="hover">
       <template #header>
         <div class="card-header">
           <vab-icon :icon="['fas', 'route']" />
@@ -212,25 +184,14 @@
               show-overflow-tooltip
               width="120"
             />
-            <el-table-column
-              label="图标"
-              show-overflow-tooltip
-              width="80"
-            >
+            <el-table-column label="图标" show-overflow-tooltip width="80">
               <template #default="{ row }">
                 <span v-if="row.meta && row.meta.icon">
-                  <vab-icon
-                    class="route-icon"
-                    :icon="['fas', row.meta.icon]"
-                  />
+                  <vab-icon class="route-icon" :icon="['fas', row.meta.icon]" />
                 </span>
               </template>
             </el-table-column>
-            <el-table-column
-              label="固定"
-              show-overflow-tooltip
-              width="80"
-            >
+            <el-table-column label="固定" show-overflow-tooltip width="80">
               <template #default="{ row }">
                 <el-tag
                   v-if="row.meta && row.meta.affix"
@@ -239,20 +200,10 @@
                 >
                   是
                 </el-tag>
-                <el-tag
-                  v-else
-                  size="mini"
-                  type="info"
-                >
-                  否
-                </el-tag>
+                <el-tag v-else size="mini" type="info"> 否 </el-tag>
               </template>
             </el-table-column>
-            <el-table-column
-              label="无缓存"
-              show-overflow-tooltip
-              width="80"
-            >
+            <el-table-column label="无缓存" show-overflow-tooltip width="80">
               <template #default="{ row }">
                 <el-tag
                   v-if="row.meta && row.meta.noKeepAlive"
@@ -261,20 +212,10 @@
                 >
                   是
                 </el-tag>
-                <el-tag
-                  v-else
-                  size="mini"
-                  type="info"
-                >
-                  否
-                </el-tag>
+                <el-tag v-else size="mini" type="info"> 否 </el-tag>
               </template>
             </el-table-column>
-            <el-table-column
-              label="徽章"
-              show-overflow-tooltip
-              width="80"
-            >
+            <el-table-column label="徽章" show-overflow-tooltip width="80">
               <template #default="{ row }">
                 <el-badge
                   v-if="row.meta && row.meta.badge"
@@ -292,254 +233,257 @@
 </template>
 
 <script>
-  import { mapGetters } from 'vuex'
-  import { tokenTableName } from '@/config'
-  import { getRouterList } from '@/api/router'
-  import VabPageHeader from '@/components/VabPageHeader'
+import { mapGetters } from "vuex";
+import { tokenTableName } from "@/config";
+import { getRouterList } from "@/api/router";
+import VabPageHeader from "@/components/VabPageHeader";
 
-  export default {
-    name: 'Permissions',
-    components: {
-      VabPageHeader,
-    },
-    data() {
-      return {
-        form: {
-          account: '',
-        },
-        tableData: [],
-        res: [],
-      }
-    },
-    computed: {
-      ...mapGetters({
-        username: 'user/username',
-        permissions: 'user/permissions',
-      }),
-    },
-    created() {
-      this.fetchData()
-    },
-    mounted() {
-      this.form.account = this.username
-    },
-    methods: {
-      handleChangePermission() {
-        this.$confirm('确定要切换权限吗？切换后页面将重新加载。', '权限切换', {
-          confirmButtonText: '确定',
-          cancelButtonText: '取消',
-          type: 'warning',
+export default {
+  name: "Permissions",
+  components: {
+    VabPageHeader,
+  },
+  data() {
+    return {
+      form: {
+        account: "",
+      },
+      tableData: [],
+      res: [],
+    };
+  },
+  computed: {
+    ...mapGetters({
+      username: "user/username",
+      permissions: "user/permissions",
+    }),
+  },
+  created() {
+    this.fetchData();
+  },
+  mounted() {
+    this.form.account = this.username;
+  },
+  methods: {
+    handleChangePermission() {
+      this.$confirm("确定要切换权限吗？切换后页面将重新加载。", "权限切换", {
+        confirmButtonText: "确定",
+        cancelButtonText: "取消",
+        type: "warning",
+      })
+        .then(() => {
+          localStorage.setItem(
+            tokenTableName,
+            `${this.form.account}-accessToken`
+          );
+          this.$message.success("权限切换成功，页面即将重新加载...");
+          setTimeout(() => {
+            location.reload();
+          }, 1000);
         })
-          .then(() => {
-            localStorage.setItem(tokenTableName, `${this.form.account}-accessToken`)
-            this.$message.success('权限切换成功，页面即将重新加载...')
-            setTimeout(() => {
-              location.reload()
-            }, 1000)
-          })
-          .catch(() => {
-            this.$message.info('已取消权限切换')
-          })
-      },
-      async fetchData() {
-        const res = await getRouterList()
-        this.tableData = res.data
-        this.res = res
-      },
-      getPermissionTagType(permission) {
-        const types = {
-          admin: 'danger',
-          editor: 'warning',
-          test: 'info',
-        }
-        return types[permission] || 'info'
-      },
-      getPermissionIcon(permission) {
-        const icons = {
-          admin: 'crown',
-          editor: 'edit',
-          test: 'user',
-        }
-        return ['fas', icons[permission] || 'user']
-      },
+        .catch(() => {
+          this.$message.info("已取消权限切换");
+        });
     },
-  }
+    async fetchData() {
+      const res = await getRouterList();
+      this.tableData = res.data;
+      this.res = res;
+    },
+    getPermissionTagType(permission) {
+      const types = {
+        admin: "danger",
+        editor: "warning",
+        test: "info",
+      };
+      return types[permission] || "info";
+    },
+    getPermissionIcon(permission) {
+      const icons = {
+        admin: "crown",
+        editor: "edit",
+        test: "user",
+      };
+      return ["fas", icons[permission] || "user"];
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>
-  .permissions-container {
-    padding: 20px;
-    background: #f5f7fa;
-    min-height: 100vh;
+.permissions-container {
+  padding: 20px;
+  background: #f5f7fa;
+  min-height: 100vh;
 
-    .permission-card {
-      .card-header {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        font-size: 1.1rem;
-        font-weight: 600;
-        color: #2c3e50;
+  .permission-card {
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #2c3e50;
 
-        .vab-icon {
-          color: #667ae4;
+      .vab-icon {
+        color: #667ae4;
+      }
+    }
+
+    .permission-content {
+      .permission-info {
+        margin-bottom: 20px;
+
+        .info-text {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          color: #606266;
+          font-size: 0.9rem;
+          margin: 0;
+          padding: 12px;
+          background: #f8f9fa;
+          border-radius: 8px;
+          border-left: 4px solid #667eea;
+
+          .vab-icon {
+            color: #667eea;
+          }
         }
       }
 
-      .permission-content {
-        .permission-info {
-          margin-bottom: 20px;
+      .permission-form {
+        margin-bottom: 20px;
 
-          .info-text {
+        .account-selector {
+        }
+
+        .change-btn {
+        }
+      }
+
+      .current-permissions {
+        h4 {
+          margin: 0 0 12px 0;
+          color: #2c3e50;
+          font-size: 1rem;
+        }
+
+        .permissions-display {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 8px;
+
+          .permission-tag {
             display: flex;
             align-items: center;
-            gap: 8px;
-            color: #606266;
-            font-size: 0.9rem;
-            margin: 0;
-            padding: 12px;
-            background: #f8f9fa;
-            border-radius: 8px;
-            border-left: 4px solid #667eea;
+            gap: 4px;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-weight: 500;
+
+            .vab-icon {
+              font-size: 0.8rem;
+            }
+          }
+        }
+      }
+    }
+
+    .button-demo {
+      .demo-section {
+        h4 {
+          margin: 0 0 16px 0;
+          color: #2c3e50;
+          font-size: 1rem;
+        }
+
+        .button-group {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 12px;
+        }
+      }
+    }
+
+    .route-demo {
+      .demo-info {
+        margin-bottom: 20px;
+
+        .info-text {
+          display: flex;
+          align-items: flex-start;
+          gap: 8px;
+          color: #606266;
+          font-size: 0.9rem;
+          margin: 0 0 8px 0;
+          line-height: 1.5;
+
+          .vab-icon {
+            color: #667eea;
+            margin-top: 2px;
+            flex-shrink: 0;
+          }
+        }
+      }
+
+      .route-table-container {
+        h4 {
+          margin: 0 0 16px 0;
+          color: #2c3e50;
+          font-size: 1rem;
+        }
+
+        .route-table {
+          border-radius: 8px;
+          overflow: hidden;
+
+          .route-name {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-weight: 500;
 
             .vab-icon {
               color: #667eea;
             }
           }
-        }
 
-        .permission-form {
-          margin-bottom: 20px;
-
-          .account-selector {
-          }
-
-          .change-btn {
-          }
-        }
-
-        .current-permissions {
-          h4 {
-            margin: 0 0 12px 0;
-            color: #2c3e50;
+          .route-icon {
+            color: #667eea;
             font-size: 1rem;
           }
 
-          .permissions-display {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-
-            .permission-tag {
-              display: flex;
-              align-items: center;
-              gap: 4px;
-              padding: 6px 12px;
-              border-radius: 20px;
-              font-weight: 500;
-
-              .vab-icon {
-                font-size: 0.8rem;
-              }
+          .route-badge {
+            :deep() .el-badge__content {
+              background: #667eea;
             }
+          }
+        }
+      }
+    }
+  }
+}
+
+// 响应式设计
+@media (max-width: 768px) {
+  .permissions-container {
+    padding: 16px;
+
+    .permission-card {
+      .permission-content {
+        .permission-form {
+          .account-selector {
           }
         }
       }
 
       .button-demo {
-        .demo-section {
-          h4 {
-            margin: 0 0 16px 0;
-            color: #2c3e50;
-            font-size: 1rem;
-          }
-
-          .button-group {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-          }
-        }
-      }
-
-      .route-demo {
-        .demo-info {
-          margin-bottom: 20px;
-
-          .info-text {
-            display: flex;
-            align-items: flex-start;
-            gap: 8px;
-            color: #606266;
-            font-size: 0.9rem;
-            margin: 0 0 8px 0;
-            line-height: 1.5;
-
-            .vab-icon {
-              color: #667eea;
-              margin-top: 2px;
-              flex-shrink: 0;
-            }
-          }
-        }
-
-        .route-table-container {
-          h4 {
-            margin: 0 0 16px 0;
-            color: #2c3e50;
-            font-size: 1rem;
-          }
-
-          .route-table {
-            border-radius: 8px;
-            overflow: hidden;
-
-            .route-name {
-              display: flex;
-              align-items: center;
-              gap: 6px;
-              font-weight: 500;
-
-              .vab-icon {
-                color: #667eea;
-              }
-            }
-
-            .route-icon {
-              color: #667eea;
-              font-size: 1rem;
-            }
-
-            .route-badge {
-              ::v-deep .el-badge__content {
-                background: #667eea;
-              }
-            }
-          }
+        .button-group {
+          flex-direction: column;
         }
       }
     }
   }
-
-  // 响应式设计
-  @media (max-width: 768px) {
-    .permissions-container {
-      padding: 16px;
-
-      .permission-card {
-        .permission-content {
-          .permission-form {
-            .account-selector {
-            }
-          }
-        }
-
-        .button-demo {
-          .button-group {
-            flex-direction: column;
-          }
-        }
-      }
-    }
-  }
+}
 </style>

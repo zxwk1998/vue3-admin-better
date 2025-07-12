@@ -7,13 +7,27 @@
     />
     <el-row :gutter="20">
       <el-col :lg="18" :md="18" :sm="24" :xl="16" :xs="24">
-        <el-button type="primary" @click="dialogVisible = !dialogVisible">element全部文档点这里</el-button>
-        <el-dialog v-model:visible="dialogVisible" :fullscreen="true" title="element文档">
-          <iframe class="element-iframe" frameborder="0" src="https://element.eleme.cn/#/zh-CN/component/installation" />
+        <el-button type="primary" @click="dialogVisible = !dialogVisible"
+          >element全部文档点这里</el-button
+        >
+        <el-dialog
+          v-model:visible="dialogVisible"
+          :fullscreen="true"
+          title="element文档"
+        >
+          <iframe
+            class="element-iframe"
+            frameborder="0"
+            src="https://element.eleme.cn/#/zh-CN/component/installation"
+          />
         </el-dialog>
         <el-divider content-position="left">
           Tag 标签
-          <a href="https://element.eleme.cn/#/zh-CN/component/tag" target="_blank">文档</a>
+          <a
+            href="https://element.eleme.cn/#/zh-CN/component/tag"
+            target="_blank"
+            >文档</a
+          >
         </el-divider>
         <el-tag>标签一</el-tag>
         <el-tag type="success">标签二</el-tag>
@@ -28,16 +42,35 @@
 
         <el-divider content-position="left">
           进度条
-          <a href="https://element.eleme.cn/#/zh-CN/component/progress" target="_blank">文档</a>
+          <a
+            href="https://element.eleme.cn/#/zh-CN/component/progress"
+            target="_blank"
+            >文档</a
+          >
         </el-divider>
         <el-progress :percentage="50" />
         <el-progress :percentage="100" status="success" />
         <el-progress :percentage="100" status="warning" />
         <el-progress :percentage="50" status="exception" />
         <el-progress :percentage="70" :stroke-width="26" :text-inside="true" />
-        <el-progress :percentage="100" status="success" :stroke-width="24" :text-inside="true" />
-        <el-progress :percentage="80" status="warning" :stroke-width="22" :text-inside="true" />
-        <el-progress :percentage="50" status="exception" :stroke-width="20" :text-inside="true" />
+        <el-progress
+          :percentage="100"
+          status="success"
+          :stroke-width="24"
+          :text-inside="true"
+        />
+        <el-progress
+          :percentage="80"
+          status="warning"
+          :stroke-width="22"
+          :text-inside="true"
+        />
+        <el-progress
+          :percentage="50"
+          status="exception"
+          :stroke-width="20"
+          :text-inside="true"
+        />
         <el-progress :percentage="0" type="circle" />
         <el-progress :percentage="25" type="circle" />
         <el-progress :percentage="100" status="success" type="circle" />
@@ -46,7 +79,11 @@
 
         <el-divider content-position="left">
           按钮
-          <a href="https://element.eleme.cn/#/zh-CN/component/button" target="_blank">文档</a>
+          <a
+            href="https://element.eleme.cn/#/zh-CN/component/button"
+            target="_blank"
+            >文档</a
+          >
         </el-divider>
         <el-button>默认按钮</el-button>
         <el-button type="primary">主要按钮</el-button>
@@ -90,9 +127,15 @@
 
         <el-divider content-position="left">
           文字链接
-          <a href="https://element.eleme.cn/#/zh-CN/component/link" target="_blank">文档</a>
+          <a
+            href="https://element.eleme.cn/#/zh-CN/component/link"
+            target="_blank"
+            >文档</a
+          >
         </el-divider>
-        <el-link href="https://element.eleme.io" target="_blank">默认链接</el-link>
+        <el-link href="https://element.eleme.io" target="_blank"
+          >默认链接</el-link
+        >
         <el-link type="primary">主要链接</el-link>
         <el-link type="success">成功链接</el-link>
         <el-link type="warning">警告链接</el-link>
@@ -108,17 +151,29 @@
         <el-link>有下划线</el-link>
         <el-divider content-position="left">
           头像
-          <a href="https://element.eleme.cn/#/zh-CN/component/avatar" target="_blank">文档</a>
+          <a
+            href="https://element.eleme.cn/#/zh-CN/component/avatar"
+            target="_blank"
+            >文档</a
+          >
         </el-divider>
         <el-avatar icon="el-icon-user-solid" />
         <el-divider content-position="left">
           页头
-          <a href="https://element.eleme.cn/#/zh-CN/component/page-header" target="_blank">文档</a>
+          <a
+            href="https://element.eleme.cn/#/zh-CN/component/page-header"
+            target="_blank"
+            >文档</a
+          >
         </el-divider>
         <el-page-header content="详情页面" />
         <el-divider content-position="left">
           面包屑
-          <a href="https://element.eleme.cn/#/zh-CN/component/breadcrumb" target="_blank">文档</a>
+          <a
+            href="https://element.eleme.cn/#/zh-CN/component/breadcrumb"
+            target="_blank"
+            >文档</a
+          >
         </el-divider>
         <el-breadcrumb separator="/">
           <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
@@ -132,54 +187,54 @@
 </template>
 
 <script>
-  import VabPageHeader from '@/components/VabPageHeader'
+import VabPageHeader from "@/components/VabPageHeader";
 
-  export default {
-    name: 'ElementUi',
-    components: {
-      VabPageHeader,
-    },
-    data() {
-      return {
-        dialogVisible: false,
-      }
-    },
-    created() {},
-    mounted() {},
-    methods: {},
-  }
+export default {
+  name: "ElementUi",
+  components: {
+    VabPageHeader,
+  },
+  data() {
+    return {
+      dialogVisible: false,
+    };
+  },
+  created() {},
+  mounted() {},
+  methods: {},
+};
 </script>
 
 <style lang="scss" scoped>
-  .element-container {
-    ::v-deep {
-      .el-dialog__wrapper {
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        bottom: 20px;
-        left: 20px;
-      }
-
-      .el-tag,
-      .el-button,
-      .el-link {
-        margin: 5px;
-      }
-
-      .el-progress {
-        margin: 20px;
-      }
+.element-container {
+  :deep() {
+    .el-dialog__wrapper {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      bottom: 20px;
+      left: 20px;
     }
 
-    .element-iframe {
-      position: absolute;
-      top: 55px;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 89vh;
+    .el-tag,
+    .el-button,
+    .el-link {
+      margin: 5px;
+    }
+
+    .el-progress {
+      margin: 20px;
     }
   }
+
+  .element-iframe {
+    position: absolute;
+    top: 55px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 89vh;
+  }
+}
 </style>

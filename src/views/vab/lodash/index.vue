@@ -19,13 +19,7 @@
         </el-card>
       </el-col>
 
-      <el-col
-        :lg="8"
-        :md="12"
-        :sm="24"
-        :xl="6"
-        :xs="24"
-      >
+      <el-col :lg="8" :md="12" :sm="24" :xl="6" :xs="24">
         <el-card shadow="hover">
           <template #header>
             <div>
@@ -34,19 +28,13 @@
           </template>
           <div class="lodash-content">
             this.$baseLodash.initial([1, 2, 3])
-            <br>
+            <br />
             // => [1, 2]
           </div>
         </el-card>
       </el-col>
 
-      <el-col
-        :lg="8"
-        :md="12"
-        :sm="24"
-        :xl="6"
-        :xs="24"
-      >
+      <el-col :lg="8" :md="12" :sm="24" :xl="6" :xs="24">
         <el-card shadow="hover">
           <template #header>
             <div>
@@ -55,19 +43,13 @@
           </template>
           <div class="lodash-content">
             this.$baseLodash.head([1, 2, 3])
-            <br>
+            <br />
             // => 1
           </div>
         </el-card>
       </el-col>
 
-      <el-col
-        :lg="8"
-        :md="12"
-        :sm="24"
-        :xl="6"
-        :xs="24"
-      >
+      <el-col :lg="8" :md="12" :sm="24" :xl="6" :xs="24">
         <el-card shadow="hover">
           <template #header>
             <div>
@@ -76,19 +58,13 @@
           </template>
           <div class="lodash-content">
             this.$baseLodash.concat([1],[2])
-            <br>
+            <br />
             // => [1,2]
           </div>
         </el-card>
       </el-col>
 
-      <el-col
-        :lg="8"
-        :md="12"
-        :sm="24"
-        :xl="6"
-        :xs="24"
-      >
+      <el-col :lg="8" :md="12" :sm="24" :xl="6" :xs="24">
         <el-card shadow="hover">
           <template #header>
             <div>
@@ -97,19 +73,13 @@
           </template>
           <div class="lodash-content">
             this.$baseLodash.drop([1, 2, 3],2切除的数量)
-            <br>
+            <br />
             // => [3]
           </div>
         </el-card>
       </el-col>
 
-      <el-col
-        :lg="8"
-        :md="12"
-        :sm="24"
-        :xl="6"
-        :xs="24"
-      >
+      <el-col :lg="8" :md="12" :sm="24" :xl="6" :xs="24">
         <el-card shadow="hover">
           <template #header>
             <div>
@@ -118,19 +88,13 @@
           </template>
           <div class="lodash-content">
             this.$baseLodash.dropRight([1, 2, 3],2切除的数量)
-            <br>
+            <br />
             // => [1]
           </div>
         </el-card>
       </el-col>
 
-      <el-col
-        :lg="8"
-        :md="12"
-        :sm="24"
-        :xl="6"
-        :xs="24"
-      >
+      <el-col :lg="8" :md="12" :sm="24" :xl="6" :xs="24">
         <el-card shadow="hover">
           <template #header>
             <div>
@@ -139,19 +103,13 @@
           </template>
           <div class="lodash-content">
             this.$baseLodash.join(['a', 'b', 'c'], '~');
-            <br>
+            <br />
             // => 'a~b~c'
           </div>
         </el-card>
       </el-col>
 
-      <el-col
-        :lg="8"
-        :md="12"
-        :sm="24"
-        :xl="6"
-        :xs="24"
-      >
+      <el-col :lg="8" :md="12" :sm="24" :xl="6" :xs="24">
         <el-card shadow="hover">
           <template #header>
             <div>
@@ -160,19 +118,13 @@
           </template>
           <div class="lodash-content">
             this.$baseLodash.last(['a', 'b', 'c']);
-            <br>
+            <br />
             // => 'c'
           </div>
         </el-card>
       </el-col>
 
-      <el-col
-        :lg="8"
-        :md="12"
-        :sm="24"
-        :xl="6"
-        :xs="24"
-      >
+      <el-col :lg="8" :md="12" :sm="24" :xl="6" :xs="24">
         <el-card shadow="hover">
           <template #header>
             <div>
@@ -181,19 +133,13 @@
           </template>
           <div class="lodash-content">
             this.$baseLodash.uniq(['a', 'b', 'a']);
-            <br>
+            <br />
             // => ['a','b']
           </div>
         </el-card>
       </el-col>
 
-      <el-col
-        :lg="8"
-        :md="12"
-        :sm="24"
-        :xl="6"
-        :xs="24"
-      >
+      <el-col :lg="8" :md="12" :sm="24" :xl="6" :xs="24">
         <el-card shadow="hover">
           <template #header>
             <div>
@@ -202,19 +148,13 @@
           </template>
           <div class="lodash-content">
             this.$baseLodash.max([4, 2, 8, 6])
-            <br>
+            <br />
             // => 8
           </div>
         </el-card>
       </el-col>
 
-      <el-col
-        :lg="8"
-        :md="12"
-        :sm="24"
-        :xl="6"
-        :xs="24"
-      >
+      <el-col :lg="8" :md="12" :sm="24" :xl="6" :xs="24">
         <el-card shadow="hover">
           <template #header>
             <div>
@@ -223,19 +163,13 @@
           </template>
           <div class="lodash-content">
             this.$baseLodash.min([4, 2, 8, 6])
-            <br>
+            <br />
             // => 2
           </div>
         </el-card>
       </el-col>
 
-      <el-col
-        :lg="8"
-        :md="12"
-        :sm="24"
-        :xl="6"
-        :xs="24"
-      >
+      <el-col :lg="8" :md="12" :sm="24" :xl="6" :xs="24">
         <el-card shadow="hover">
           <template #header>
             <div>
@@ -244,19 +178,13 @@
           </template>
           <div class="lodash-content">
             this.$baseLodash.round(4.006,2保持几位小数)
-            <br>
+            <br />
             // => 4.01
           </div>
         </el-card>
       </el-col>
 
-      <el-col
-        :lg="8"
-        :md="12"
-        :sm="24"
-        :xl="6"
-        :xs="24"
-      >
+      <el-col :lg="8" :md="12" :sm="24" :xl="6" :xs="24">
         <el-card shadow="hover">
           <template #header>
             <div>
@@ -265,19 +193,13 @@
           </template>
           <div class="lodash-content">
             this.$baseLodash.sum([4, 2, 8, 6])
-            <br>
+            <br />
             // => 20
           </div>
         </el-card>
       </el-col>
 
-      <el-col
-        :lg="8"
-        :md="12"
-        :sm="24"
-        :xl="6"
-        :xs="24"
-      >
+      <el-col :lg="8" :md="12" :sm="24" :xl="6" :xs="24">
         <el-card shadow="hover">
           <template #header>
             <div>
@@ -286,19 +208,13 @@
           </template>
           <div class="lodash-content">
             this.$baseLodash.random(0, 5)
-            <br>
+            <br />
             // => 0到5任意数
           </div>
         </el-card>
       </el-col>
 
-      <el-col
-        :lg="8"
-        :md="12"
-        :sm="24"
-        :xl="6"
-        :xs="24"
-      >
+      <el-col :lg="8" :md="12" :sm="24" :xl="6" :xs="24">
         <el-card shadow="hover">
           <template #header>
             <div>
@@ -307,19 +223,13 @@
           </template>
           <div class="lodash-content">
             this.$baseLodash.sample([1, 2, 3, 4])
-            <br>
+            <br />
             // => 数组1到4任意数
           </div>
         </el-card>
       </el-col>
 
-      <el-col
-        :lg="8"
-        :md="12"
-        :sm="24"
-        :xl="6"
-        :xs="24"
-      >
+      <el-col :lg="8" :md="12" :sm="24" :xl="6" :xs="24">
         <el-card shadow="hover">
           <template #header>
             <div>
@@ -328,7 +238,7 @@
           </template>
           <div class="lodash-content">
             this.$baseLodash.debounce(@click的事件,延迟的毫秒数)
-            <br>
+            <br />
             // => 点击后多久不可以点击
           </div>
         </el-card>
@@ -338,29 +248,29 @@
 </template>
 
 <script>
-  import VabPageHeader from '@/components/VabPageHeader'
+import VabPageHeader from "@/components/VabPageHeader";
 
-  export default {
-    name: 'Lodash',
-    components: {
-      VabPageHeader,
-    },
-    data() {
-      return {}
-    },
-    created() {},
-    mounted() {},
-    methods: {},
-  }
+export default {
+  name: "Lodash",
+  components: {
+    VabPageHeader,
+  },
+  data() {
+    return {};
+  },
+  created() {},
+  mounted() {},
+  methods: {},
+};
 </script>
 <style lang="scss" scoped>
-  .lodash-container {
-    text-align: left;
+.lodash-container {
+  text-align: left;
 
-    ::v-deep {
-      .lodash-content {
-        min-height: 150px;
-      }
+  :deep() {
+    .lodash-content {
+      min-height: 150px;
     }
   }
+}
 </style>

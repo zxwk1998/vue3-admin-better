@@ -7,55 +7,55 @@
 </template>
 
 <script>
-  export default {
-    name: 'VabBreadcrumb',
-    data() {
-      return {
-        list: this.getBreadcrumb(),
-      }
+export default {
+  name: "VabBreadcrumb",
+  data() {
+    return {
+      list: this.getBreadcrumb(),
+    };
+  },
+  watch: {
+    $route() {
+      this.list = this.getBreadcrumb();
     },
-    watch: {
-      $route() {
-        this.list = this.getBreadcrumb()
-      },
+  },
+  methods: {
+    getBreadcrumb() {
+      return this.$route.matched.filter((item) => item.name && item.meta.title);
     },
-    methods: {
-      getBreadcrumb() {
-        return this.$route.matched.filter((item) => item.name && item.meta.title)
-      },
-    },
-  }
+  },
+};
 </script>
 
 <style lang="scss" scoped>
-  .breadcrumb-container {
-    height: $base-nav-bar-height;
-    font-size: $base-font-size-default;
-    line-height: $base-nav-bar-height;
+.breadcrumb-container {
+  height: $base-nav-bar-height;
+  font-size: $base-font-size-default;
+  line-height: $base-nav-bar-height;
 
-    ::v-deep {
-      .el-breadcrumb__item {
-        .el-breadcrumb__inner {
-          a {
-            display: flex;
-            float: left;
-            font-weight: normal;
-            color: #515a6e;
+  :deep() {
+    .el-breadcrumb__item {
+      .el-breadcrumb__inner {
+        a {
+          display: flex;
+          float: left;
+          font-weight: normal;
+          color: #515a6e;
 
-            i {
-              margin-right: 3px;
-            }
+          i {
+            margin-right: 3px;
           }
         }
+      }
 
-        &:last-child {
-          .el-breadcrumb__inner {
-            a {
-              color: #999;
-            }
+      &:last-child {
+        .el-breadcrumb__inner {
+          a {
+            color: #999;
           }
         }
       }
     }
   }
+}
 </style>

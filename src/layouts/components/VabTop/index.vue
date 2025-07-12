@@ -18,7 +18,12 @@
             mode="horizontal"
           >
             <template v-for="route in routes">
-              <vab-side-item v-if="!route.hidden" :key="route.path" :full-path="route.path" :item="route" />
+              <vab-side-item
+                v-if="!route.hidden"
+                :key="route.path"
+                :full-path="route.path"
+                :item="route"
+              />
             </template>
           </el-menu>
         </el-col>
@@ -29,7 +34,12 @@
               <vab-full-screen @refresh="refreshRoute" />
               <vab-theme class="hidden-md-and-down" />
             </div>
-            <vab-icon :icon="['fas', 'redo']" :pulse="pulse" title="重载路由" @click="refreshRoute" />
+            <vab-icon
+              :icon="['fas', 'redo']"
+              :pulse="pulse"
+              title="重载路由"
+              @click="refreshRoute"
+            />
             <vab-avatar />
           </div>
         </el-col>
@@ -39,186 +49,186 @@
 </template>
 
 <script>
-  import variables from '@/styles/variables.scss'
-  import { mapGetters } from 'vuex'
+import variables from "@/styles/variables.scss";
+import { mapGetters } from "vuex";
 
-  export default {
-    name: 'VabTop',
-    data() {
-      return {
-        pulse: false,
-        menuTrigger: 'hover',
+export default {
+  name: "VabTop",
+  data() {
+    return {
+      pulse: false,
+      menuTrigger: "hover",
+    };
+  },
+  computed: {
+    ...mapGetters({
+      routes: "routes/routes",
+      visitedRoutes: "tabsBar/visitedRoutes",
+    }),
+    activeMenu() {
+      const route = this.$route;
+      const { meta, path } = route;
+      if (meta.activeMenu) {
+        return meta.activeMenu;
       }
+      return path;
     },
-    computed: {
-      ...mapGetters({
-        routes: 'routes/routes',
-        visitedRoutes: 'tabsBar/visitedRoutes',
-      }),
-      activeMenu() {
-        const route = this.$route
-        const { meta, path } = route
-        if (meta.activeMenu) {
-          return meta.activeMenu
-        }
-        return path
-      },
-      variables() {
-        return variables
-      },
+    variables() {
+      return variables;
     },
-    methods: {
-      async refreshRoute() {
-        this.$baseEventBus.$emit('reload-router-view')
-        this.pulse = true
-        this.timeOutID = setTimeout(() => {
-          this.pulse = false
-        }, 1000)
-      },
+  },
+  methods: {
+    async refreshRoute() {
+      this.$baseEventBus.$emit("reload-router-view");
+      this.pulse = true;
+      this.timeOutID = setTimeout(() => {
+        this.pulse = false;
+      }, 1000);
     },
+  },
 
-    beforeDestroy() {
-      clearTimeout(this.timeOutID)
-    },
-  }
+  beforeDestroy() {
+    clearTimeout(this.timeOutID);
+  },
+};
 </script>
 <style lang="scss" scoped>
-  .top-container {
-    display: flex;
-    align-items: center;
-    justify-items: flex-end;
-    height: $base-top-bar-height;
+.top-container {
+  display: flex;
+  align-items: center;
+  justify-items: flex-end;
+  height: $base-top-bar-height;
+  background: $base-menu-background;
+
+  .vab-main {
     background: $base-menu-background;
 
-    .vab-main {
-      background: $base-menu-background;
+    :deep() {
+      .el-menu {
+        &.el-menu--horizontal {
+          display: flex;
+          align-items: center;
+          justify-content: flex-end;
+          height: $base-top-bar-height;
+          border-bottom: 0 solid transparent !important;
 
-      ::v-deep {
-        .el-menu {
-          &.el-menu--horizontal {
-            display: flex;
-            align-items: center;
-            justify-content: flex-end;
-            height: $base-top-bar-height;
-            border-bottom: 0 solid transparent !important;
+          .el-menu-item,
+          .el-submenu__title {
+            padding: 0 15px;
+          }
 
+          @media only screen and (max-width: 767px) {
             .el-menu-item,
             .el-submenu__title {
-              padding: 0 15px;
+              padding: 0 8px;
             }
 
-            @media only screen and (max-width: 767px) {
-              .el-menu-item,
-              .el-submenu__title {
-                padding: 0 8px;
-              }
-
-              li:nth-child(4),
-              li:nth-child(5) {
-                display: none !important;
-              }
+            li:nth-child(4),
+            li:nth-child(5) {
+              display: none !important;
             }
+          }
 
-            > .el-menu-item {
+          > .el-menu-item {
+            height: $base-top-bar-height;
+            line-height: $base-top-bar-height;
+          }
+
+          > .el-submenu {
+            .el-submenu__title {
               height: $base-top-bar-height;
               line-height: $base-top-bar-height;
             }
+          }
+        }
 
-            > .el-submenu {
-              .el-submenu__title {
-                height: $base-top-bar-height;
-                line-height: $base-top-bar-height;
-              }
+        svg {
+          width: 1rem;
+          margin-right: 3px;
+        }
+
+        &--horizontal {
+          .el-menu {
+            .el-menu-item,
+            .el-submenu__title {
+              height: $base-menu-item-height;
+              line-height: $base-menu-item-height;
             }
           }
 
-          svg {
-            width: 1rem;
-            margin-right: 3px;
-          }
+          .el-submenu,
+          .el-menu-item {
+            &.is-active {
+              background-color: $base-color-blue !important;
+              border-bottom: 0 solid transparent !important;
 
-          &--horizontal {
-            .el-menu {
-              .el-menu-item,
               .el-submenu__title {
-                height: $base-menu-item-height;
-                line-height: $base-menu-item-height;
-              }
-            }
-
-            .el-submenu,
-            .el-menu-item {
-              &.is-active {
-                background-color: $base-color-blue !important;
                 border-bottom: 0 solid transparent !important;
+              }
+            }
+          }
 
-                .el-submenu__title {
-                  border-bottom: 0 solid transparent !important;
-                }
+          > .el-menu-item {
+            .el-tag {
+              margin-top: calc(#{$base-top-bar-height} / 2 - 7.5px);
+              margin-left: 5px;
+            }
+
+            @media only screen and (max-width: 1199px) {
+              .el-tag {
+                display: none;
               }
             }
 
-            > .el-menu-item {
-              .el-tag {
-                margin-top: calc(#{$base-top-bar-height} / 2 - 7.5px);
-                margin-left: 5px;
-              }
-
-              @media only screen and (max-width: 1199px) {
-                .el-tag {
-                  display: none;
-                }
-              }
-
-              &.is-active {
-                background-color: transparent !important;
-                border-bottom: 3px solid $base-color-blue !important;
-              }
+            &.is-active {
+              background-color: transparent !important;
+              border-bottom: 3px solid $base-color-blue !important;
             }
           }
         }
       }
     }
+  }
 
-    .right-panel {
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-      height: $base-top-bar-height;
+  .right-panel {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    height: $base-top-bar-height;
 
-      ::v-deep {
-        .username,
-        .user-role {
-          color: rgba($base-color-white, 0.9);
-        }
+    :deep() {
+      .username,
+      .user-role {
+        color: rgba($base-color-white, 0.9);
+      }
 
-        .username + i {
-          color: rgba($base-color-white, 0.9);
-        }
+      .username + i {
+        color: rgba($base-color-white, 0.9);
+      }
 
+      svg {
+        width: 1em;
+        height: 1em;
+        margin-right: 15px;
+        font-size: $base-font-size-big;
+        color: rgba($base-color-white, 0.9);
+        cursor: pointer;
+        fill: rgba($base-color-white, 0.9);
+      }
+
+      button {
         svg {
-          width: 1em;
-          height: 1em;
-          margin-right: 15px;
-          font-size: $base-font-size-big;
+          margin-right: 0;
           color: rgba($base-color-white, 0.9);
           cursor: pointer;
           fill: rgba($base-color-white, 0.9);
         }
+      }
 
-        button {
-          svg {
-            margin-right: 0;
-            color: rgba($base-color-white, 0.9);
-            cursor: pointer;
-            fill: rgba($base-color-white, 0.9);
-          }
-        }
-
-        .el-badge {
-          margin-right: 15px;
-        }
+      .el-badge {
+        margin-right: 15px;
       }
     }
   }
+}
 </style>

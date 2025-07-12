@@ -5,59 +5,59 @@
 </template>
 
 <script>
-  export default {
-    name: 'VabQueryForm',
-    props: {},
-    data() {
-      return {}
-    },
-    created() {},
-    mounted() {},
-    methods: {},
-  }
+export default {
+  name: "VabQueryForm",
+  props: {},
+  data() {
+    return {};
+  },
+  created() {},
+  mounted() {},
+  methods: {},
+};
 </script>
 
 <style lang="scss" scoped>
-  @mixin panel {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: flex-start;
-  }
+@mixin panel {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+}
 
-  .vab-query-form {
-    margin-bottom: 10px;
+.vab-query-form {
+  margin-bottom: 10px;
 
-    ::v-deep {
-      .top-panel {
-        @include panel;
+  :deep() {
+    .top-panel {
+      @include panel;
+    }
+
+    .bottom-panel {
+      @include panel;
+
+      padding-top: 14px;
+      border-top: 1px solid #dcdfe6;
+    }
+
+    .left-panel {
+      @include panel;
+
+      > .el-button,
+      .el-form-item {
+        margin: 5px;
       }
+    }
 
-      .bottom-panel {
-        @include panel;
+    .right-panel {
+      @include panel;
 
-        padding-top: 14px;
-        border-top: 1px solid #dcdfe6;
-      }
+      justify-content: flex-end;
 
-      .left-panel {
-        @include panel;
-
-        > .el-button,
-        .el-form-item {
-          margin: 5px;
-        }
-      }
-
-      .right-panel {
-        @include panel;
-
-        justify-content: flex-end;
-
-        .el-form-item {
-          margin: 5px;
-        }
+      .el-form-item {
+        margin: 5px;
       }
     }
   }
+}
 </style>

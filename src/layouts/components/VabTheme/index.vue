@@ -301,7 +301,7 @@ export default {
 
   top: calc((100vh - 110px) / 2);
 
-  ::v-deep {
+  :deep() {
     svg:not(:root).svg-inline--fa {
       display: block;
       margin-right: auto;

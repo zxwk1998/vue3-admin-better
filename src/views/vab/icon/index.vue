@@ -118,7 +118,7 @@ export default {
 
 <style lang="scss" scoped>
 .icon-container {
-  ::v-deep {
+  :deep() {
     .el-card__body {
       position: relative;
       display: flex;
