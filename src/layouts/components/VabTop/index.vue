@@ -32,14 +32,14 @@
             <div class="right-menu">
               <vab-full-screen @refresh="refreshRoute" />
               <vab-theme class="hidden-md-and-down" />
+              <el-icon
+                :class="{ 'is-pulsing': pulse }"
+                title="重载路由"
+                @click="refreshRoute"
+              >
+                <Refresh />
+              </el-icon>
             </div>
-            <el-icon
-              :class="{ 'is-pulsing': pulse }"
-              title="重载路由"
-              @click="refreshRoute"
-            >
-              <Refresh />
-            </el-icon>
             <vab-avatar />
           </div>
         </el-col>
@@ -48,54 +48,54 @@
   </div>
 </template>
 
-<script>
+<script setup>
+import { ref, computed, onBeforeUnmount } from "vue";
+import { useStore } from "vuex";
+import { useRoute } from "vue-router";
 import variables from "@/styles/variables.scss";
-import { mapGetters } from "vuex";
 import { Refresh } from "@element-plus/icons-vue";
 
-export default {
+defineOptions({
   name: "VabTop",
-  components: {
-    Refresh,
-  },
-  data() {
-    return {
-      pulse: false,
-      menuTrigger: "hover",
-    };
-  },
-  computed: {
-    ...mapGetters({
-      routes: "routes/routes",
-      visitedRoutes: "tabsBar/visitedRoutes",
-    }),
-    activeMenu() {
-      const route = this.$route;
-      const { meta, path } = route;
-      if (meta.activeMenu) {
-        return meta.activeMenu;
-      }
-      return path;
-    },
-    variables() {
-      return variables;
-    },
-  },
-  methods: {
-    async refreshRoute() {
-      this.$eventBus.emit("reload-router-view");
-      this.pulse = true;
-      this.timeOutID = setTimeout(() => {
-        this.pulse = false;
-      }, 1000);
-    },
-  },
+});
 
-  beforeDestroy() {
-    clearTimeout(this.timeOutID);
-  },
+const store = useStore();
+const route = useRoute();
+
+// 响应式数据
+const pulse = ref(false);
+const menuTrigger = ref("hover");
+let timeOutID = null;
+
+// 计算属性
+const routes = computed(() => store.getters["routes/routes"]);
+const visitedRoutes = computed(() => store.getters["tabsBar/visitedRoutes"]);
+const collapse = computed(() => store.getters["settings/collapse"]);
+const defaultOpens = computed(() => []);
+
+const activeMenu = computed(() => {
+  const { meta, path } = route;
+  if (meta.activeMenu) {
+    return meta.activeMenu;
+  }
+  return path;
+});
+
+// 方法
+const refreshRoute = async () => {
+  window.$eventBus.emit("reload-router-view");
+  pulse.value = true;
+  timeOutID = setTimeout(() => {
+    pulse.value = false;
+  }, 1000);
 };
+
+// 生命周期钩子
+onBeforeUnmount(() => {
+  clearTimeout(timeOutID);
+});
 </script>
+
 <style lang="scss" scoped>
 .top-container {
   display: flex;
@@ -103,6 +103,7 @@ export default {
   justify-items: flex-end;
   height: $base-top-bar-height;
   background: $base-menu-background;
+  width: 100%;
 
   .is-pulsing {
     animation: pulse 1s infinite;
@@ -122,6 +123,7 @@ export default {
 
   .vab-main {
     background: $base-menu-background;
+    width: 100%;
 
     :deep() {
       .el-menu {
@@ -215,6 +217,13 @@ export default {
     align-items: center;
     justify-content: flex-end;
     height: $base-top-bar-height;
+    width: 100%;
+
+    .right-menu {
+      display: flex;
+      align-items: center;
+      margin-right: 10px;
+    }
 
     :deep() {
       .username,

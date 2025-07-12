@@ -14,83 +14,76 @@
   </div>
 </template>
 
-<script setup>
-import {
-  ref,
-  computed,
-  onMounted,
-  onBeforeUnmount,
-  nextTick,
-  watch,
-} from "vue";
-import { useStore } from "vuex";
-import { useRoute } from "vue-router";
+<script>
+import { mapActions, mapGetters } from "vuex";
 import { copyright, footerCopyright, keepAliveMaxNum, title } from "@/config";
 import { CopyDocument } from "@element-plus/icons-vue";
 import eventBus from "@/utils/eventBus";
 
-defineOptions({
+export default {
   name: "VabAppMain",
-});
-
-const store = useStore();
-const route = useRoute();
-
-// 响应式数据
-const show = ref(false);
-const fullYear = ref(new Date().getFullYear());
-const routerView = ref(true);
-
-// 从store获取数据
-const visitedRoutes = computed(() => store.getters["tabsBar/visitedRoutes"]);
-const device = computed(() => store.getters["settings/device"]);
-
-// 计算缓存路由
-const cachedRoutes = computed(() => {
-  const cachedRoutesArr = [];
-  visitedRoutes.value.forEach((item) => {
-    if (!item.meta.noKeepAlive) {
-      cachedRoutesArr.push(item.name);
-    }
-  });
-  return cachedRoutesArr;
-});
-
-// 路由key
-const key = computed(() => route.path);
-
-// 方法
-const foldSideBar = () => {
-  store.dispatch("settings/foldSideBar");
-};
-
-// 重新加载路由视图
-const reloadRouterView = () => {
-  routerView.value = false;
-  nextTick(() => {
-    routerView.value = true;
-  });
-};
-
-// 监听路由变化
-watch(
-  () => route,
-  (route) => {
-    if ("mobile" === device.value) foldSideBar();
+  components: {
+    CopyDocument,
   },
-  { immediate: true, deep: true }
-);
-
-// 生命周期钩子
-onMounted(() => {
-  // 监听事件总线中的reload-router-view事件
-  eventBus.on("reload-router-view", reloadRouterView);
-});
-
-onBeforeUnmount(() => {
-  // 组件销毁前移除事件监听
-  eventBus.off("reload-router-view", reloadRouterView);
-});
+  data() {
+    return {
+      show: false,
+      fullYear: new Date().getFullYear(),
+      copyright,
+      title,
+      keepAliveMaxNum,
+      routerView: true,
+      footerCopyright,
+    };
+  },
+  computed: {
+    ...mapGetters({
+      visitedRoutes: "tabsBar/visitedRoutes",
+      device: "settings/device",
+    }),
+    cachedRoutes() {
+      const cachedRoutesArr = [];
+      this.visitedRoutes.forEach((item) => {
+        if (!item.meta.noKeepAlive) {
+          cachedRoutesArr.push(item.name);
+        }
+      });
+      return cachedRoutesArr;
+    },
+    key() {
+      return this.$route.path;
+    },
+  },
+  watch: {
+    $route: {
+      handler(route) {
+        if ("mobile" === this.device) this.foldSideBar();
+      },
+      immediate: true,
+    },
+  },
+  created() {
+    // 监听事件总线中的reload-router-view事件
+    eventBus.on("reload-router-view", this.reloadRouterView);
+  },
+  beforeUnmount() {
+    // 组件销毁前移除事件监听
+    eventBus.off("reload-router-view", this.reloadRouterView);
+  },
+  mounted() {},
+  methods: {
+    ...mapActions({
+      foldSideBar: "settings/foldSideBar",
+    }),
+    // 重新加载路由视图
+    reloadRouterView() {
+      this.routerView = false;
+      this.$nextTick(() => {
+        this.routerView = true;
+      });
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>

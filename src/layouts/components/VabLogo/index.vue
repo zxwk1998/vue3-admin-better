@@ -55,7 +55,8 @@ export default {
   width: 34px;
   height: 34px;
   margin-right: 3px;
-  color: $base-title-color;
+  color: #fff !important;
+  fill: #fff !important;
   vertical-align: middle;
 }
 
