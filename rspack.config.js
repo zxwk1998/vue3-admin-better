@@ -23,7 +23,7 @@ process.env.VUE_APP_AUTHOR = "vue-admin-better"; // 设置作者
 
 const resolve = (dir) => path.join(__dirname, dir);
 // 定义一个模式变量，避免冲突
-const mode = process.env.NODE_ENV || "development";
+const mode = process.argv[2] === "build" ? "production" : "development";
 
 /**
  * @type {Configuration}
@@ -36,7 +36,7 @@ module.exports = {
   },
   output: {
     path: resolve(outputDir),
-    publicPath: publicPath,
+    publicPath: mode === "production" ? "./" : "/",
     filename: "js/[name].[contenthash:8].js",
     chunkFilename: "js/[name].[contenthash:8].js",
     assetModuleFilename: `${assetsDir}/[name].[hash][ext][query]`,
@@ -174,7 +174,7 @@ module.exports = {
       title: title || "vue-admin-better",
       inject: "body",
       templateParameters: {
-        BASE_URL: publicPath,
+        BASE_URL: mode === "production" ? "./" : "/",
         VUE_APP_TITLE: process.env.VUE_APP_TITLE,
         VUE_APP_AUTHOR: process.env.VUE_APP_AUTHOR,
       },
