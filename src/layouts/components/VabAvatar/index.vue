@@ -157,19 +157,11 @@ const settings = () => {
 };
 
 const logout = () => {
-  window.$baseConfirm(
-    "您确定要退出" + window.$baseTitle + "吗?",
-    null,
-    async () => {
-      await store.dispatch("user/logout");
-      if (recordRoute) {
-        const fullPath = route.fullPath;
-        router.push(`/login?redirect=${fullPath}`);
-      } else {
-        router.push("/login");
-      }
-    }
-  );
+  store.dispatch("user/logout");
+  if (recordRoute) {
+    const fullPath = route.fullPath;
+    router.push(`/login?redirect=${fullPath}`);
+  }
 };
 </script>
 
