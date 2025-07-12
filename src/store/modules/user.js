@@ -3,7 +3,6 @@
  * @description 登录、获取用户信息、退出登录、清除accessToken逻辑，不建议修改
  */
 
-import Vue from "vue";
 import { getUserInfo, login, logout } from "@/api/user";
 import {
   getAccessToken,
@@ -12,6 +11,7 @@ import {
 } from "@/utils/accessToken";
 import { resetRouter } from "@/router";
 import { title, tokenName } from "@/config";
+import { ElMessage } from "element-plus";
 
 const state = () => ({
   accessToken: getAccessToken(),
@@ -60,25 +60,31 @@ const actions = {
               : hour < 18
                 ? "下午好"
                 : "晚上好";
-      alert(`欢迎登录${title}`, `${thisTime}！`);
+      ElMessage.success(`欢迎登录${title}，${thisTime}！`);
     } else {
-      alert(`登录接口异常，未正确返回${tokenName}...`, "error");
+      ElMessage.error(`登录接口异常，未正确返回${tokenName}...`);
     }
   },
   async getUserInfo({ commit, state }) {
-    const { data } = await getUserInfo(state.accessToken);
-    if (!data) {
-      alert("验证失败，请重新登录...", "error");
-      return false;
-    }
-    let { permissions, username, avatar } = data;
-    if (permissions && username && Array.isArray(permissions)) {
-      commit("setPermissions", permissions);
-      commit("setUsername", username);
-      commit("setAvatar", avatar);
-      return permissions;
-    } else {
-      alert("用户信息接口异常", "error");
+    try {
+      const { data } = await getUserInfo(state.accessToken);
+      if (!data) {
+        ElMessage.error("验证失败，请重新登录...");
+        return false;
+      }
+      let { permissions, username, avatar } = data;
+      if (permissions && username && Array.isArray(permissions)) {
+        commit("setPermissions", permissions);
+        commit("setUsername", username);
+        commit("setAvatar", avatar);
+        return permissions;
+      } else {
+        ElMessage.error("用户信息接口异常");
+        return false;
+      }
+    } catch (error) {
+      console.error("获取用户信息失败:", error);
+      ElMessage.error("获取用户信息失败，请重新登录");
       return false;
     }
   },

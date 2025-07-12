@@ -269,7 +269,7 @@ export const asyncRoutes = [
     ],
   },
   {
-    path: "*",
+    path: "/:pathMatch(.*)*",
     redirect: "/404",
     hidden: true,
   },

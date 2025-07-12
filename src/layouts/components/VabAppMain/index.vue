@@ -8,7 +8,7 @@
     </transition>
     <footer v-show="footerCopyright" class="footer-copyright">
       Copyright
-      <vab-icon :icon="['fas', 'copyright']"></vab-icon>
+      <el-icon><CopyDocument /></el-icon>
       vue-admin-better 开源免费版 {{ fullYear }}
     </footer>
   </div>
@@ -17,9 +17,13 @@
 <script>
 import { mapActions, mapGetters } from "vuex";
 import { copyright, footerCopyright, keepAliveMaxNum, title } from "@/config";
+import { CopyDocument } from "@element-plus/icons-vue";
 
 export default {
   name: "VabAppMain",
+  components: {
+    CopyDocument,
+  },
   data() {
     return {
       show: false,
@@ -58,23 +62,6 @@ export default {
     },
   },
   created() {
-    // Vue 3不支持$on、$off等方法，需要改写
-    /* 
-      const handleReloadRouterView = () => {
-        this.routerView = false
-        this.$nextTick(() => {
-          this.routerView = true
-        })
-      }
-
-      //重载所有路由
-      this.$baseEventBus.$on('reload-router-view', handleReloadRouterView)
-
-      this.$once('hook:beforeDestroy', () => {
-        this.$baseEventBus.$off('reload-router-view', handleReloadRouterView)
-      })
-      */
-
     // 直接确保routerView为true，不再使用事件总线
     this.routerView = true;
   },

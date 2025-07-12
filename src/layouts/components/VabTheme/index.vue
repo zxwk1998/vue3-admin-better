@@ -1,23 +1,25 @@
 <template>
   <span v-if="themeBar">
-    <vab-icon
-      :icon="['fas', 'palette']"
-      title="主题配置"
-      @click="handleOpenTheme"
-    />
+    <el-icon title="主题配置" @click="handleOpenTheme">
+      <Brush />
+    </el-icon>
     <div class="theme-setting">
       <div @click="handleOpenTheme">
-        <vab-icon :icon="['fas', 'palette']" />
+        <el-icon>
+          <Brush />
+        </el-icon>
         <p>主题配置</p>
       </div>
       <div @click="handleGetCode">
-        <vab-icon :icon="['fas', 'laptop-code']"></vab-icon>
+        <el-icon>
+          <Laptop />
+        </el-icon>
         <p>拷贝源码</p>
       </div>
     </div>
 
     <el-drawer
-      :visible.sync="drawerVisible"
+      v-model="drawerVisible"
       append-to-body
       direction="rtl"
       size="300px"
@@ -28,7 +30,7 @@
           <div class="theme-config-container">
             <div class="config-section">
               <div class="section-header">
-                <i class="el-icon-picture-outline"></i>
+                <el-icon><Picture /></el-icon>
                 <span>主题风格</span>
               </div>
               <div class="theme-options">
@@ -82,7 +84,7 @@
 
             <div class="config-section">
               <div class="section-header">
-                <i class="el-icon-s-grid"></i>
+                <el-icon><Grid /></el-icon>
                 <span>布局设置</span>
               </div>
               <div class="layout-options">
@@ -123,7 +125,7 @@
 
             <div class="config-section">
               <div class="section-header">
-                <i class="el-icon-setting"></i>
+                <el-icon><Setting /></el-icon>
                 <span>功能设置</span>
               </div>
               <div class="feature-options">
@@ -157,10 +159,10 @@
         </div>
       </el-scrollbar>
 
-      <div class="el-drawer__footer">
+      <template #footer>
         <el-button type="primary" @click="handleSaveTheme">保存设置</el-button>
         <el-button @click="drawerVisible = false">取消</el-button>
-      </div>
+      </template>
     </el-drawer>
   </span>
 </template>
@@ -168,9 +170,17 @@
 <script>
 import { mapActions, mapGetters } from "vuex";
 import { layout as defaultLayout } from "@/config";
+import { Brush, Picture, Grid, Setting, Laptop } from "@element-plus/icons-vue";
 
 export default {
   name: "VabTheme",
+  components: {
+    Brush,
+    Picture,
+    Grid,
+    Setting,
+    Laptop,
+  },
   data() {
     return {
       drawerVisible: false,
@@ -191,11 +201,8 @@ export default {
     }),
   },
   created() {
-    const handleTheme = () => {
-      this.handleOpenTheme();
-    };
-
-    this.$baseEventBus.$on("theme", handleTheme);
+    // 在created钩子中初始化主题
+    // 不再使用事件总线 ($baseEventBus)
     const theme = localStorage.getItem("vue-admin-better-theme");
     if (null !== theme) {
       this.theme = JSON.parse(theme);
@@ -205,10 +212,6 @@ export default {
       this.theme.header = this.header;
       this.theme.tabsBar = this.tabsBar;
     }
-
-    this.$once("hook:beforeDestroy", () => {
-      this.$baseEventBus.$off("theme", handleTheme);
-    });
   },
   methods: {
     ...mapActions({
@@ -250,17 +253,8 @@ export default {
       if (path === "/vab/icon/awesomeIcon/index.vue") {
         path = "/vab/icon/index.vue";
       }
-      if (path === "/vab/icon/remixIcon/index.vue") {
-        path = "/vab/icon/remixIcon.vue";
-      }
       if (path === "/vab/icon/colorfulIcon/index.vue") {
         path = "/vab/icon/colorfulIcon.vue";
-      }
-      if (path === "/vab/table/comprehensiveTable/index.vue") {
-        path = "/vab/table/index.vue";
-      }
-      if (path === "/vab/table/inlineEditTable/index.vue") {
-        path = "/vab/table/inlineEditTable.vue";
       }
       window.open(url + path);
     },

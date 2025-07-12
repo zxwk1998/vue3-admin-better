@@ -58,6 +58,7 @@ import { useStore } from "vuex";
 import { title } from "@/config";
 import { isPassword } from "@/utils/validate";
 import { ElMessage } from "element-plus";
+import { Hide, View } from "@element-plus/icons-vue";
 
 // 创建路由实例
 const router = useRouter();
@@ -67,7 +68,7 @@ const store = useStore();
 const state = reactive({
   form: {
     username: "admin",
-    password: "admin",
+    password: "123456",
   },
   rules: {
     username: [{ required: true, trigger: "blur", message: "请输入用户名" }],
@@ -127,55 +128,21 @@ const handleLogin = () => {
         // 使用命名空间调用login action
         await store.dispatch("user/login", state.form);
 
-        // 登录成功后，先获取用户权限信息
-        try {
-          // 获取用户权限
-          const permissions = await store.dispatch("user/getUserInfo");
-          console.log("获取到的用户权限:", permissions);
+        // 登录成功后，让导航守卫处理路由跳转
+        // 不需要手动获取用户信息和添加路由，导航守卫会处理
+        const { query } = router.currentRoute.value;
+        const targetPath = query.redirect || "/";
 
-          // 根据权限加载路由
-          let accessRoutes = [];
-          const authentication =
-            store.state.settings?.authentication || "intelligence";
-          console.log("认证模式:", authentication);
+        // 跳转到目标页面
+        router.replace({
+          path: targetPath,
+          query: otherQuery.value,
+        });
 
-          if (authentication === "intelligence") {
-            accessRoutes = await store.dispatch(
-              "routes/setRoutes",
-              permissions,
-            );
-          } else if (authentication === "all") {
-            accessRoutes = await store.dispatch("routes/setAllRoutes");
-          }
-          console.log("加载的路由:", accessRoutes);
-
-          // 获取权限信息后，再跳转
-          const { query } = router.currentRoute.value;
-          const targetPath = query.redirect || "/";
-          console.log("即将跳转到:", targetPath);
-
-          // 使用replace而非push，防止返回到登录页
-          router.replace({
-            path: targetPath,
-            query: otherQuery.value,
-          });
-
-          // 打印调试信息
-          console.log("登录成功，路由跳转完成", {
-            permissions,
-            accessRoutes,
-            currentRoute: router.currentRoute.value,
-          });
-        } catch (userInfoError) {
-          console.error("获取用户信息失败:", userInfoError);
-          ElMessage.error("获取用户信息失败，请重新登录");
-          // 清除token
-          await store.dispatch("user/resetAccessToken");
-        }
+        // 不再手动处理后续逻辑，让导航守卫处理
       } catch (error) {
         console.error("登录失败:", error);
         ElMessage.error(error.message || "登录失败，请检查用户名和密码");
-      } finally {
         state.loading = false;
       }
     }
