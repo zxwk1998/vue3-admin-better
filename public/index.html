@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <meta content="width=device-width,initial-scale=1.0" name="viewport" />
+    <link href="<%= BASE_URL %>favicon.ico" rel="icon" />
+    <meta content="vue shop vite 源码,vue admin pro 源码,vue admin plus 源码" name="keywords" />
+    <meta content="<%= VUE_APP_AUTHOR %>" name="author" />
+    <link href="<%= BASE_URL %>static/css/loading.css" rel="stylesheet" />
+  </head>
+  <body>
+    <noscript>非常抱歉鉴于安全考量,您无法查看<%= VUE_APP_TITLE %> 源代码，该系统基于vue-admin-better开发</noscript>
+    <div id="vue-admin-better">
+      <div class="first-loading-wrp">
+        <div class="loading-wrp">
+          <span class="dot dot-spin">
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+          </span>
+        </div>
+        <h1><%= VUE_APP_TITLE %></h1>
+      </div>
+    </div>
+    <script>
+      ;/^http(s*):\/\//.test(location.href) || alert('基于vue-admin-beautiful-pro开源版开发的项目需要部署到服务器下访问')
+    </script>
+    <script>
+      if (window.location.hostname !== 'localhost') {
+        var _hmt = _hmt || []
+        ;(function () {
+          var hm = document.createElement('script')
+          hm.src = 'https://hm.baidu.com/hm.js?7174bade1219f9cc272e7978f9523fc8'
+          var s = document.getElementsByTagName('script')[0]
+          s.parentNode.insertBefore(hm, s)
+        })()
+      }
+    </script>
+  </body>
+</html>

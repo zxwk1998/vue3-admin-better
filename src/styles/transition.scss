@@ -1,0 +1,19 @@
+/**
+ * @author https://github.com/zxwk1998/vue-admin-better （不想保留author可删除）
+ * @description vue过渡动画
+ */
+
+@charset "utf-8";
+
+.fade-transform-leave-active,
+.fade-transform-enter-active {
+  transition: $base-transition;
+}
+
+.fade-transform-enter {
+  opacity: 0;
+}
+
+.fade-transform-leave-to {
+  opacity: 0;
+}
