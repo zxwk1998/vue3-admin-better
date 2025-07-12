@@ -1,8 +1,7 @@
 <template>
   <span v-if="themeBar">
-    <el-icon title="主题配置" @click="handleOpenTheme">
-      <Brush />
-    </el-icon>
+    <!-- 直接使用图标组件，不再包裹在el-icon中 -->
+    <Brush class="nav-icon" title="主题配置" @click="handleOpenTheme" />
     <div class="theme-setting">
       <div @click="handleOpenTheme">
         <el-icon>
@@ -234,13 +233,14 @@ export default {
             "layout":"${layout}",
             "header":"${header}",
             "tabsBar":"${tabsBar}"
-          }`,
+          }`
       );
       if (!this.handleIsMobile()) this.changeLayout(layout);
       this.changeHeader(header);
       this.changeTabsBar(tabsBar);
-      document.getElementsByTagName("body")[0].className =
-        `vue-admin-better-theme-${name}`;
+      document.getElementsByTagName(
+        "body"
+      )[0].className = `vue-admin-better-theme-${name}`;
       this.drawerVisible = false;
     },
     handleGetCode() {
@@ -263,6 +263,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+/* 移除自定义主题图标样式，使用VabNav中定义的统一样式 */
+
 @mixin right-bar {
   position: fixed;
   right: 0;

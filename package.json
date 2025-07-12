@@ -37,6 +37,7 @@
     "layouts": "file:layouts",
     "lodash": "^4.17.21",
     "lodash-es": "^4.17.21",
+    "mitt": "^3.0.1",
     "mockjs": "^1.1.0",
     "nprogress": "^0.2.0",
     "qs": "^6.14.0",

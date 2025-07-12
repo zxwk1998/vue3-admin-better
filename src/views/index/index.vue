@@ -198,164 +198,8 @@
           </div>
         </el-card>
       </el-col>
-      <el-col :lg="13" :md="13" :sm="24" :xl="13" :xs="24">
-        <el-card class="advanced-info-card" shadow="never">
-          <div slot="header">
-            <span>其他信息</span>
-          </div>
-          <div class="advanced-content">
-            <div class="logo-section">
-              <div class="logo-container">
-                <vab-colorful-icon class="advanced-logo" icon-class="vab" />
-                <div class="logo-glow"></div>
-              </div>
-              <h1 class="project-title">vue-admin-better</h1>
-              <p class="project-description">
-                基于 Vue2 + Element UI 的企业级管理系统
-              </p>
-            </div>
 
-            <div class="stats-section">
-              <div class="stat-card">
-                <div class="stat-icon">
-                  <vab-icon :icon="['fas', 'download']" />
-                </div>
-                <div class="stat-info">
-                  <div class="stat-number">100K+</div>
-                  <div class="stat-label">下载量</div>
-                </div>
-              </div>
-              <div class="stat-card">
-                <div class="stat-icon">
-                  <vab-icon :icon="['fas', 'star']" />
-                </div>
-                <div class="stat-info">
-                  <div class="stat-number">18K+</div>
-                  <div class="stat-label">Star数</div>
-                </div>
-              </div>
-              <div class="stat-card">
-                <div class="stat-icon">
-                  <vab-icon :icon="['fas', 'users']" />
-                </div>
-                <div class="stat-info">
-                  <div class="stat-number">10K+</div>
-                  <div class="stat-label">用户数</div>
-                </div>
-              </div>
-            </div>
-
-            <div class="action-section">
-              <div class="action-group">
-                <h3 class="action-title">快速开始</h3>
-                <div class="action-buttons">
-                  <el-popover placement="top" trigger="hover" width="250">
-                    <p>
-                      请我们喝杯咖啡，付款后联系qq
-                      783963206，我们将邀请您加入我们的讨论群，谢谢您愿意支持开源，加群获取文档、及基础模板，群内大佬众多，希望能帮到大家（如情况不允许，请勿勉强）。
-                    </p>
-                    <el-image :src="require('@/assets/zfb_kf.jpg')" />
-                    <a slot="reference" target="_blank">
-                      <el-button class="action-btn primary-btn" type="primary">
-                        <vab-icon :icon="['fas', 'coffee']" />
-                        QQ讨论群、基础版、文档
-                      </el-button>
-                    </a>
-                  </el-popover>
-                  <a
-                    href="https://github.com/zxwk1998/vue-admin-better"
-                    target="_blank"
-                  >
-                    <el-button class="action-btn" type="plain">
-                      <vab-icon :icon="['fab', 'github']" />
-                      vue2.x版本 github
-                    </el-button>
-                  </a>
-                  <a
-                    href="https://gitee.com/chu1204505056/vue-admin-better"
-                    target="_blank"
-                  >
-                    <el-button class="action-btn" type="plain">
-                      <vab-icon :icon="['fas', 'code-branch']" />
-                      vue2.x版本 码云
-                    </el-button>
-                  </a>
-                  <a
-                    href="https://github.com/zxwk1998/vue-admin-arco"
-                    target="_blank"
-                  >
-                    <el-button class="action-btn" type="plain">
-                      <vab-icon :icon="['fab', 'vuejs']" />
-                      vue3.x版本 github
-                    </el-button>
-                  </a>
-                </div>
-              </div>
-
-              <div class="action-group">
-                <h3 class="action-title">商业版本</h3>
-                <div class="action-buttons">
-                  <a href="https://vuejs-core.cn/admin-pro" target="_blank">
-                    <div class="premium-card">
-                      <div class="premium-header">
-                        <vab-icon
-                          class="premium-icon"
-                          :icon="['fas', 'crown']"
-                        />
-                        <div class="premium-badge">PRO</div>
-                      </div>
-                      <div class="premium-content">
-                        <div class="premium-title">Admin Pro</div>
-                        <div class="premium-price">￥699</div>
-                      </div>
-                    </div>
-                  </a>
-                  <a href="https://vuejs-core.cn/admin-plus" target="_blank">
-                    <div class="premium-card">
-                      <div class="premium-header">
-                        <vab-icon class="premium-icon" :icon="['fas', 'gem']" />
-                        <div class="premium-badge">PLUS</div>
-                      </div>
-                      <div class="premium-content">
-                        <div class="premium-title">Admin Plus</div>
-                        <div class="premium-price">￥799</div>
-                      </div>
-                    </div>
-                  </a>
-                  <a href="https://vuejs-core.cn/shop-vite" target="_blank">
-                    <div class="premium-card featured">
-                      <div class="premium-header">
-                        <vab-icon
-                          class="premium-icon"
-                          :icon="['fas', 'shopping-cart']"
-                        />
-                        <div class="premium-badge">SHOP</div>
-                      </div>
-                      <div class="premium-content">
-                        <div class="premium-title">Shop Vite</div>
-                        <div class="premium-price">￥1899</div>
-                      </div>
-                    </div>
-                  </a>
-                </div>
-              </div>
-
-              <div class="action-group">
-                <h3 class="action-title">系统设置</h3>
-                <div class="action-buttons">
-                  <a @click="handleChangeTheme">
-                    <el-button class="action-btn" type="danger">
-                      <vab-icon :icon="['fas', 'palette']" />
-                      修改主题和布局
-                    </el-button>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </el-card>
-      </el-col>
-      <el-col :lg="11" :md="24" :sm="24" :xl="11" :xs="24">
+      <el-col :lg="24" :md="24" :sm="24" :xl="24" :xs="24">
         <el-card class="card" shadow="never">
           <div slot="header">
             <span>依赖信息</span>
@@ -400,9 +244,9 @@
 
               <div class="dependency-item">
                 <div class="dependency-info">
-                  <div class="dependency-name">Element UI</div>
+                  <div class="dependency-name">Element Plus</div>
                   <div class="dependency-version">
-                    {{ dependencies["element-ui"] }}
+                    {{ dependencies["element-plus"] }}
                   </div>
                 </div>
               </div>
@@ -418,36 +262,9 @@
 
               <div class="dependency-item">
                 <div class="dependency-info">
-                  <div class="dependency-name">ESLint版本</div>
-                  <div class="dependency-version">
-                    {{ devDependencies["eslint"] }}
-                  </div>
-                </div>
-              </div>
-
-              <div class="dependency-item">
-                <div class="dependency-info">
-                  <div class="dependency-name">Prettier版本</div>
-                  <div class="dependency-version">
-                    {{ devDependencies["prettier"] }}
-                  </div>
-                </div>
-              </div>
-
-              <div class="dependency-item">
-                <div class="dependency-info">
                   <div class="dependency-name">Sass版本</div>
                   <div class="dependency-version">
                     {{ devDependencies["sass"] }}
-                  </div>
-                </div>
-              </div>
-
-              <div class="dependency-item">
-                <div class="dependency-info">
-                  <div class="dependency-name">Lodash版本</div>
-                  <div class="dependency-version">
-                    {{ dependencies["lodash"] }}
                   </div>
                 </div>
               </div>

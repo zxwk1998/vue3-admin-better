@@ -1,8 +1,11 @@
 <template>
   <span :title="isFullscreen ? '退出全屏' : '进入全屏'">
-    <el-icon @click="click">
-      <component :is="isFullscreen ? 'ScaleToOriginal' : 'FullScreen'" />
-    </el-icon>
+    <!-- 直接使用图标组件，不再包裹在el-icon中 -->
+    <component
+      :is="isFullscreen ? 'ScaleToOriginal' : 'FullScreen'"
+      class="nav-icon"
+      @click="click"
+    />
   </span>
 </template>
 
@@ -12,6 +15,10 @@ import { FullScreen, ScaleToOriginal } from "@element-plus/icons-vue";
 
 export default {
   name: "VabFullScreen",
+  components: {
+    FullScreen,
+    ScaleToOriginal,
+  },
   data() {
     return {
       isFullscreen: false,
@@ -26,7 +33,7 @@ export default {
   methods: {
     click() {
       if (!screenfull.isEnabled) {
-        this.$baseMessage("开启全屏失败", "error");
+        this.$vab.message("开启全屏失败", "error");
         return false;
       }
       screenfull.toggle();
@@ -48,3 +55,7 @@ export default {
   },
 };
 </script>
+
+<style lang="scss" scoped>
+/* 采用VabNav中定义的统一样式 */
+</style>

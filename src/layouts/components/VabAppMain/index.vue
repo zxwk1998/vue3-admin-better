@@ -18,6 +18,7 @@
 import { mapActions, mapGetters } from "vuex";
 import { copyright, footerCopyright, keepAliveMaxNum, title } from "@/config";
 import { CopyDocument } from "@element-plus/icons-vue";
+import eventBus from "@/utils/eventBus";
 
 export default {
   name: "VabAppMain",
@@ -62,14 +63,25 @@ export default {
     },
   },
   created() {
-    // 直接确保routerView为true，不再使用事件总线
-    this.routerView = true;
+    // 监听事件总线中的reload-router-view事件
+    eventBus.on("reload-router-view", this.reloadRouterView);
+  },
+  beforeUnmount() {
+    // 组件销毁前移除事件监听
+    eventBus.off("reload-router-view", this.reloadRouterView);
   },
   mounted() {},
   methods: {
     ...mapActions({
       foldSideBar: "settings/foldSideBar",
     }),
+    // 重新加载路由视图
+    reloadRouterView() {
+      this.routerView = false;
+      this.$nextTick(() => {
+        this.routerView = true;
+      });
+    },
   },
 };
 </script>

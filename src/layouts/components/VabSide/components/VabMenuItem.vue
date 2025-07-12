@@ -1,6 +1,9 @@
 <template>
   <el-menu-item :index="handlePath(routeChildren.path)" @click="handleLink">
-    <el-icon v-if="routeChildren.meta.icon" class="vab-fas-icon">
+    <el-icon
+      v-if="routeChildren.meta && routeChildren.meta.icon"
+      class="vab-fas-icon"
+    >
       <component :is="getIconComponent(routeChildren.meta.icon)" />
     </el-icon>
     <span>{{ routeChildren.meta.title }}</span>
@@ -10,7 +13,7 @@
 <script>
 import { isExternal } from "@/utils/validate";
 import path from "path";
-import * as ElementPlusIconsVue from "@element-plus/icons-vue";
+import { faToElIcon } from "@/utils/vab";
 
 export default {
   name: "VabMenuItem",
@@ -73,19 +76,8 @@ export default {
     },
     // 将路由中的icon名称转换为Element Plus图标组件
     getIconComponent(iconName) {
-      // 映射FontAwesome图标名称到Element Plus图标
-      const iconMap = {
-        home: "HomeFilled",
-        marker: "Location",
-        "box-open": "Box",
-        "horse-head": "Promotion",
-        bug: "Warning",
-        // 添加更多映射...
-      };
-
-      // 获取映射的组件名或使用默认图标
-      const componentName = iconMap[iconName] || "More";
-      return componentName;
+      // 直接使用导入的faToElIcon函数
+      return faToElIcon(iconName);
     },
   },
 };

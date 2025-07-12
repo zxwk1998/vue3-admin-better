@@ -8,76 +8,102 @@
         <div class="username">{{ username }}</div>
         <div class="user-role">管理员</div>
       </div>
-      <i class="el-icon-arrow-down dropdown-icon"></i>
+      <!-- 直接使用图标组件 -->
+      <ArrowDown class="avatar-dropdown-icon" />
     </div>
 
-    <el-dropdown-menu slot="dropdown" class="custom-dropdown">
-      <div class="dropdown-header">
-        <img :src="avatar" alt="用户头像" class="header-avatar" />
-        <div class="header-info">
-          <div class="header-username">{{ username }}</div>
-          <div class="header-email">admin@example.com</div>
+    <template #dropdown>
+      <el-dropdown-menu class="custom-dropdown">
+        <div class="dropdown-header">
+          <img :src="avatar" alt="用户头像" class="header-avatar" />
+          <div class="header-info">
+            <div class="header-username">{{ username }}</div>
+            <div class="header-email">admin@example.com</div>
+          </div>
         </div>
-      </div>
 
-      <el-dropdown-item command="personalCenter" class="dropdown-item">
-        <i class="el-icon-user-solid"></i>
-        <span>个人中心</span>
-      </el-dropdown-item>
+        <el-dropdown-item command="personalCenter" class="dropdown-item">
+          <!-- 直接使用图标组件 -->
+          <User class="dropdown-icon" />
+          <span>个人中心</span>
+        </el-dropdown-item>
 
-      <el-dropdown-item command="settings" class="dropdown-item">
-        <i class="el-icon-setting"></i>
-        <span>系统设置</span>
-      </el-dropdown-item>
+        <el-dropdown-item command="settings" class="dropdown-item">
+          <!-- 直接使用图标组件 -->
+          <Setting class="dropdown-icon" />
+          <span>系统设置</span>
+        </el-dropdown-item>
 
-      <el-divider></el-divider>
+        <el-divider></el-divider>
 
-      <el-dropdown-item command="github" class="dropdown-item">
-        <i class="el-icon-link"></i>
-        <span>GitHub 地址</span>
-      </el-dropdown-item>
+        <el-dropdown-item command="github" class="dropdown-item">
+          <!-- 直接使用图标组件 -->
+          <Link class="dropdown-icon" />
+          <span>GitHub 地址</span>
+        </el-dropdown-item>
 
-      <el-dropdown-item command="gitee" class="dropdown-item">
-        <i class="el-icon-link"></i>
-        <span>码云地址</span>
-      </el-dropdown-item>
+        <el-dropdown-item command="gitee" class="dropdown-item">
+          <!-- 直接使用图标组件 -->
+          <Link class="dropdown-icon" />
+          <span>码云地址</span>
+        </el-dropdown-item>
 
-      <el-dropdown-item command="pro" class="dropdown-item">
-        <i class="el-icon-link"></i>
-        <span>Admin Pro 地址</span>
-      </el-dropdown-item>
+        <el-dropdown-item command="pro" class="dropdown-item">
+          <!-- 直接使用图标组件 -->
+          <Link class="dropdown-icon" />
+          <span>Admin Pro 地址</span>
+        </el-dropdown-item>
 
-      <el-dropdown-item command="plus" class="dropdown-item">
-        <i class="el-icon-link"></i>
-        <span>Admin Plus 地址</span>
-      </el-dropdown-item>
+        <el-dropdown-item command="plus" class="dropdown-item">
+          <!-- 直接使用图标组件 -->
+          <Link class="dropdown-icon" />
+          <span>Admin Plus 地址</span>
+        </el-dropdown-item>
 
-      <el-dropdown-item command="shop" class="dropdown-item">
-        <i class="el-icon-link"></i>
-        <span>Shop Vite 地址</span>
-      </el-dropdown-item>
+        <el-dropdown-item command="shop" class="dropdown-item">
+          <!-- 直接使用图标组件 -->
+          <Link class="dropdown-icon" />
+          <span>Shop Vite 地址</span>
+        </el-dropdown-item>
 
-      <el-dropdown-item command="job" class="dropdown-item">
-        <i class="el-icon-link"></i>
-        <span>好工作就业参考网</span>
-      </el-dropdown-item>
+        <el-dropdown-item command="job" class="dropdown-item">
+          <!-- 直接使用图标组件 -->
+          <Link class="dropdown-icon" />
+          <span>好工作就业参考网</span>
+        </el-dropdown-item>
 
-      <el-divider></el-divider>
+        <el-divider></el-divider>
 
-      <el-dropdown-item command="logout" class="dropdown-item logout-item">
-        <i class="el-icon-switch-button"></i>
-        <span>退出登录</span>
-      </el-dropdown-item>
-    </el-dropdown-menu>
+        <el-dropdown-item command="logout" class="dropdown-item logout-item">
+          <!-- 直接使用图标组件 -->
+          <SwitchButton class="dropdown-icon" />
+          <span>退出登录</span>
+        </el-dropdown-item>
+      </el-dropdown-menu>
+    </template>
   </el-dropdown>
 </template>
 
 <script>
 import { mapGetters } from "vuex";
 import { recordRoute } from "@/config";
+import {
+  ArrowDown,
+  User,
+  Setting,
+  Link,
+  SwitchButton,
+} from "@element-plus/icons-vue";
 
 export default {
   name: "VabAvatar",
+  components: {
+    ArrowDown,
+    User,
+    Setting,
+    Link,
+    SwitchButton,
+  },
   computed: {
     ...mapGetters({
       avatar: "user/avatar",
@@ -183,11 +209,6 @@ export default {
       opacity: 0.8;
     }
   }
-
-  .dropdown-icon {
-    margin-left: 8px;
-    color: #666;
-  }
 }
 
 .custom-dropdown {
@@ -236,19 +257,8 @@ export default {
   .dropdown-item {
     display: flex;
     align-items: center;
-    padding: 8px 16px;
-    border-radius: 0;
-
-    i {
-      margin-right: 12px;
-      font-size: 16px;
-      width: 16px;
-      text-align: center;
-    }
-
-    span {
-      font-size: 14px;
-    }
+    padding: 6px 12px;
+    transition: background-color 0.2s;
 
     &.logout-item {
       color: #f56c6c;

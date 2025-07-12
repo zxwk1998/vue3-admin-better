@@ -29,17 +29,17 @@
         </el-col>
         <el-col :lg="5" :md="5" :sm="5" :xl="5" :xs="5">
           <div class="right-panel">
-            <vab-error-log />
             <div class="right-menu">
               <vab-full-screen @refresh="refreshRoute" />
               <vab-theme class="hidden-md-and-down" />
             </div>
-            <vab-icon
-              :icon="['fas', 'redo']"
-              :pulse="pulse"
+            <el-icon
+              :class="{ 'is-pulsing': pulse }"
               title="重载路由"
               @click="refreshRoute"
-            />
+            >
+              <Refresh />
+            </el-icon>
             <vab-avatar />
           </div>
         </el-col>
@@ -51,9 +51,13 @@
 <script>
 import variables from "@/styles/variables.scss";
 import { mapGetters } from "vuex";
+import { Refresh } from "@element-plus/icons-vue";
 
 export default {
   name: "VabTop",
+  components: {
+    Refresh,
+  },
   data() {
     return {
       pulse: false,
@@ -79,7 +83,7 @@ export default {
   },
   methods: {
     async refreshRoute() {
-      this.$baseEventBus.$emit("reload-router-view");
+      this.$eventBus.emit("reload-router-view");
       this.pulse = true;
       this.timeOutID = setTimeout(() => {
         this.pulse = false;
@@ -99,6 +103,22 @@ export default {
   justify-items: flex-end;
   height: $base-top-bar-height;
   background: $base-menu-background;
+
+  .is-pulsing {
+    animation: pulse 1s infinite;
+  }
+
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.2);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
 
   .vab-main {
     background: $base-menu-background;

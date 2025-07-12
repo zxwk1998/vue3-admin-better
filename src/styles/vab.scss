@@ -5,11 +5,12 @@
 
 @charset "utf-8";
 
-@import './normalize.scss';
-@import './transition.scss';
-@import './loading.scss';
+@import "./normalize.scss";
+@import "./transition.scss";
+@import "./loading.scss";
+@import "./nav-icons.scss"; // 导入导航图标样式
 
-$base: '.vab';
+$base: ".vab";
 
 @mixin scrollbar {
   max-height: 88vh;
@@ -145,7 +146,7 @@ html {
       .app-main-container {
         @include base-scrollbar;
 
-        > [class*='-container'] {
+        > [class*="-container"] {
           * {
             transition: none;
           }
@@ -359,7 +360,7 @@ html {
           border-radius: 4px;
 
           &::before {
-            content: '';
+            content: "";
             position: absolute;
             top: 50%;
             left: -8px;

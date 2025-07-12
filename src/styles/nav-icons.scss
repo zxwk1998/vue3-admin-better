@@ -1,0 +1,49 @@
+/* 全局导航图标样式 */
+body {
+  .nav-icon {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 18px !important;
+    height: 18px !important;
+    margin: 0 4px !important;
+    color: rgba(0, 0, 0, 0.7) !important;
+    background: rgba(255, 255, 255, 0.6) !important;
+    border: 1px solid rgba(255, 255, 255, 0.8) !important;
+    border-radius: 8px !important;
+    cursor: pointer !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+    font-size: 0.9em !important;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.8) !important;
+      border-color: rgba(255, 255, 255, 1) !important;
+      transform: translateY(-1px) !important;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.05) !important;
+    }
+
+    &:active {
+      transform: translateY(0) !important;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.05) !important;
+    }
+  }
+
+  /* 头像组件下拉图标 */
+  .avatar-dropdown-icon {
+    margin-left: 8px !important;
+    color: #666 !important;
+    font-size: 12px !important;
+  }
+
+  /* 下拉菜单项图标 */
+  .dropdown-icon {
+    margin-right: 6px !important;
+    font-size: 14px !important;
+    width: 18px !important;
+    height: 18px !important;
+    display: flex !important;
+    align-items: center !important;
+  }
+}

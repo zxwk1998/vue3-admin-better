@@ -6,6 +6,10 @@ import plugins from "./plugins";
 import { printLayoutsInfo } from "@/utils/printInfo";
 // 导入布局组件注册函数
 import { registerLayoutComponents } from "@/layouts/export";
+// 导入事件总线
+import eventBus from "@/utils/eventBus";
+// 导入配置
+import { title } from "@/config";
 
 /**
  * @author https://github.com/zxwk1998/vue-admin-better （不想保留author可删除）
@@ -25,6 +29,12 @@ plugins(app);
 
 // 注册所有布局组件
 registerLayoutComponents(app);
+
+// 添加事件总线到全局属性
+app.config.globalProperties.$eventBus = eventBus;
+
+// 添加全局标题
+app.config.globalProperties.$baseTitle = title;
 
 // 检测环境变量或默认使用mock
 const useMock =

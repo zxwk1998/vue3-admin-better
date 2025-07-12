@@ -3,27 +3,27 @@
     <el-row :gutter="15">
       <el-col :lg="12" :md="12" :sm="12" :xl="12" :xs="4">
         <div class="left-panel">
-          <i
-            :class="collapse ? 'el-icon-s-unfold' : 'el-icon-s-fold'"
+          <!-- 直接使用图标组件，不再包裹在el-icon中 -->
+          <component
+            :is="collapse ? 'Expand' : 'Fold'"
             :title="collapse ? '展开' : '收起'"
-            class="fold-unfold"
+            class="nav-icon"
             @click="handleCollapse"
-          ></i>
+          />
           <vab-breadcrumb class="hidden-xs-only" />
         </div>
       </el-col>
       <el-col :lg="12" :md="12" :sm="12" :xl="12" :xs="20">
         <div class="right-panel">
-          <vab-error-log />
           <vab-full-screen @refresh="refreshRoute" />
           <vab-theme class="hidden-xs-only" />
-          <el-icon
+          <!-- 直接使用图标组件，不再包裹在el-icon中 -->
+          <Refresh
             :class="{ 'is-pulsing': pulse }"
             title="重载所有路由"
             @click="refreshRoute"
-          >
-            <Refresh />
-          </el-icon>
+            class="nav-icon"
+          />
           <vab-avatar />
           <!--  <el-icon title="退出系统" @click="logout">
             <SwitchButton />
@@ -36,10 +36,16 @@
 
 <script>
 import { mapActions, mapGetters } from "vuex";
-import { Refresh, SwitchButton } from "@element-plus/icons-vue";
+import { Refresh, SwitchButton, Expand, Fold } from "@element-plus/icons-vue";
 
 export default {
   name: "VabNav",
+  components: {
+    Refresh,
+    SwitchButton,
+    Expand,
+    Fold,
+  },
   data() {
     return {
       pulse: false,
@@ -62,7 +68,7 @@ export default {
       this.changeCollapse();
     },
     async refreshRoute() {
-      this.$baseEventBus.$emit("reload-router-view");
+      this.$eventBus.emit("reload-router-view");
       this.pulse = true;
       this.timeOutID = setTimeout(() => {
         this.pulse = false;
@@ -113,34 +119,7 @@ export default {
     align-items: center;
     justify-items: center;
     height: $base-nav-bar-height;
-
-    .fold-unfold {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 36px;
-      height: 36px;
-      color: rgba(0, 0, 0, 0.7);
-      background: rgba(255, 255, 255, 0.6);
-      border: 1px solid rgba(255, 255, 255, 0.8);
-      border-radius: 12px;
-      cursor: pointer;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-
-      &:hover {
-        background: rgba(255, 255, 255, 0.8);
-        border-color: rgba(255, 255, 255, 1);
-        transform: translateY(-1px);
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.05);
-      }
-
-      &:active {
-        transform: translateY(0);
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.05);
-      }
-    }
+    gap: 8px; /* 折叠按钮与面包屑之间的间距 */
   }
 
   .right-panel {
@@ -150,36 +129,30 @@ export default {
     align-items: center;
     justify-content: flex-end;
     height: $base-nav-bar-height;
-    gap: 8px;
+    gap: 4px; /* 适当调整图标间距 */
+
+    .is-pulsing {
+      animation: pulse 1s infinite;
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.2);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
 
     :deep() {
       svg {
-        width: 1.2em;
-        height: 1.2em;
-        padding: 8px;
-        color: rgba(0, 0, 0, 0.7);
-        background: rgba(255, 255, 255, 0.6);
-        border: 1px solid rgba(255, 255, 255, 0.8);
-        border-radius: 12px;
-        cursor: pointer;
-        fill: rgba(0, 0, 0, 0.7);
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
-
-        &:hover {
-          background: rgba(255, 255, 255, 0.8);
-          border-color: rgba(255, 255, 255, 1);
-          transform: translateY(-1px);
-          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1),
-            0 2px 4px rgba(0, 0, 0, 0.05);
-        }
-
-        &:active {
-          transform: translateY(0);
-          box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1),
-            0 1px 2px rgba(0, 0, 0, 0.05);
-        }
+        width: 1em;
+        height: 1em;
+        color: rgba(0, 0, 0, 0.9);
+        fill: rgba(0, 0, 0, 0.9) !important;
       }
 
       button {
@@ -226,25 +199,6 @@ export default {
 @media (max-width: 768px) {
   .nav-container {
     padding: 0 12px;
-
-    .left-panel {
-      .fold-unfold {
-        width: 32px;
-        height: 32px;
-      }
-    }
-
-    .right-panel {
-      gap: 4px;
-
-      :deep() {
-        svg {
-          padding: 6px;
-          width: 1em;
-          height: 1em;
-        }
-      }
-    }
   }
 }
 </style>

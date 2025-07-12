@@ -1,5 +1,5 @@
 // 引入Element Plus样式
-@import 'element-plus/dist/index.css';
+@import "element-plus/dist/index.css";
 
 // 自定义Element Plus主题变量
 :root {
@@ -9,4 +9,18 @@
   --el-color-danger: #f56c6c;
   --el-color-error: #f56c6c;
   --el-color-info: #909399;
+}
+
+// 元素图标样式
+body {
+  .el-icon {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    svg {
+      height: 1em;
+      width: 1em;
+    }
+  }
 }
