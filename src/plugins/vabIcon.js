@@ -1,4 +1,6 @@
-import Vue from 'vue'
-import VabIcon from 'vab-icon'
+// 修改为Vue 3的组件注册方式
+import VabIcon from "vab-icon";
 
-Vue.component('VabIcon', VabIcon)
+export default (app) => {
+  app.component("VabIcon", VabIcon);
+};

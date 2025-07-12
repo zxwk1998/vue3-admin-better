@@ -1,17 +1,48 @@
 <template>
-  <el-dialog :title="title" :visible.sync="dialogFormVisible" width="500px" @close="close">
-    <el-form ref="form" label-width="80px" :model="form" :rules="rules">
-      <el-form-item label="标题" prop="title">
-        <el-input v-model.trim="form.title" autocomplete="off" />
+  <el-dialog
+    v-model:visible="dialogFormVisible"
+    :title="title"
+    width="500px"
+    @close="close"
+  >
+    <el-form
+      ref="form"
+      label-width="80px"
+      :model="form"
+      :rules="rules"
+    >
+      <el-form-item
+        label="标题"
+        prop="title"
+      >
+        <el-input
+          v-model.trim="form.title"
+          autocomplete="off"
+        />
       </el-form-item>
-      <el-form-item label="作者" prop="author">
-        <el-input v-model.trim="form.author" autocomplete="off" />
+      <el-form-item
+        label="作者"
+        prop="author"
+      >
+        <el-input
+          v-model.trim="form.author"
+          autocomplete="off"
+        />
       </el-form-item>
     </el-form>
-    <div slot="footer" class="dialog-footer">
-      <el-button @click="close">取 消</el-button>
-      <el-button type="primary" @click="save">确 定</el-button>
-    </div>
+    <template #footer>
+      <div class="dialog-footer">
+        <el-button @click="close">
+          取 消
+        </el-button>
+        <el-button
+          type="primary"
+          @click="save"
+        >
+          确 定
+        </el-button>
+      </div>
+    </template>
   </el-dialog>
 </template>
 

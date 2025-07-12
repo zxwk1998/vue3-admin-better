@@ -6,9 +6,20 @@
       title="树形组件"
     />
     <el-row :gutter="20">
-      <el-col :lg="6" :md="24" :sm="24" :xl="6" :xs="24">
-        <el-divider content-position="left">常规树</el-divider>
-        <el-input v-model="filterText" placeholder="输入关键字过滤" />
+      <el-col
+        :lg="6"
+        :md="24"
+        :sm="24"
+        :xl="6"
+        :xs="24"
+      >
+        <el-divider content-position="left">
+          常规树
+        </el-divider>
+        <el-input
+          v-model="filterText"
+          placeholder="输入关键字过滤"
+        />
         <el-tree
           ref="demoTree"
           class="vab-filter-tree"
@@ -26,29 +37,66 @@
           @node-collapse="nodeCollapse"
           @node-expand="nodeExpand"
         >
-          <template #defalut="{ node, data }" class="vab-custom-tree-node">
+          <template
+            #defalut="{ node, data }"
+            class="vab-custom-tree-node"
+          >
             <span class="vab-tree-item">
-              <i v-if="node.data.rank == 4" class="el-icon-s-custom"></i>
+              <i
+                v-if="node.data.rank == 4"
+                class="el-icon-s-custom"
+              />
               {{ node.label }}
             </span>
             <span class="vab-tree-options">
-              <a v-if="node.data.rank !== 4" class="vab-tree-btn" title="添加" @click="() => append(node, data, 0)">
-                <i class="el-icon-plus"></i>
+              <a
+                v-if="node.data.rank !== 4"
+                class="vab-tree-btn"
+                title="添加"
+                @click="() => append(node, data, 0)"
+              >
+                <i class="el-icon-plus" />
               </a>
-              <a class="vab-tree-btn" title="编辑" @click="() => edit(node, data, 1)">
-                <i class="el-icon-edit"></i>
+              <a
+                class="vab-tree-btn"
+                title="编辑"
+                @click="() => edit(node, data, 1)"
+              >
+                <i class="el-icon-edit" />
               </a>
-              <a v-if="node.data.rank !== 1" class="vab-tree-btn" title="刪除" @click="() => remove(node, data)">
-                <i class="el-icon-delete"></i>
+              <a
+                v-if="node.data.rank !== 1"
+                class="vab-tree-btn"
+                title="刪除"
+                @click="() => remove(node, data)"
+              >
+                <i class="el-icon-delete" />
               </a>
             </span>
           </template>
         </el-tree>
       </el-col>
-      <el-col :lg="6" :md="24" :sm="24" :xl="6" :xs="24">
-        <el-divider content-position="left">懒加载树</el-divider>
-        <el-input v-model.lazy="keyW" class="input-with-select" placeholder="请输入内容" :value="keyW" @keyup.enter.native="showTreeList" />
-        <div v-show="isShow" class="blur-tree">
+      <el-col
+        :lg="6"
+        :md="24"
+        :sm="24"
+        :xl="6"
+        :xs="24"
+      >
+        <el-divider content-position="left">
+          懒加载树
+        </el-divider>
+        <el-input
+          v-model.lazy="keyW"
+          class="input-with-select"
+          placeholder="请输入内容"
+          :value="keyW"
+          @keyup.enter.native="showTreeList"
+        />
+        <div
+          v-show="isShow"
+          class="blur-tree"
+        >
           <el-tree
             ref="treeFilter"
             class="vab-filter-tree"
@@ -60,26 +108,46 @@
             :props="defaultProps"
             @node-click="nodeClick"
           >
-            <template #defalut="{ node }" class="vab-custom-tree-node">
+            <template
+              #defalut="{ node }"
+              class="vab-custom-tree-node"
+            >
               <span class="vab-tree-item">
-                <i v-if="node.data.rank == 4" class="el-icon-s-custom"></i>
+                <i
+                  v-if="node.data.rank == 4"
+                  class="el-icon-s-custom"
+                />
                 {{ node.label }}
               </span>
               <span class="vab-tree-options">
-                <a v-if="node.data.rank !== 4" class="vab-tree-btn" title="添加">
-                  <i class="el-icon-plus"></i>
+                <a
+                  v-if="node.data.rank !== 4"
+                  class="vab-tree-btn"
+                  title="添加"
+                >
+                  <i class="el-icon-plus" />
                 </a>
-                <a class="vab-tree-btn" title="编辑">
-                  <i class="el-icon-edit"></i>
+                <a
+                  class="vab-tree-btn"
+                  title="编辑"
+                >
+                  <i class="el-icon-edit" />
                 </a>
-                <a v-if="node.data.rank !== 1" class="vab-tree-btn" title="刪除">
-                  <i class="el-icon-delete"></i>
+                <a
+                  v-if="node.data.rank !== 1"
+                  class="vab-tree-btn"
+                  title="刪除"
+                >
+                  <i class="el-icon-delete" />
                 </a>
               </span>
             </template>
           </el-tree>
         </div>
-        <div v-show="!isShow" class="el-tree-wrap">
+        <div
+          v-show="!isShow"
+          class="el-tree-wrap"
+        >
           <el-tree
             ref="tree"
             v-loading="loading"
@@ -92,26 +160,47 @@
             :props="defaultProps"
             @node-click="nodeClick"
           >
-            <template #defalut="{ node }" class="vab-custom-tree-node">
+            <template
+              #defalut="{ node }"
+              class="vab-custom-tree-node"
+            >
               <span class="vab-tree-item">
-                <i v-if="node.data.rank == 4" class="el-icon-s-custom"></i>
+                <i
+                  v-if="node.data.rank == 4"
+                  class="el-icon-s-custom"
+                />
                 {{ node.label }}
               </span>
               <span class="vab-tree-options">
                 <!-- <a v-if="node.data.rank !== 4" class="vab-tree-btn" title="添加""><i class="el-icon-plus"></i></a> -->
-                <a class="vab-tree-btn" title="编辑">
-                  <i class="el-icon-edit"></i>
+                <a
+                  class="vab-tree-btn"
+                  title="编辑"
+                >
+                  <i class="el-icon-edit" />
                 </a>
-                <a v-if="node.data.rank !== 1" class="vab-tree-btn" title="刪除">
-                  <i class="el-icon-delete"></i>
+                <a
+                  v-if="node.data.rank !== 1"
+                  class="vab-tree-btn"
+                  title="刪除"
+                >
+                  <i class="el-icon-delete" />
                 </a>
               </span>
             </template>
           </el-tree>
         </div>
       </el-col>
-      <el-col :lg="6" :md="24" :sm="24" :xl="6" :xs="24">
-        <el-divider content-position="left">单选树</el-divider>
+      <el-col
+        :lg="6"
+        :md="24"
+        :sm="24"
+        :xl="6"
+        :xs="24"
+      >
+        <el-divider content-position="left">
+          单选树
+        </el-divider>
         <el-select
           ref="singleTree"
           v-model="singleSelectTreeVal"
@@ -133,15 +222,26 @@
               :props="selectTreeDefaultProps"
               @node-click="selectTreeNodeClick"
             >
-              <template #defalut="{ node }" class="vab-custom-tree-node">
+              <template
+                #defalut="{ node }"
+                class="vab-custom-tree-node"
+              >
                 <span class="vab-tree-item">{{ node.label }}</span>
               </template>
             </el-tree>
           </el-option>
         </el-select>
       </el-col>
-      <el-col :lg="6" :md="24" :sm="24" :xl="6" :xs="24">
-        <el-divider content-position="left">多选树</el-divider>
+      <el-col
+        :lg="6"
+        :md="24"
+        :sm="24"
+        :xl="6"
+        :xs="24"
+      >
+        <el-divider content-position="left">
+          多选树
+        </el-divider>
         <el-select
           v-model="multipleSelectTreeVal"
           class="vab-tree-select"
@@ -173,21 +273,36 @@
     </el-row>
     <!--添加/编辑节点弹框-------------------start-->
     <el-dialog
+      v-model:visible="treeDialogVisible"
       class="tree-operate-dialog"
       :title="dialogTitle"
-      :visible.sync="treeDialogVisible"
       width="400px"
       @close="treeDialogVisible = false"
     >
-      <el-form ref="treeForm" :model="treeForm">
-        <el-form-item label="节点名称" required>
+      <el-form
+        ref="treeForm"
+        :model="treeForm"
+      >
+        <el-form-item
+          label="节点名称"
+          required
+        >
           <el-input v-model="treeForm.name" />
         </el-form-item>
       </el-form>
-      <div slot="footer" class="dialog-footer">
-        <el-button @click="treeDialogVisible = false">取 消</el-button>
-        <el-button type="primary" @click="saveTree">确 定</el-button>
-      </div>
+      <template #footer>
+        <div class="dialog-footer">
+          <el-button @click="treeDialogVisible = false">
+            取 消
+          </el-button>
+          <el-button
+            type="primary"
+            @click="saveTree"
+          >
+            确 定
+          </el-button>
+        </div>
+      </template>
     </el-dialog>
     <!--添加/编辑节点弹框-------------------end-->
   </div>

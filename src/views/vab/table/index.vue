@@ -1,22 +1,73 @@
 <template>
   <div class="table-container">
-    <vab-page-header description="功能强大的数据表格组件，支持排序、分页、搜索等功能" :icon="['fas', 'table']" title="表格管理" />
+    <vab-page-header
+      description="功能强大的数据表格组件，支持排序、分页、搜索等功能"
+      :icon="['fas', 'table']"
+      title="表格管理"
+    />
     <vab-query-form>
       <vab-query-form-left-panel>
-        <el-button icon="el-icon-plus" type="primary" @click="handleAdd">添加</el-button>
-        <el-button icon="el-icon-delete" type="danger" @click="handleDelete">删除</el-button>
-        <el-button type="primary" @click="testMessage">baseMessage</el-button>
-        <el-button type="primary" @click="testALert">baseAlert</el-button>
-        <el-button type="primary" @click="testConfirm">baseConfirm</el-button>
-        <el-button type="primary" @click="testNotify">baseNotify</el-button>
+        <el-button
+          icon="el-icon-plus"
+          type="primary"
+          @click="handleAdd"
+        >
+          添加
+        </el-button>
+        <el-button
+          icon="el-icon-delete"
+          type="danger"
+          @click="handleDelete"
+        >
+          删除
+        </el-button>
+        <el-button
+          type="primary"
+          @click="testMessage"
+        >
+          baseMessage
+        </el-button>
+        <el-button
+          type="primary"
+          @click="testALert"
+        >
+          baseAlert
+        </el-button>
+        <el-button
+          type="primary"
+          @click="testConfirm"
+        >
+          baseConfirm
+        </el-button>
+        <el-button
+          type="primary"
+          @click="testNotify"
+        >
+          baseNotify
+        </el-button>
       </vab-query-form-left-panel>
       <vab-query-form-right-panel>
-        <el-form ref="form" :inline="true" :model="queryForm" @submit.native.prevent>
+        <el-form
+          ref="form"
+          :inline="true"
+          :model="queryForm"
+          @submit.native.prevent
+        >
           <el-form-item>
-            <el-input v-model="queryForm.title" placeholder="标题" />
+            <el-input
+              v-model="queryForm.title"
+              placeholder="标题"
+            />
           </el-form-item>
           <el-form-item>
-            <el-button icon="el-icon-search" native-type="submit" type="primary" @click="handleQuery">查询</el-button>
+            <el-button
+              icon="el-icon-search"
+              native-type="submit"
+              type="primary"
+              @click="handleQuery"
+            >
+              查询
+            </el-button>
           </el-form-item>
         </el-form>
       </vab-query-form-right-panel>
@@ -31,34 +82,89 @@
       @selection-change="setSelectRows"
       @sort-change="tableSortChange"
     >
-      <el-table-column show-overflow-tooltip type="selection" width="55" />
-      <el-table-column label="序号" show-overflow-tooltip width="95">
+      <el-table-column
+        show-overflow-tooltip
+        type="selection"
+        width="55"
+      />
+      <el-table-column
+        label="序号"
+        show-overflow-tooltip
+        width="95"
+      >
         <template #default="scope">
           {{ scope.$index + 1 }}
         </template>
       </el-table-column>
-      <el-table-column label="标题" prop="title" show-overflow-tooltip />
-      <el-table-column label="作者" prop="author" show-overflow-tooltip />
-      <el-table-column label="头像" show-overflow-tooltip>
+      <el-table-column
+        label="标题"
+        prop="title"
+        show-overflow-tooltip
+      />
+      <el-table-column
+        label="作者"
+        prop="author"
+        show-overflow-tooltip
+      />
+      <el-table-column
+        label="头像"
+        show-overflow-tooltip
+      >
         <template #default="{ row }">
-          <el-image v-if="imgShow" :preview-src-list="imageList" :src="row.img" />
+          <el-image
+            v-if="imgShow"
+            :preview-src-list="imageList"
+            :src="row.img"
+          />
         </template>
       </el-table-column>
-      <el-table-column label="点击量" prop="pageViews" show-overflow-tooltip sortable />
-      <el-table-column label="状态" show-overflow-tooltip>
+      <el-table-column
+        label="点击量"
+        prop="pageViews"
+        show-overflow-tooltip
+        sortable
+      />
+      <el-table-column
+        label="状态"
+        show-overflow-tooltip
+      >
         <template #default="{ row }">
-          <el-tooltip class="item" :content="row.status" effect="dark" placement="top-start">
+          <el-tooltip
+            class="item"
+            :content="row.status"
+            effect="dark"
+            placement="top-start"
+          >
             <el-tag :type="row.status | statusFilter">
               {{ row.status }}
             </el-tag>
           </el-tooltip>
         </template>
       </el-table-column>
-      <el-table-column label="时间" prop="datetime" show-overflow-tooltip width="200" />
-      <el-table-column label="操作" show-overflow-tooltip width="180px">
+      <el-table-column
+        label="时间"
+        prop="datetime"
+        show-overflow-tooltip
+        width="200"
+      />
+      <el-table-column
+        label="操作"
+        show-overflow-tooltip
+        width="180px"
+      >
         <template #default="{ row }">
-          <el-button type="text" @click="handleEdit(row)">编辑</el-button>
-          <el-button type="text" @click="handleDelete(row)">删除</el-button>
+          <el-button
+            type="text"
+            @click="handleEdit(row)"
+          >
+            编辑
+          </el-button>
+          <el-button
+            type="text"
+            @click="handleDelete(row)"
+          >
+            删除
+          </el-button>
         </template>
       </el-table-column>
     </el-table>
@@ -123,7 +229,7 @@
     created() {
       this.fetchData()
     },
-    beforeDestroy() {
+    beforeUnmount() {
       clearTimeout(this.timeOutID)
     },
     mounted() {},

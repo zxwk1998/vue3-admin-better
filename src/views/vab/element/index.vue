@@ -8,8 +8,8 @@
     <el-row :gutter="20">
       <el-col :lg="18" :md="18" :sm="24" :xl="16" :xs="24">
         <el-button type="primary" @click="dialogVisible = !dialogVisible">element全部文档点这里</el-button>
-        <el-dialog :fullscreen="true" title="element文档" :visible.sync="dialogVisible">
-          <iframe class="element-iframe" frameborder="0" src="https://element.eleme.cn/#/zh-CN/component/installation"></iframe>
+        <el-dialog v-model:visible="dialogVisible" :fullscreen="true" title="element文档">
+          <iframe class="element-iframe" frameborder="0" src="https://element.eleme.cn/#/zh-CN/component/installation" />
         </el-dialog>
         <el-divider content-position="left">
           Tag 标签
@@ -84,7 +84,7 @@
         <el-button icon="el-icon-search" type="primary">搜索</el-button>
         <el-button type="primary">
           上传
-          <i class="el-icon-upload el-icon--right"></i>
+          <i class="el-icon-upload el-icon--right" />
         </el-button>
         <el-button :loading="true" type="primary">加载中</el-button>
 
@@ -135,7 +135,7 @@
   import VabPageHeader from '@/components/VabPageHeader'
 
   export default {
-    name: 'Element',
+    name: 'ElementUi',
     components: {
       VabPageHeader,
     },

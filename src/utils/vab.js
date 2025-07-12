@@ -1,7 +1,6 @@
 import { loadingText, messageDuration, title } from '@/config'
 import * as lodash from 'lodash'
 import { ElLoading, ElMessage, ElMessageBox, ElNotification } from 'element-plus'
-import { useUserStore } from '@/pinia/modules/user'
 import { getAccessToken } from '@/utils/accessToken'
 
 const install = (app) => {

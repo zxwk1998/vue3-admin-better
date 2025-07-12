@@ -8,16 +8,32 @@
       </template>
       <div>
         <p>计数器: {{ count }}</p>
-        <el-button type="primary" @click="increment">增加</el-button>
-        <el-button type="danger" @click="decrement">减少</el-button>
+        <el-button
+          type="primary"
+          @click="increment"
+        >
+          增加
+        </el-button>
+        <el-button
+          type="danger"
+          @click="decrement"
+        >
+          减少
+        </el-button>
       </div>
       <el-divider />
       <div>
         <h4>用户信息</h4>
         <p>用户名: {{ user.name }}</p>
         <p>邮箱: {{ user.email }}</p>
-        <el-input v-model="user.name" placeholder="输入用户名"></el-input>
-        <el-input v-model="user.email" placeholder="输入邮箱"></el-input>
+        <el-input
+          v-model="user.name"
+          placeholder="输入用户名"
+        />
+        <el-input
+          v-model="user.email"
+          placeholder="输入邮箱"
+        />
       </div>
       <el-divider />
       <div>
@@ -27,9 +43,15 @@
       <el-divider />
       <div>
         <h4>Element Plus组件示例</h4>
-        <el-date-picker v-model="date" type="date" placeholder="选择日期" />
+        <el-date-picker
+          v-model="date"
+          type="date"
+          placeholder="选择日期"
+        />
         <div style="margin-top: 20px">
-          <el-tag v-if="date">选择的日期: {{ formatDate(date) }}</el-tag>
+          <el-tag v-if="date">
+            选择的日期: {{ formatDate(date) }}
+          </el-tag>
         </div>
       </div>
     </el-card>

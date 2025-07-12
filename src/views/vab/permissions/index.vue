@@ -9,11 +9,16 @@
     />
 
     <!-- 权限切换卡片 -->
-    <el-card class="permission-card" shadow="hover">
-      <div slot="header" class="card-header">
-        <vab-icon :icon="['fas', 'exchange-alt']" />
-        <span>权限切换</span>
-      </div>
+    <el-card
+      class="permission-card"
+      shadow="hover"
+    >
+      <template #header>
+        <div class="card-header">
+          <vab-icon :icon="['fas', 'exchange-alt']" />
+          <span>权限切换</span>
+        </div>
+      </template>
       <div class="permission-content">
         <div class="permission-info">
           <p class="info-text">
@@ -22,18 +27,38 @@
           </p>
         </div>
 
-        <el-form ref="form" class="permission-form" :inline="true" :model="form">
-          <el-form-item class="account-selector" label="切换账号">
-            <el-radio-group v-model="form.account" class="account-radio-group">
-              <el-radio-button class="account-radio" label="admin">
+        <el-form
+          ref="form"
+          class="permission-form"
+          :inline="true"
+          :model="form"
+        >
+          <el-form-item
+            class="account-selector"
+            label="切换账号"
+          >
+            <el-radio-group
+              v-model="form.account"
+              class="account-radio-group"
+            >
+              <el-radio-button
+                class="account-radio"
+                label="admin"
+              >
                 <vab-icon :icon="['fas', 'crown']" />
                 <span>管理员</span>
               </el-radio-button>
-              <el-radio-button class="account-radio" label="editor">
+              <el-radio-button
+                class="account-radio"
+                label="editor"
+              >
                 <vab-icon :icon="['fas', 'edit']" />
                 <span>编辑者</span>
               </el-radio-button>
-              <el-radio-button class="account-radio" label="test">
+              <el-radio-button
+                class="account-radio"
+                label="test"
+              >
                 <vab-icon :icon="['fas', 'user']" />
                 <span>测试员</span>
               </el-radio-button>
@@ -41,7 +66,11 @@
           </el-form-item>
 
           <el-form-item>
-            <el-button class="change-btn" type="primary" @click="handleChangePermission">
+            <el-button
+              class="change-btn"
+              type="primary"
+              @click="handleChangePermission"
+            >
               <vab-icon :icon="['fas', 'sync-alt']" />
               切换权限
             </el-button>
@@ -51,7 +80,12 @@
         <div class="current-permissions">
           <h4>当前账号拥有的权限：</h4>
           <div class="permissions-display">
-            <el-tag v-for="permission in permissions" :key="permission" class="permission-tag" :type="getPermissionTagType(permission)">
+            <el-tag
+              v-for="permission in permissions"
+              :key="permission"
+              class="permission-tag"
+              :type="getPermissionTagType(permission)"
+            >
               <vab-icon :icon="getPermissionIcon(permission)" />
               {{ permission }}
             </el-tag>
@@ -61,24 +95,41 @@
     </el-card>
 
     <!-- 按钮权限演示卡片 -->
-    <el-card class="permission-card" shadow="hover">
-      <div slot="header" class="card-header">
-        <vab-icon :icon="['fas', 'mouse-pointer']" />
-        <span>按钮级权限演示</span>
-      </div>
+    <el-card
+      class="permission-card"
+      shadow="hover"
+    >
+      <template #header>
+        <div class="card-header">
+          <vab-icon :icon="['fas', 'mouse-pointer']" />
+          <span>按钮级权限演示</span>
+        </div>
+      </template>
       <div class="button-demo">
         <div class="demo-section">
           <h4>权限按钮展示：</h4>
           <div class="button-group">
-            <el-button v-permissions="['admin']" class="demo-btn" type="primary">
+            <el-button
+              v-permissions="['admin']"
+              class="demo-btn"
+              type="primary"
+            >
               <vab-icon :icon="['fas', 'crown']" />
               我是拥有["admin"]权限的按钮
             </el-button>
-            <el-button v-permissions="['editor']" class="demo-btn" type="success">
+            <el-button
+              v-permissions="['editor']"
+              class="demo-btn"
+              type="success"
+            >
               <vab-icon :icon="['fas', 'edit']" />
               我是拥有["editor"]权限的按钮
             </el-button>
-            <el-button v-permissions="['test']" class="demo-btn" type="warning">
+            <el-button
+              v-permissions="['test']"
+              class="demo-btn"
+              type="warning"
+            >
               <vab-icon :icon="['fas', 'user']" />
               我是拥有["test"]权限的按钮
             </el-button>
@@ -88,11 +139,16 @@
     </el-card>
 
     <!-- 路由权限演示卡片 -->
-    <el-card class="permission-card" shadow="hover">
-      <div slot="header" class="card-header">
-        <vab-icon :icon="['fas', 'route']" />
-        <span>路由权限演示</span>
-      </div>
+    <el-card
+      class="permission-card"
+      shadow="hover"
+    >
+      <template #header>
+        <div class="card-header">
+          <vab-icon :icon="['fas', 'route']" />
+          <span>路由权限演示</span>
+        </div>
+      </template>
       <div class="route-demo">
         <div class="demo-info">
           <p class="info-text">
@@ -116,40 +172,115 @@
             stripe
             :tree-props="{ children: 'children', hasChildren: 'hasChildren' }"
           >
-            <el-table-column label="路由名称" prop="name" show-overflow-tooltip width="150">
+            <el-table-column
+              label="路由名称"
+              prop="name"
+              show-overflow-tooltip
+              width="150"
+            >
               <template #default="{ row }">
                 <div class="route-name">
-                  <vab-icon v-if="row.meta && row.meta.icon" :icon="['fas', row.meta.icon]" />
+                  <vab-icon
+                    v-if="row.meta && row.meta.icon"
+                    :icon="['fas', row.meta.icon]"
+                  />
                   <span>{{ row.name }}</span>
                 </div>
               </template>
             </el-table-column>
-            <el-table-column label="路径" prop="path" show-overflow-tooltip width="200" />
-            <el-table-column label="组件" prop="component" show-overflow-tooltip width="150" />
-            <el-table-column label="重定向" prop="redirect" show-overflow-tooltip width="150" />
-            <el-table-column label="标题" prop="meta.title" show-overflow-tooltip width="120" />
-            <el-table-column label="图标" show-overflow-tooltip width="80">
+            <el-table-column
+              label="路径"
+              prop="path"
+              show-overflow-tooltip
+              width="200"
+            />
+            <el-table-column
+              label="组件"
+              prop="component"
+              show-overflow-tooltip
+              width="150"
+            />
+            <el-table-column
+              label="重定向"
+              prop="redirect"
+              show-overflow-tooltip
+              width="150"
+            />
+            <el-table-column
+              label="标题"
+              prop="meta.title"
+              show-overflow-tooltip
+              width="120"
+            />
+            <el-table-column
+              label="图标"
+              show-overflow-tooltip
+              width="80"
+            >
               <template #default="{ row }">
                 <span v-if="row.meta && row.meta.icon">
-                  <vab-icon class="route-icon" :icon="['fas', row.meta.icon]" />
+                  <vab-icon
+                    class="route-icon"
+                    :icon="['fas', row.meta.icon]"
+                  />
                 </span>
               </template>
             </el-table-column>
-            <el-table-column label="固定" show-overflow-tooltip width="80">
+            <el-table-column
+              label="固定"
+              show-overflow-tooltip
+              width="80"
+            >
               <template #default="{ row }">
-                <el-tag v-if="row.meta && row.meta.affix" size="mini" type="success">是</el-tag>
-                <el-tag v-else size="mini" type="info">否</el-tag>
+                <el-tag
+                  v-if="row.meta && row.meta.affix"
+                  size="mini"
+                  type="success"
+                >
+                  是
+                </el-tag>
+                <el-tag
+                  v-else
+                  size="mini"
+                  type="info"
+                >
+                  否
+                </el-tag>
               </template>
             </el-table-column>
-            <el-table-column label="无缓存" show-overflow-tooltip width="80">
+            <el-table-column
+              label="无缓存"
+              show-overflow-tooltip
+              width="80"
+            >
               <template #default="{ row }">
-                <el-tag v-if="row.meta && row.meta.noKeepAlive" size="mini" type="warning">是</el-tag>
-                <el-tag v-else size="mini" type="info">否</el-tag>
+                <el-tag
+                  v-if="row.meta && row.meta.noKeepAlive"
+                  size="mini"
+                  type="warning"
+                >
+                  是
+                </el-tag>
+                <el-tag
+                  v-else
+                  size="mini"
+                  type="info"
+                >
+                  否
+                </el-tag>
               </template>
             </el-table-column>
-            <el-table-column label="徽章" show-overflow-tooltip width="80">
+            <el-table-column
+              label="徽章"
+              show-overflow-tooltip
+              width="80"
+            >
               <template #default="{ row }">
-                <el-badge v-if="row.meta && row.meta.badge" class="route-badge" :value="row.meta.badge" />
+                <el-badge
+                  v-if="row.meta && row.meta.badge"
+                  class="route-badge"
+                  :value="row.meta.badge"
+                />
                 <span v-else>-</span>
               </template>
             </el-table-column>

@@ -48,7 +48,7 @@
   import VabPageHeader from '@/components/VabPageHeader'
 
   export default {
-    name: 'Form',
+    name: 'FormDemo',
     components: {
       VabPageHeader,
     },

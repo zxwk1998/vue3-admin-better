@@ -1,8 +1,16 @@
 <template>
   <div class="menu1-1-1-container">
-    <vab-page-header description="嵌套路由示例页面" :icon="['fas', 'sitemap']" title="嵌套路由 1-1-1" />
+    <vab-page-header
+      description="嵌套路由示例页面"
+      :icon="['fas', 'sitemap']"
+      title="嵌套路由 1-1-1"
+    />
 
-    <el-alert :closable="false" title="嵌套路由 1-1-1" type="success" />
+    <el-alert
+      :closable="false"
+      title="嵌套路由 1-1-1"
+      type="success"
+    />
   </div>
 </template>
 

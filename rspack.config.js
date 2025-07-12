@@ -1,23 +1,29 @@
-const path = require('path')
-const { Configuration, DefinePlugin } = require('@rspack/core')
-const HtmlRspackPlugin = require('html-rspack-plugin')
-const { VueLoaderPlugin } = require('vue-loader')
-const { publicPath, assetsDir, outputDir, title, devPort } = require('./src/config')
-const dayjs = require('dayjs')
-const time = dayjs().format('YYYY-M-D HH:mm:ss')
+const path = require("path");
+const { Configuration, DefinePlugin } = require("@rspack/core");
+const HtmlRspackPlugin = require("html-rspack-plugin");
+const { VueLoaderPlugin } = require("vue-loader");
+const {
+  publicPath,
+  assetsDir,
+  outputDir,
+  title,
+  devPort,
+} = require("./src/config");
+const dayjs = require("dayjs");
+const time = dayjs().format("YYYY-M-D HH:mm:ss");
 
 // 设置环境变量
-process.env.VUE_APP_TITLE = title || 'vue-admin-better'
-process.env.VUE_APP_UPDATE_TIME = time
-process.env.BASE_URL = publicPath
+process.env.VUE_APP_TITLE = title || "vue-admin-better";
+process.env.VUE_APP_UPDATE_TIME = time;
+process.env.BASE_URL = publicPath;
 // 删除这一行，避免覆盖rspack.js中设置的值
 // process.env.NODE_ENV = process.env.NODE_ENV || 'development'
-process.env.VUE_APP_MOCK_ENABLE = 'true' // 启用mock
-process.env.VUE_APP_AUTHOR = 'vue-admin-better' // 设置作者
+process.env.VUE_APP_MOCK_ENABLE = "true"; // 启用mock
+process.env.VUE_APP_AUTHOR = "vue-admin-better"; // 设置作者
 
-const resolve = (dir) => path.join(__dirname, dir)
+const resolve = (dir) => path.join(__dirname, dir);
 // 定义一个模式变量，避免冲突
-const mode = process.env.NODE_ENV || 'development'
+const mode = process.env.NODE_ENV || "development";
 
 /**
  * @type {Configuration}
@@ -26,13 +32,13 @@ module.exports = {
   mode: mode,
   context: __dirname,
   entry: {
-    app: './src/main.js',
+    app: "./src/main.js",
   },
   output: {
     path: resolve(outputDir),
     publicPath: publicPath,
-    filename: 'js/[name].[contenthash:8].js',
-    chunkFilename: 'js/[name].[contenthash:8].js',
+    filename: "js/[name].[contenthash:8].js",
+    chunkFilename: "js/[name].[contenthash:8].js",
     assetModuleFilename: `${assetsDir}/[name].[hash][ext][query]`,
   },
   // 增加性能提示配置
@@ -41,7 +47,7 @@ module.exports = {
     maxEntrypointSize: 3000000, // 3MB
     maxAssetSize: 1000000, // 1MB
     // 只在生产环境显示性能警告
-    hints: mode === 'production' ? 'warning' : false,
+    hints: mode === "production" ? "warning" : false,
   },
   module: {
     rules: [
@@ -49,11 +55,11 @@ module.exports = {
         test: /\.vue$/,
         use: [
           {
-            loader: 'vue-loader',
+            loader: "vue-loader",
             options: {
               // Vue 3无需preserveWhitespace选项
               compilerOptions: {
-                isCustomElement: (tag) => tag.startsWith('ion-'),
+                isCustomElement: (tag) => tag.startsWith("ion-"),
               },
             },
           },
@@ -63,39 +69,42 @@ module.exports = {
         test: /\.js$/,
         exclude: /node_modules/,
         use: {
-          loader: 'babel-loader',
+          loader: "babel-loader",
           options: {
-            presets: ['@babel/preset-env'],
+            presets: ["@babel/preset-env"],
           },
         },
       },
       {
         test: /\.css$/,
-        use: ['style-loader', 'css-loader'],
+        use: ["style-loader", "css-loader"],
       },
       {
         test: /\.scss$/,
         use: [
-          'style-loader',
+          "style-loader",
           {
-            loader: 'css-loader',
+            loader: "css-loader",
             options: {
               modules: {
                 auto: true,
-                localIdentName: '[path][name]__[local]--[hash:base64:5]',
+                localIdentName: "[path][name]__[local]--[hash:base64:5]",
               },
             },
           },
           {
-            loader: 'sass-loader',
+            loader: "sass-loader",
             options: {
               additionalData: (content, loaderContext) => {
-                const { resourcePath, rootContext } = loaderContext
-                const relativePath = path.relative(rootContext, resourcePath)
-                if (relativePath.replace(/\\/g, '/') !== 'src/styles/variables.scss') {
-                  return `@import "~@/styles/variables.scss";${content}`
+                const { resourcePath, rootContext } = loaderContext;
+                const relativePath = path.relative(rootContext, resourcePath);
+                if (
+                  relativePath.replace(/\\/g, "/") !==
+                  "src/styles/variables.scss"
+                ) {
+                  return `@import "~@/styles/variables.scss";${content}`;
                 }
-                return content
+                return content;
               },
             },
           },
@@ -103,7 +112,7 @@ module.exports = {
       },
       {
         test: /\.(png|jpe?g|gif|svg)$/,
-        type: 'asset',
+        type: "asset",
         parser: {
           dataUrlCondition: {
             maxSize: 10 * 1024, // 10KB
@@ -112,7 +121,7 @@ module.exports = {
       },
       {
         test: /\.(woff2?|eot|ttf|otf)$/,
-        type: 'asset',
+        type: "asset",
         parser: {
           dataUrlCondition: {
             maxSize: 30 * 1024, // 增加到30KB
@@ -121,23 +130,21 @@ module.exports = {
       },
       {
         resourceQuery: /raw/,
-        type: 'asset/source',
+        type: "asset/source",
       },
     ],
   },
   resolve: {
-    extensions: ['.js', '.vue', '.json'],
+    extensions: [".js", ".vue", ".json"],
     alias: {
-      '@': resolve('src'),
+      "@": resolve("src"),
       // 更新为Vue 3的运行时版本
-      vue$: 'vue/dist/vue.esm-bundler.js',
-      path: 'path-browserify',
+      vue$: "vue/dist/vue.esm-bundler.js",
+      path: "path-browserify",
       fs: false,
-      // 提供Vuex到Pinia的兼容性
-      vuex: '@/utils/storeAdapter.js',
     },
     fallback: {
-      path: require.resolve('path-browserify'),
+      path: require.resolve("path-browserify"),
     },
   },
   plugins: [
@@ -145,27 +152,31 @@ module.exports = {
     new DefinePlugin({
       // Vue 3需要的全局常量
       __VUE_OPTIONS_API__: JSON.stringify(true),
-      __VUE_PROD_DEVTOOLS__: JSON.stringify(mode !== 'production'),
+      __VUE_PROD_DEVTOOLS__: JSON.stringify(mode !== "production"),
       // 直接赋值方式，避免嵌套对象
-      'process.env.NODE_ENV': JSON.stringify(mode),
-      'process.env.BASE_URL': JSON.stringify(process.env.BASE_URL),
-      'process.env.VUE_APP_TITLE': JSON.stringify(process.env.VUE_APP_TITLE),
-      'process.env.VUE_APP_MOCK_ENABLE': JSON.stringify(process.env.VUE_APP_MOCK_ENABLE),
-      'process.env.VUE_APP_AUTHOR': JSON.stringify(process.env.VUE_APP_AUTHOR),
-      'process.env.VUE_APP_UPDATE_TIME': JSON.stringify(process.env.VUE_APP_UPDATE_TIME),
+      "process.env.NODE_ENV": JSON.stringify(mode),
+      "process.env.BASE_URL": JSON.stringify(process.env.BASE_URL),
+      "process.env.VUE_APP_TITLE": JSON.stringify(process.env.VUE_APP_TITLE),
+      "process.env.VUE_APP_MOCK_ENABLE": JSON.stringify(
+        process.env.VUE_APP_MOCK_ENABLE,
+      ),
+      "process.env.VUE_APP_AUTHOR": JSON.stringify(process.env.VUE_APP_AUTHOR),
+      "process.env.VUE_APP_UPDATE_TIME": JSON.stringify(
+        process.env.VUE_APP_UPDATE_TIME,
+      ),
     }),
     new HtmlRspackPlugin({
-      template: './public/index.html',
-      filename: 'index.html',
-      title: title || 'vue-admin-better',
-      inject: 'body',
+      template: "./public/index.html",
+      filename: "index.html",
+      title: title || "vue-admin-better",
+      inject: "body",
       templateParameters: {
         BASE_URL: publicPath,
         VUE_APP_TITLE: process.env.VUE_APP_TITLE,
         VUE_APP_AUTHOR: process.env.VUE_APP_AUTHOR,
       },
       minify:
-        mode === 'production'
+        mode === "production"
           ? {
               removeComments: true,
               collapseWhitespace: true,
@@ -178,67 +189,67 @@ module.exports = {
   ],
   optimization: {
     splitChunks: {
-      automaticNameDelimiter: '-',
-      chunks: 'all',
+      automaticNameDelimiter: "-",
+      chunks: "all",
       // 增加maxInitialRequests以允许更多的初始化块
       maxInitialRequests: 6,
       // 减小最小块大小，允许更细粒度的分割
       minSize: 20000,
       cacheGroups: {
         chunk: {
-          name: 'vab-chunk',
+          name: "vab-chunk",
           test: /[\\/]node_modules[\\/]/,
           minSize: 131072,
           maxSize: 524288,
-          chunks: 'async',
+          chunks: "async",
           minChunks: 2,
           priority: 10,
         },
         vue: {
-          name: 'vue',
+          name: "vue",
           test: /[\\/]node_modules[\\/](vue(.*)|core-js)[\\/]/,
-          chunks: 'initial',
+          chunks: "initial",
           priority: 20,
         },
         elementPlus: {
-          name: 'element-plus',
+          name: "element-plus",
           test: /[\\/]node_modules[\\/]element-plus(.*)[\\/]/,
           priority: 30,
         },
         // 单独拆分常用工具库
         vendors: {
-          name: 'vendors',
+          name: "vendors",
           test: /[\\/]node_modules[\\/](lodash|axios|qs|dayjs)[\\/]/,
-          chunks: 'all',
+          chunks: "all",
           priority: 35,
         },
         // 拆分样式资源
         styles: {
-          name: 'styles',
+          name: "styles",
           test: /\.(css|scss)$/,
-          chunks: 'all',
+          chunks: "all",
           enforce: true,
           priority: 40,
         },
         extra: {
-          name: 'vab-layouts',
-          test: resolve('src/layouts'),
+          name: "vab-layouts",
+          test: resolve("src/layouts"),
           priority: 40,
         },
       },
     },
     // 添加压缩配置
-    minimize: mode === 'production',
+    minimize: mode === "production",
     // 如果是生产环境，增加tree shaking
-    usedExports: mode === 'production',
+    usedExports: mode === "production",
   },
   devServer: {
     hot: true,
-    // 修改端口，避免冲突
-    port: 8095,
+    // 使用配置文件中的端口
+    port: devPort || 8091,
     historyApiFallback: true,
     static: {
-      directory: path.join(__dirname, 'public'),
+      directory: path.join(__dirname, "public"),
     },
     client: {
       overlay: {
@@ -247,18 +258,18 @@ module.exports = {
       },
     },
     open: {
-      target: ['http://localhost:8095'],
+      target: [`http://localhost:${devPort || 8091}`],
     },
     setupMiddlewares: (middlewares, devServer) => {
       if (!devServer) {
-        throw new Error('dev-server is not defined')
+        throw new Error("dev-server is not defined");
       }
 
-      if (process.env.VUE_APP_MOCK_ENABLE === 'true') {
-        const mockServer = require('./mock')
-        mockServer(devServer.app)
+      if (process.env.VUE_APP_MOCK_ENABLE === "true") {
+        const mockServer = require("./mock");
+        mockServer(devServer.app);
       }
-      return middlewares
+      return middlewares;
     },
   },
-}
+};

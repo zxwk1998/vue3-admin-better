@@ -1,11 +1,11 @@
-import { createApp } from 'vue'
-import App from './App.vue'
-import router from './router'
-import { createPinia } from 'pinia'
-import store from '@/store' // 导入Vuex store作为兼容层
-import plugins from './plugins'
-import '@/layouts/export'
-import { printLayoutsInfo } from '@/utils/printInfo'
+import { createApp } from "vue";
+import App from "./App.vue";
+import router from "./router";
+import store from "@/store"; // 导入Vuex store
+import plugins from "./plugins";
+import { printLayoutsInfo } from "@/utils/printInfo";
+// 导入布局组件注册函数
+import { registerLayoutComponents } from "@/layouts/export";
 
 /**
  * @author https://github.com/zxwk1998/vue-admin-better （不想保留author可删除）
@@ -13,36 +13,38 @@ import { printLayoutsInfo } from '@/utils/printInfo'
  */
 
 // 创建应用实例
-const app = createApp(App)
+const app = createApp(App);
 
-// 使用Pinia
-const pinia = createPinia()
-app.use(pinia)
+// 使用Vuex
+app.use(store);
 
-// 为了兼容性保留Vuex
-app.use(store)
+app.use(router);
 
-app.use(router)
 // 初始化所有插件
-plugins(app)
+plugins(app);
+
+// 注册所有布局组件
+registerLayoutComponents(app);
 
 // 检测环境变量或默认使用mock
-const useMock = process.env.VUE_APP_MOCK_ENABLE === 'true' || process.env.NODE_ENV === 'production'
+const useMock =
+  process.env.VUE_APP_MOCK_ENABLE === "true" ||
+  process.env.NODE_ENV === "production";
 if (useMock) {
   // 使用动态import替代require
-  import('@/utils/static').then(({ mockXHR }) => {
-    mockXHR()
-    console.log('已启用Mock拦截，所有接口请求将被Mock拦截')
+  import("@/utils/static").then(({ mockXHR }) => {
+    mockXHR();
+    console.log("已启用Mock拦截，所有接口请求将被Mock拦截");
     // 打印layouts/index.js中的信息到控制台
-    printLayoutsInfo()
+    printLayoutsInfo();
 
     // 挂载应用
-    app.mount('#vue-admin-better')
-  })
+    app.mount("#vue-admin-better");
+  });
 } else {
   // 未启用Mock时直接打印layouts/index.js中的信息到控制台
-  printLayoutsInfo()
+  printLayoutsInfo();
 
   // 挂载应用
-  app.mount('#vue-admin-better')
+  app.mount("#vue-admin-better");
 }

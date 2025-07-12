@@ -1,13 +1,23 @@
 <template>
   <div class="more-container">
-    <vab-page-header description="开源版本、商业版本和VIP群相关信息" :icon="['fas', 'ellipsis-h']" title="更多功能" />
+    <vab-page-header
+      description="开源版本、商业版本和VIP群相关信息"
+      :icon="['fas', 'ellipsis-h']"
+      title="更多功能"
+    />
 
     <el-row :gutter="24">
       <!-- 开源版本卡片 -->
-      <el-col :lg="12" :md="24" :sm="24" :xl="12" :xs="24">
+      <el-col
+        :lg="12"
+        :md="24"
+        :sm="24"
+        :xl="12"
+        :xs="24"
+      >
         <div class="modern-card open-source">
           <div class="card-background">
-            <div class="bg-pattern"></div>
+            <div class="bg-pattern" />
           </div>
           <div class="card-content">
             <div class="card-header">
@@ -15,8 +25,12 @@
                 <vab-icon :icon="['fas', 'user']" />
               </div>
               <div class="header-text">
-                <h3 class="card-title">开源版本</h3>
-                <div class="card-subtitle">永久免费 · 个人/商业使用</div>
+                <h3 class="card-title">
+                  开源版本
+                </h3>
+                <div class="card-subtitle">
+                  永久免费 · 个人/商业使用
+                </div>
               </div>
               <div class="status-badge">
                 <span>免费</span>
@@ -64,7 +78,11 @@
               </div>
 
               <div class="card-footer">
-                <a class="action-button" href="https://github.com/zxwk1998/vue-admin-better" target="_blank">
+                <a
+                  class="action-button"
+                  href="https://github.com/zxwk1998/vue-admin-better"
+                  target="_blank"
+                >
                   <vab-icon :icon="['fab', 'github']" />
                   <span>查看源码</span>
                 </a>
@@ -79,10 +97,16 @@
       </el-col>
 
       <!-- 商业版本卡片 -->
-      <el-col :lg="12" :md="24" :sm="24" :xl="12" :xs="24">
+      <el-col
+        :lg="12"
+        :md="24"
+        :sm="24"
+        :xl="12"
+        :xs="24"
+      >
         <div class="modern-card commercial">
           <div class="card-background">
-            <div class="bg-pattern"></div>
+            <div class="bg-pattern" />
           </div>
           <div class="card-content">
             <div class="card-header">
@@ -90,8 +114,12 @@
                 <vab-icon :icon="['fas', 'crown']" />
               </div>
               <div class="header-text">
-                <h3 class="card-title">商业版本</h3>
-                <div class="card-subtitle">专业级 · 企业级解决方案</div>
+                <h3 class="card-title">
+                  商业版本
+                </h3>
+                <div class="card-subtitle">
+                  专业级 · 企业级解决方案
+                </div>
               </div>
               <div class="status-badge">
                 <span>PRO</span>
@@ -100,7 +128,11 @@
 
             <div class="card-body">
               <div class="premium-products">
-                <a class="product-card" href="https://vuejs-core.cn/admin-pro" target="_blank">
+                <a
+                  class="product-card"
+                  href="https://vuejs-core.cn/admin-pro"
+                  target="_blank"
+                >
                   <div class="product-header">
                     <vab-icon :icon="['fas', 'crown']" />
                     <div class="product-badge">PRO</div>
@@ -114,7 +146,11 @@
                   </div>
                 </a>
 
-                <a class="product-card" href="https://vuejs-core.cn/admin-plus" target="_blank">
+                <a
+                  class="product-card"
+                  href="https://vuejs-core.cn/admin-plus"
+                  target="_blank"
+                >
                   <div class="product-header">
                     <vab-icon :icon="['fas', 'gem']" />
                     <div class="product-badge">PLUS</div>
@@ -128,7 +164,11 @@
                   </div>
                 </a>
 
-                <a class="product-card featured" href="https://vuejs-core.cn/shop-vite" target="_blank">
+                <a
+                  class="product-card featured"
+                  href="https://vuejs-core.cn/shop-vite"
+                  target="_blank"
+                >
                   <div class="product-header">
                     <vab-icon :icon="['fas', 'shopping-cart']" />
                     <div class="product-badge">SHOP</div>
@@ -156,11 +196,14 @@
     </el-row>
 
     <!-- 自定义版权服务 -->
-    <el-row :gutter="24" style="margin-top: 24px">
+    <el-row
+      :gutter="24"
+      style="margin-top: 24px"
+    >
       <el-col :span="24">
         <div class="modern-card custom-service">
           <div class="card-background">
-            <div class="bg-pattern"></div>
+            <div class="bg-pattern" />
           </div>
           <div class="card-content">
             <div class="service-header">
@@ -168,12 +211,20 @@
                 <vab-icon :icon="['fas', 'paint-brush']" />
               </div>
               <div class="service-info">
-                <h3 class="service-title">自定义版权服务</h3>
-                <p class="service-desc">如需自定义版权及作者信息，可联系微信客服zxwk-bfq购买</p>
+                <h3 class="service-title">
+                  自定义版权服务
+                </h3>
+                <p class="service-desc">
+                  如需自定义版权及作者信息，可联系微信客服zxwk-bfq购买
+                </p>
               </div>
               <div class="service-price">
-                <div class="price-amount">￥99</div>
-                <div class="price-note">自愿原则</div>
+                <div class="price-amount">
+                  ￥99
+                </div>
+                <div class="price-note">
+                  自愿原则
+                </div>
               </div>
             </div>
 

@@ -6,7 +6,9 @@
           <vab-icon v-if="icon" :icon="icon" />
           {{ title }}
         </h1>
-        <p v-if="description" class="page-description" v-html="description"></p>
+        <p v-if="description" class="page-description">
+          {{ description }}
+        </p>
       </div>
       <div v-if="rightIcon || rightText" class="header-right">
         <slot name="right">
