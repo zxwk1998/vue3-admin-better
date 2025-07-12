@@ -1,53 +1,85 @@
 <template>
   <div class="login-container">
-    <el-form
-      ref="loginForm"
-      :model="form"
-      :rules="rules"
-      class="login-form"
-      label-position="left"
-    >
-      <div class="title-container">
-        <h3 class="title">{{ title }}</h3>
+    <div class="login-box">
+      <div class="login-form-container">
+        <div class="logo-container">
+          <h2 class="welcome-text">欢迎回来</h2>
+          <h3 class="system-title">{{ title }}</h3>
+        </div>
+
+        <el-form
+          ref="loginForm"
+          :model="form"
+          :rules="rules"
+          class="login-form"
+        >
+          <el-form-item prop="username">
+            <el-input
+              v-model="form.username"
+              placeholder="请输入用户名"
+              tabindex="1"
+              type="text"
+            >
+              <template #prefix>
+                <el-icon><User /></el-icon>
+              </template>
+            </el-input>
+          </el-form-item>
+
+          <el-form-item prop="password">
+            <el-input
+              :key="passwordType"
+              ref="password"
+              v-model="form.password"
+              :type="passwordType"
+              tabindex="2"
+              placeholder="请输入密码"
+              @keyup.enter="handleLogin"
+            >
+              <template #prefix>
+                <el-icon><Lock /></el-icon>
+              </template>
+            </el-input>
+            <span class="show-pwd" @click="showPwd">
+              <el-icon v-if="passwordType === 'password'">
+                <Hide />
+              </el-icon>
+              <el-icon v-else>
+                <View />
+              </el-icon>
+            </span>
+          </el-form-item>
+
+          <div class="form-actions">
+            <el-checkbox v-model="rememberMe">记住我</el-checkbox>
+            <a href="javascript:;" class="forgot-password">忘记密码?</a>
+          </div>
+
+          <el-button
+            :loading="loading"
+            type="primary"
+            class="login-button"
+            @click.prevent="handleLogin"
+          >
+            登录
+          </el-button>
+
+          <div class="register-link">
+            <span>还没有账号?</span>
+            <router-link to="/register" class="create-account">
+              立即注册
+            </router-link>
+          </div>
+        </el-form>
       </div>
-      <el-form-item prop="username">
-        <el-input
-          v-model="form.username"
-          placeholder="请输入用户名"
-          tabindex="1"
-          type="text"
-        />
-      </el-form-item>
-      <el-form-item prop="password">
-        <el-input
-          :key="passwordType"
-          ref="password"
-          v-model="form.password"
-          :type="passwordType"
-          tabindex="2"
-          placeholder="请输入密码"
-          @keyup.enter="handleLogin"
-        />
-        <span class="show-pwd" @click="showPwd">
-          <el-icon v-if="passwordType === 'password'">
-            <Hide />
-          </el-icon>
-          <el-icon v-else>
-            <View />
-          </el-icon>
-        </span>
-      </el-form-item>
-      <el-button
-        :loading="loading"
-        type="primary"
-        class="login-button"
-        @click.prevent="handleLogin"
-        >登录</el-button
-      >
-      <router-link to="/register">
-        <div style="margin-top: 20px">注册</div>
-      </router-link>
-    </el-form>
+
+      <div class="login-image">
+        <div class="overlay">
+          <h2 class="slogan">高效 · 便捷 · 安全</h2>
+          <p class="description">基于Vue3的现代化管理系统</p>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -58,7 +90,7 @@ import { useStore } from "vuex";
 import { title } from "@/config";
 import { isPassword } from "@/utils/validate";
 import { ElMessage } from "element-plus";
-import { Hide, View } from "@element-plus/icons-vue";
+import { Hide, View, User, Lock } from "@element-plus/icons-vue";
 
 // 创建路由实例
 const router = useRouter();
@@ -94,6 +126,7 @@ const state = reactive({
 // 使用refs获取表单DOM引用
 const loginForm = ref(null);
 const password = ref(null);
+const rememberMe = ref(false);
 
 // 计算属性
 const otherQuery = computed(() => {
@@ -164,44 +197,260 @@ const { form, rules, loading, passwordType, redirect } = toRefs(state);
 .login-container {
   height: 100vh;
   width: 100vw;
-  background: url("~@/assets/login_images/background.jpg");
-  background-size: 100% 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+.login-box {
+  width: 80%;
+  max-width: 1000px;
+  height: 700px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  display: flex;
+  background-color: #fff;
+}
+
+.login-form-container {
+  width: 50%;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+}
+
+.logo-container {
+  margin-bottom: 40px;
+  text-align: center;
+
+  .welcome-text {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 10px;
+    font-weight: 600;
+  }
+
+  .system-title {
+    font-size: 18px;
+    color: #666;
+    font-weight: 400;
+  }
+}
+
+.login-form {
+  flex: 1;
+
+  .el-form-item {
+    margin-bottom: 24px;
+  }
+
+  .el-input {
+    height: 50px;
+
+    :deep(.el-input__wrapper) {
+      padding-left: 15px;
+      box-shadow: 0 0 0 1px #dcdfe6 inset;
+    }
+
+    :deep(.el-input__prefix) {
+      color: #909399;
+      font-size: 18px;
+    }
+  }
+
+  .show-pwd {
+    position: absolute;
+    right: 15px;
+    top: 14px;
+    font-size: 16px;
+    color: #889aa4;
+    cursor: pointer;
+    user-select: none;
+  }
+}
+
+.form-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+
+  .forgot-password {
+    color: #409eff;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.login-button {
+  width: 100%;
+  height: 50px;
+  border-radius: 25px;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  background: linear-gradient(90deg, #409eff 0%, #007aff 100%);
+  border: none;
+  margin-top: 10px;
+
+  &:hover {
+    background: linear-gradient(90deg, #007aff 0%, #409eff 100%);
+  }
+}
+
+.register-link {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 14px;
+  color: #606266;
+
+  .create-account {
+    color: #409eff;
+    text-decoration: none;
+    margin-left: 5px;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.login-image {
+  width: 50%;
+  position: relative;
+  background: url("~@/assets/login_images/background.jpg") center center
+    no-repeat;
+  background-size: cover;
+
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+
+    .slogan {
+      color: #fff;
+      font-size: 32px;
+      font-weight: 600;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .description {
+      color: rgba(255, 255, 255, 0.9);
+      font-size: 16px;
+      text-align: center;
+    }
+  }
+}
+
+// 响应式设计
+@media screen and (max-width: 992px) {
+  .login-box {
+    width: 100%;
+    max-width: 100%;
+    flex-direction: column;
+    height: auto;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+
+  .login-form-container,
+  .login-image {
+    width: 100%;
+  }
+
+  .login-image {
+    height: 200px;
+    order: -1;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .login-container {
+    padding: 0;
+    height: 100%;
+    background: #fff;
+  }
+
+  .login-box {
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .login-form-container {
+    padding: 20px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .logo-container {
+    margin-bottom: 20px;
+
+    .welcome-text {
+      font-size: 24px;
+    }
+
+    .system-title {
+      font-size: 16px;
+    }
+  }
 
   .login-form {
-    width: 350px;
-    padding: 20px;
-    background-color: rgba(255, 255, 255, 0.9);
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    .el-form-item {
+      margin-bottom: 15px;
+      width: 100%;
+    }
 
-    .title-container {
-      margin-bottom: 30px;
+    :deep(.el-input) {
+      width: 100%;
 
-      .title {
-        font-size: 24px;
-        color: #333;
-        text-align: center;
-        font-weight: bold;
+      .el-input__wrapper {
+        width: 100%;
+        box-sizing: border-box;
       }
     }
+  }
 
-    .show-pwd {
-      position: absolute;
-      right: 10px;
-      top: 7px;
-      font-size: 16px;
-      color: #889aa4;
-      cursor: pointer;
-      user-select: none;
-    }
+  .login-button {
+    height: 45px;
+    font-size: 15px;
+    width: 100%;
+  }
 
-    .login-button {
-      width: 100%;
-      margin-top: 20px;
+  .form-actions {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+
+    .forgot-password {
+      margin-top: 8px;
     }
+  }
+}
+
+// 添加额外的小屏幕适配
+@media screen and (max-width: 375px) {
+  .login-form-container {
+    padding: 15px 10px;
+  }
+
+  .login-image {
+    height: 150px;
   }
 }
 </style>
