@@ -22,7 +22,7 @@
               type="text"
             >
               <template #prefix>
-                <vab-icon :icon="['fas', 'user-alt']" />
+                <el-icon><User /></el-icon>
               </template>
             </el-input>
           </el-form-item>
@@ -36,7 +36,7 @@
               type="text"
             >
               <template #prefix>
-                <vab-icon :icon="['fas', 'mobile-alt']" />
+                <el-icon><Cellphone /></el-icon>
               </template>
             </el-input>
           </el-form-item>
@@ -47,7 +47,7 @@
               type="text"
             >
               <template #prefix>
-                <vab-icon :icon="['fas', 'envelope-open']" />
+                <el-icon><Message /></el-icon>
               </template>
             </el-input>
             <el-button
@@ -67,7 +67,7 @@
               type="password"
             >
               <template #prefix>
-                <vab-icon :icon="['fas', 'unlock']" />
+                <el-icon><Unlock /></el-icon>
               </template>
             </el-input>
           </el-form-item>
@@ -91,6 +91,7 @@
 <script>
 import { isPassword, isPhone } from "@/utils/validate";
 import { register } from "@/api/user";
+import { User, Cellphone, Message, Unlock } from "@element-plus/icons-vue";
 
 export default {
   username: "Register",

@@ -5,7 +5,7 @@
       @click.native="dialogTableVisible = true"
     >
       <el-button type="danger">
-        <vab-icon :icon="['fas', 'bug']" />
+        <el-icon><Warning /></el-icon>
       </el-button>
     </el-badge>
 
@@ -47,7 +47,7 @@
               target="_blank"
             >
               <el-button style="margin-left: 5px" type="primary">
-                <vab-icon :icon="['fas', 'search']" />
+                <el-icon><Search /></el-icon>
                 {{ item.title }}
               </el-button>
             </a>
@@ -67,6 +67,7 @@
 <script>
 import { abbreviation, title } from "@/config";
 import { mapGetters } from "vuex";
+import { Search, Warning } from "@element-plus/icons-vue";
 
 export default {
   name: "VabErrorLog",

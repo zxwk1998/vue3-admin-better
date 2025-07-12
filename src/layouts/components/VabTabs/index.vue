@@ -334,10 +334,8 @@ export default {
     pointer-events: none;
   }
 
-  :deep() {
-    .fold-unfold {
-      margin-right: $base-padding;
-    }
+  :deep(.fold-unfold) {
+    margin-right: $base-padding;
   }
 
   .tabs-content {
@@ -345,103 +343,100 @@ export default {
     width: calc(100% - 90px);
     height: $base-tag-item-height;
 
-    :deep() {
-      .el-tabs__nav-next,
-      .el-tabs__nav-prev {
+    :deep(.el-tabs__nav-next),
+    :deep(.el-tabs__nav-prev) {
+      height: $base-tag-item-height;
+      line-height: $base-tag-item-height;
+      color: rgba(0, 0, 0, 0.6);
+      background: rgba(255, 255, 255, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      border-radius: 12px;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+
+      &:hover {
+        color: rgba(0, 0, 0, 0.8);
+        background: rgba(255, 255, 255, 0.8);
+        border-color: rgba(255, 255, 255, 1);
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.05);
+      }
+    }
+
+    :deep(.el-tabs__header) {
+      border-bottom: 0;
+
+      .el-tabs__nav {
+        border: 0;
+      }
+
+      .el-tabs__item {
+        position: relative;
+        box-sizing: border-box;
         height: $base-tag-item-height;
+        margin-right: 8px;
+        margin-top: 3px;
+        padding: 0 20px;
         line-height: $base-tag-item-height;
-        color: rgba(0, 0, 0, 0.6);
-        background: rgba(255, 255, 255, 0.6);
-        border: 1px solid rgba(255, 255, 255, 0.8);
-        border-radius: 12px;
+        border: 1px solid $base-color-default;
+        color: $base-color-default;
+        border-radius: 5px;
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         backdrop-filter: blur(10px);
         -webkit-backdrop-filter: blur(10px);
+        overflow: hidden;
+
+        .tab-icon {
+          margin-right: 6px;
+          font-size: 12px;
+        }
+
+        &::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: -100%;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(
+            90deg,
+            transparent,
+            rgba(255, 255, 255, 0.2),
+            transparent
+          );
+          transition: left 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
 
         &:hover {
-          color: rgba(0, 0, 0, 0.8);
-          background: rgba(255, 255, 255, 0.8);
-          border-color: rgba(255, 255, 255, 1);
-          transform: translateY(-1px);
-          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1),
-            0 2px 4px rgba(0, 0, 0, 0.05);
-        }
-      }
-
-      .el-tabs__header {
-        border-bottom: 0;
-
-        .el-tabs__nav {
-          border: 0;
-        }
-
-        .el-tabs__item {
-          position: relative;
-          box-sizing: border-box;
-          height: $base-tag-item-height;
-          margin-right: 8px;
-          margin-top: 3px;
-          padding: 0 20px;
-          line-height: $base-tag-item-height;
-          border: 1px solid $base-color-default;
-          color: $base-color-default;
-          border-radius: 5px;
-          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-          backdrop-filter: blur(10px);
-          -webkit-backdrop-filter: blur(10px);
-          overflow: hidden;
-
-          .tab-icon {
-            margin-right: 6px;
-            font-size: 12px;
-          }
+          color: rgba(255, 255, 255, 0.95);
+          background: $base-color-default;
+          border-color: $base-color-default;
 
           &::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(
-              90deg,
-              transparent,
-              rgba(255, 255, 255, 0.2),
-              transparent
-            );
-            transition: left 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            left: 100%;
           }
+        }
+
+        &.is-active {
+          color: rgba(255, 255, 255, 0.95);
+          background: $base-color-default;
+          border-color: $base-color-default;
+        }
+
+        .el-icon-close {
+          position: relative;
+          margin-left: 8px;
+          font-size: 12px;
+          color: rgba(255, 255, 255, 0.7);
+          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+          border-radius: 5px;
+          padding: 2px;
 
           &:hover {
-            color: rgba(255, 255, 255, 0.95);
-            background: $base-color-default;
-            border-color: $base-color-default;
-
-            &::before {
-              left: 100%;
-            }
-          }
-
-          &.is-active {
-            color: rgba(255, 255, 255, 0.95);
-            background: $base-color-default;
-            border-color: $base-color-default;
-          }
-
-          .el-icon-close {
-            position: relative;
-            margin-left: 8px;
-            font-size: 12px;
-            color: rgba(255, 255, 255, 0.7);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            border-radius: 5px;
-            padding: 2px;
-
-            &:hover {
-              color: rgba(255, 255, 255, 0.9);
-              background: rgba(255, 255, 255, 0.2);
-              transform: scale(1.2);
-            }
+            color: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.2);
           }
         }
       }

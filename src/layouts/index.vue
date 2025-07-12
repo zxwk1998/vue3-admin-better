@@ -172,7 +172,7 @@ export default {
       padding-top: $base-top-bar-height;
     }
 
-    :deep() {
+    :deep {
       .vab-main {
         width: 88%;
         margin: auto;
@@ -235,7 +235,7 @@ export default {
       background: #f6f8f9;
       transition: $base-transition;
 
-      :deep() {
+      :deep {
         .fixed-header {
           @include fix-header;
 
@@ -265,7 +265,7 @@ export default {
       &.is-collapse-main {
         margin-left: $base-left-menu-width-min;
 
-        :deep() {
+        :deep {
           .fixed-header {
             left: $base-left-menu-width-min;
             width: calc(100% - 65px);
@@ -277,7 +277,7 @@ export default {
 
   /* 手机端开始 */
   &.mobile {
-    :deep() {
+    :deep {
       .el-pager,
       .el-pagination__jump {
         display: none;

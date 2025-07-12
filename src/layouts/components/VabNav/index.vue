@@ -17,18 +17,17 @@
           <vab-error-log />
           <vab-full-screen @refresh="refreshRoute" />
           <vab-theme class="hidden-xs-only" />
-          <vab-icon
-            :icon="['fas', 'redo']"
-            :pulse="pulse"
+          <el-icon
+            :class="{ 'is-pulsing': pulse }"
             title="重载所有路由"
             @click="refreshRoute"
-          />
+          >
+            <Refresh />
+          </el-icon>
           <vab-avatar />
-          <!--  <vab-icon
-            title="退出系统"
-            :icon="['fas', 'sign-out-alt']"
-            @click="logout"
-          />-->
+          <!--  <el-icon title="退出系统" @click="logout">
+            <SwitchButton />
+          </el-icon>-->
         </div>
       </el-col>
     </el-row>
@@ -37,6 +36,7 @@
 
 <script>
 import { mapActions, mapGetters } from "vuex";
+import { Refresh, SwitchButton } from "@element-plus/icons-vue";
 
 export default {
   name: "VabNav",
