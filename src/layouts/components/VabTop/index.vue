@@ -1,8 +1,8 @@
 <template>
   <div class="top-container">
     <div class="vab-main">
-      <el-row>
-        <el-col :lg="7" :md="7" :sm="7" :xl="7" :xs="7">
+      <el-row :gutter="15">
+        <el-col :lg="6" :md="6" :sm="6" :xl="6" :xs="6">
           <vab-logo />
         </el-col>
         <el-col :lg="12" :md="12" :sm="12" :xl="12" :xs="12">
@@ -27,7 +27,7 @@
             </template>
           </el-menu>
         </el-col>
-        <el-col :lg="5" :md="5" :sm="5" :xl="5" :xs="5">
+        <el-col :lg="6" :md="6" :sm="6" :xl="6" :xs="6">
           <div class="right-panel">
             <div class="right-menu">
               <vab-full-screen @refresh="refreshRoute" />
@@ -124,13 +124,14 @@ onBeforeUnmount(() => {
   .vab-main {
     background: $base-menu-background;
     width: 100%;
+    padding: 0 15px;
 
     :deep() {
       .el-menu {
         &.el-menu--horizontal {
           display: flex;
           align-items: center;
-          justify-content: flex-end;
+          justify-content: center;
           height: $base-top-bar-height;
           border-bottom: 0 solid transparent !important;
 
@@ -256,6 +257,28 @@ onBeforeUnmount(() => {
 
       .el-badge {
         margin-right: 15px;
+      }
+    }
+  }
+}
+
+@media (max-width: 992px) {
+  .top-container {
+    .vab-main {
+      .el-menu--horizontal {
+        justify-content: flex-start;
+      }
+    }
+
+    .right-panel {
+      .right-menu {
+        margin-right: 5px;
+      }
+
+      :deep() {
+        svg {
+          margin-right: 8px;
+        }
       }
     }
   }

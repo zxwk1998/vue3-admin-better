@@ -2,20 +2,6 @@
   <span v-if="themeBar">
     <!-- 直接使用图标组件，不再包裹在el-icon中 -->
     <Brush class="nav-icon" title="主题配置" @click="handleOpenTheme" />
-    <div class="theme-setting">
-      <div @click="handleOpenTheme">
-        <el-icon>
-          <Brush />
-        </el-icon>
-        <p>主题配置</p>
-      </div>
-      <div @click="handleGetCode">
-        <el-icon>
-          <Laptop />
-        </el-icon>
-        <p>拷贝源码</p>
-      </div>
-    </div>
 
     <el-drawer
       v-model="drawerVisible"

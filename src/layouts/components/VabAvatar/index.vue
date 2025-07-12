@@ -1,6 +1,9 @@
 <template>
   <el-dropdown @command="handleCommand" trigger="click">
-    <div class="avatar-container">
+    <div
+      class="avatar-container"
+      :class="{ 'horizontal-layout': isHorizontalLayout }"
+    >
       <div class="avatar-wrapper">
         <img :src="avatar" alt="用户头像" class="user-avatar" />
       </div>
@@ -84,8 +87,11 @@
   </el-dropdown>
 </template>
 
-<script>
-import { mapGetters } from "vuex";
+<script setup>
+import { computed } from "vue";
+import { useStore } from "vuex";
+import { useRouter, useRoute } from "vue-router";
+import { ElMessage } from "element-plus";
 import { recordRoute } from "@/config";
 import {
   ArrowDown,
@@ -95,75 +101,75 @@ import {
   SwitchButton,
 } from "@element-plus/icons-vue";
 
-export default {
+defineOptions({
   name: "VabAvatar",
-  components: {
-    ArrowDown,
-    User,
-    Setting,
-    Link,
-    SwitchButton,
-  },
-  computed: {
-    ...mapGetters({
-      avatar: "user/avatar",
-      username: "user/username",
-    }),
-  },
-  methods: {
-    handleCommand(command) {
-      switch (command) {
-        case "logout":
-          this.logout();
-          break;
-        case "personalCenter":
-          this.personalCenter();
-          break;
-        case "settings":
-          this.settings();
-          break;
-        case "github":
-          window.open("https://github.com/zxwk1998/vue-admin-better");
-          break;
-        case "gitee":
-          window.open("https://gitee.com/chu1204505056/vue-admin-better");
-          break;
-        case "pro":
-          window.open("https://vuejs-core.cn/admin-pro/");
-          break;
-        case "plus":
-          window.open("https://vuejs-core.cn/admin-plus/");
-          break;
-        case "shop":
-          window.open("https://vuejs-core.cn/shop-vite/");
-          break;
-        case "job":
-          window.open("https://job.vuejs-core.cn/");
-          break;
+});
+
+const store = useStore();
+const router = useRouter();
+const route = useRoute();
+
+// 计算属性
+const avatar = computed(() => store.getters["user/avatar"]);
+const username = computed(() => store.getters["user/username"]);
+const layout = computed(() => store.getters["settings/layout"]);
+const isHorizontalLayout = computed(() => layout.value === "horizontal");
+
+// 方法
+const handleCommand = (command) => {
+  switch (command) {
+    case "logout":
+      logout();
+      break;
+    case "personalCenter":
+      personalCenter();
+      break;
+    case "settings":
+      settings();
+      break;
+    case "github":
+      window.open("https://github.com/zxwk1998/vue-admin-better");
+      break;
+    case "gitee":
+      window.open("https://gitee.com/chu1204505056/vue-admin-better");
+      break;
+    case "pro":
+      window.open("https://vuejs-core.cn/admin-pro/");
+      break;
+    case "plus":
+      window.open("https://vuejs-core.cn/admin-plus/");
+      break;
+    case "shop":
+      window.open("https://vuejs-core.cn/shop-vite/");
+      break;
+    case "job":
+      window.open("https://job.vuejs-core.cn/");
+      break;
+  }
+};
+
+const personalCenter = () => {
+  router.push("/personalCenter/personalCenter");
+};
+
+const settings = () => {
+  ElMessage.info("系统设置功能开发中...");
+};
+
+const logout = () => {
+  window.$baseConfirm(
+    "您确定要退出" + window.$baseTitle + "吗?",
+    null,
+    async () => {
+      await store.dispatch("user/logout");
+      if (recordRoute) {
+        const fullPath = route.fullPath;
+        router.push(`/login?redirect=${fullPath}`);
+      } else {
+        router.push("/login");
       }
-    },
-    personalCenter() {
-      this.$router.push("/personalCenter/personalCenter");
-    },
-    settings() {
-      this.$message.info("系统设置功能开发中...");
-    },
-    logout() {
-      this.$baseConfirm(
-        "您确定要退出" + this.$baseTitle + "吗?",
-        null,
-        async () => {
-          await this.$store.dispatch("user/logout");
-          if (recordRoute) {
-            const fullPath = this.$route.fullPath;
-            this.$router.push(`/login?redirect=${fullPath}`);
-          } else {
-            this.$router.push("/login");
-          }
-        }
-      );
-    },
-  },
+    }
+  );
 };
 </script>
 
@@ -174,6 +180,19 @@ export default {
   padding: 8px 12px;
   border-radius: 8px;
   cursor: pointer;
+
+  &.horizontal-layout {
+    .user-info {
+      .username,
+      .user-role {
+        color: rgba(255, 255, 255, 0.9) !important;
+      }
+    }
+
+    .avatar-dropdown-icon {
+      color: rgba(255, 255, 255, 0.9) !important;
+    }
+  }
 
   .avatar-wrapper {
     position: relative;
@@ -208,6 +227,11 @@ export default {
       color: #666;
       opacity: 0.8;
     }
+  }
+
+  .avatar-dropdown-icon {
+    margin-left: 5px;
+    color: #666;
   }
 }
 
