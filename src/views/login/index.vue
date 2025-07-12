@@ -28,11 +28,7 @@
           placeholder="请输入密码"
           @keyup.enter="handleLogin"
         />
-        <span class="show-pwd" @click="showPwd">
-          <svg-icon
-            :icon-class="passwordType === 'password' ? 'eye' : 'eye-open'"
-          />
-        </span>
+        <span class="show-pwd" @click="showPwd"> </span>
       </el-form-item>
       <el-button
         :loading="loading"
@@ -126,12 +122,34 @@ const handleLogin = () => {
 
         // 登录成功后，先获取用户权限信息
         try {
-          await store.dispatch("user/getUserInfo");
+          // 获取用户权限
+          const permissions = await store.dispatch("user/getUserInfo");
+
+          // 根据权限加载路由
+          let accessRoutes = [];
+          const authentication =
+            store.state.settings?.authentication || "intelligence";
+          if (authentication === "intelligence") {
+            accessRoutes = await store.dispatch(
+              "routes/setRoutes",
+              permissions,
+            );
+          } else if (authentication === "all") {
+            accessRoutes = await store.dispatch("routes/setAllRoutes");
+          }
+
           // 获取权限信息后，再跳转
           const { query } = router.currentRoute.value;
           router.push({
             path: query.redirect || "/",
             query: otherQuery.value,
+          });
+
+          // 打印调试信息
+          console.log("登录成功", {
+            permissions,
+            accessRoutes,
+            currentRoute: router.currentRoute.value,
           });
         } catch (userInfoError) {
           console.error("获取用户信息失败:", userInfoError);
