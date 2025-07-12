@@ -28,7 +28,14 @@
           placeholder="请输入密码"
           @keyup.enter="handleLogin"
         />
-        <span class="show-pwd" @click="showPwd"> </span>
+        <span class="show-pwd" @click="showPwd">
+          <el-icon v-if="passwordType === 'password'">
+            <Hide />
+          </el-icon>
+          <el-icon v-else>
+            <View />
+          </el-icon>
+        </span>
       </el-form-item>
       <el-button
         :loading="loading"
@@ -124,11 +131,14 @@ const handleLogin = () => {
         try {
           // 获取用户权限
           const permissions = await store.dispatch("user/getUserInfo");
+          console.log("获取到的用户权限:", permissions);
 
           // 根据权限加载路由
           let accessRoutes = [];
           const authentication =
             store.state.settings?.authentication || "intelligence";
+          console.log("认证模式:", authentication);
+
           if (authentication === "intelligence") {
             accessRoutes = await store.dispatch(
               "routes/setRoutes",
@@ -137,16 +147,21 @@ const handleLogin = () => {
           } else if (authentication === "all") {
             accessRoutes = await store.dispatch("routes/setAllRoutes");
           }
+          console.log("加载的路由:", accessRoutes);
 
           // 获取权限信息后，再跳转
           const { query } = router.currentRoute.value;
-          router.push({
-            path: query.redirect || "/",
+          const targetPath = query.redirect || "/";
+          console.log("即将跳转到:", targetPath);
+
+          // 使用replace而非push，防止返回到登录页
+          router.replace({
+            path: targetPath,
             query: otherQuery.value,
           });
 
           // 打印调试信息
-          console.log("登录成功", {
+          console.log("登录成功，路由跳转完成", {
             permissions,
             accessRoutes,
             currentRoute: router.currentRoute.value,

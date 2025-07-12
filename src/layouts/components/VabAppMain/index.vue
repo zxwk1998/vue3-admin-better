@@ -15,49 +15,51 @@
 </template>
 
 <script>
-  import { mapActions, mapGetters } from 'vuex'
-  import { copyright, footerCopyright, keepAliveMaxNum, title } from '@/config'
+import { mapActions, mapGetters } from "vuex";
+import { copyright, footerCopyright, keepAliveMaxNum, title } from "@/config";
 
-  export default {
-    name: 'VabAppMain',
-    data() {
-      return {
-        show: false,
-        fullYear: new Date().getFullYear(),
-        copyright,
-        title,
-        keepAliveMaxNum,
-        routerView: true,
-        footerCopyright,
-      }
+export default {
+  name: "VabAppMain",
+  data() {
+    return {
+      show: false,
+      fullYear: new Date().getFullYear(),
+      copyright,
+      title,
+      keepAliveMaxNum,
+      routerView: true,
+      footerCopyright,
+    };
+  },
+  computed: {
+    ...mapGetters({
+      visitedRoutes: "tabsBar/visitedRoutes",
+      device: "settings/device",
+    }),
+    cachedRoutes() {
+      const cachedRoutesArr = [];
+      this.visitedRoutes.forEach((item) => {
+        if (!item.meta.noKeepAlive) {
+          cachedRoutesArr.push(item.name);
+        }
+      });
+      return cachedRoutesArr;
     },
-    computed: {
-      ...mapGetters({
-        visitedRoutes: 'tabsBar/visitedRoutes',
-        device: 'settings/device',
-      }),
-      cachedRoutes() {
-        const cachedRoutesArr = []
-        this.visitedRoutes.forEach((item) => {
-          if (!item.meta.noKeepAlive) {
-            cachedRoutesArr.push(item.name)
-          }
-        })
-        return cachedRoutesArr
-      },
-      key() {
-        return this.$route.path
-      },
+    key() {
+      return this.$route.path;
     },
-    watch: {
-      $route: {
-        handler(route) {
-          if ('mobile' === this.device) this.foldSideBar()
-        },
-        immediate: true,
+  },
+  watch: {
+    $route: {
+      handler(route) {
+        if ("mobile" === this.device) this.foldSideBar();
       },
+      immediate: true,
     },
-    created() {
+  },
+  created() {
+    // Vue 3不支持$on、$off等方法，需要改写
+    /* 
       const handleReloadRouterView = () => {
         this.routerView = false
         this.$nextTick(() => {
@@ -71,36 +73,40 @@
       this.$once('hook:beforeDestroy', () => {
         this.$baseEventBus.$off('reload-router-view', handleReloadRouterView)
       })
-    },
-    mounted() {},
-    methods: {
-      ...mapActions({
-        foldSideBar: 'settings/foldSideBar',
-      }),
-    },
-  }
+      */
+
+    // 直接确保routerView为true，不再使用事件总线
+    this.routerView = true;
+  },
+  mounted() {},
+  methods: {
+    ...mapActions({
+      foldSideBar: "settings/foldSideBar",
+    }),
+  },
+};
 </script>
 
 <style lang="scss" scoped>
-  .app-main-container {
-    position: relative;
-    width: 100%;
-    overflow: hidden;
+.app-main-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
 
-    .vab-keel {
-      margin: $base-padding;
-    }
-
-    .app-main-height {
-      min-height: $base-app-main-height;
-    }
-
-    .footer-copyright {
-      min-height: 55px;
-      line-height: 55px;
-      color: rgba(0, 0, 0, 0.45);
-      text-align: center;
-      border-top: 1px dashed $base-border-color;
-    }
+  .vab-keel {
+    margin: $base-padding;
   }
+
+  .app-main-height {
+    min-height: $base-app-main-height;
+  }
+
+  .footer-copyright {
+    min-height: 55px;
+    line-height: 55px;
+    color: rgba(0, 0, 0, 0.45);
+    text-align: center;
+    border-top: 1px dashed $base-border-color;
+  }
+}
 </style>
