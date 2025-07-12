@@ -36,15 +36,18 @@ app.config.globalProperties.$eventBus = eventBus;
 // 添加全局标题
 app.config.globalProperties.$baseTitle = title;
 
-// 检测环境变量或默认使用mock
-const useMock =
-  process.env.VUE_APP_MOCK_ENABLE === "true" ||
-  process.env.NODE_ENV === "production";
+// 使全局属性在window上也可用
+window.$eventBus = eventBus;
+window.$baseTitle = title;
+
+// 检测环境变量，永远启用mock
+const useMock = true; // 确保始终使用mock，无论是开发还是生产环境
 if (useMock) {
   // 使用动态import替代require
   import("@/utils/static").then(({ mockXHR }) => {
     mockXHR();
     console.log("已启用Mock拦截，所有接口请求将被Mock拦截");
+
     // 打印layouts/index.js中的信息到控制台
     printLayoutsInfo();
 

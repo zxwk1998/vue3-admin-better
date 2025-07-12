@@ -3,7 +3,7 @@
  * @description router全局配置，如有必要可分文件抽离，其中asyncRoutes只有在intelligence模式下才会用到，vip文档中已提供路由的基础图标与小清新图标的配置方案，请仔细阅读
  */
 
-import { createRouter, createWebHistory } from "vue-router";
+import { createRouter, createWebHashHistory } from "vue-router";
 import Layout from "@/layouts/index.vue";
 import EmptyLayout from "@/layouts/EmptyLayout.vue";
 import { publicPath } from "@/config";
@@ -135,7 +135,7 @@ export const asyncRoutes = [
 ];
 
 const router = createRouter({
-  history: createWebHistory(publicPath),
+  history: createWebHashHistory(publicPath),
   routes: constantRoutes,
   scrollBehavior(to, from, savedPosition) {
     if (savedPosition) {

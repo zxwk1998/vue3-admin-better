@@ -16,6 +16,20 @@ import router from "@/router";
 import { isArray } from "@/utils/validate";
 import { ElLoading, ElMessage } from "element-plus";
 import { pickBy, identity } from "lodash-es";
+import { mock } from "mockjs";
+
+// 在生产环境下引入mock数据
+if (process.env.NODE_ENV === "production") {
+  const mockContext = require.context("../../mock/controller", true, /\.js$/);
+  mockContext.keys().forEach((key) => {
+    const mockModule = mockContext(key);
+    if (mockModule.default) {
+      mockModule.default;
+    } else {
+      mockModule;
+    }
+  });
+}
 
 let loadingInstance;
 
