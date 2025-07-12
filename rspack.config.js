@@ -51,7 +51,7 @@ module.exports = {
           {
             loader: 'vue-loader',
             options: {
-              // Vue 3 无需 preserveWhitespace 选项
+              // Vue 3无需preserveWhitespace选项
               compilerOptions: {
                 isCustomElement: (tag) => tag.startsWith('ion-'),
               },
@@ -129,10 +129,12 @@ module.exports = {
     extensions: ['.js', '.vue', '.json'],
     alias: {
       '@': resolve('src'),
-      // 更新为 Vue 3 的运行时版本
+      // 更新为Vue 3的运行时版本
       vue$: 'vue/dist/vue.esm-bundler.js',
       path: 'path-browserify',
       fs: false,
+      // 提供Vuex到Pinia的兼容性
+      vuex: '@/utils/storeAdapter.js',
     },
     fallback: {
       path: require.resolve('path-browserify'),
@@ -141,7 +143,7 @@ module.exports = {
   plugins: [
     new VueLoaderPlugin(),
     new DefinePlugin({
-      // Vue 3 需要的全局常量
+      // Vue 3需要的全局常量
       __VUE_OPTIONS_API__: JSON.stringify(true),
       __VUE_PROD_DEVTOOLS__: JSON.stringify(mode !== 'production'),
       // 直接赋值方式，避免嵌套对象
@@ -233,7 +235,7 @@ module.exports = {
   devServer: {
     hot: true,
     // 修改端口，避免冲突
-    port: 8090,
+    port: 8095,
     historyApiFallback: true,
     static: {
       directory: path.join(__dirname, 'public'),
@@ -245,7 +247,7 @@ module.exports = {
       },
     },
     open: {
-      target: ['http://localhost:8090'],
+      target: ['http://localhost:8095'],
     },
     setupMiddlewares: (middlewares, devServer) => {
       if (!devServer) {

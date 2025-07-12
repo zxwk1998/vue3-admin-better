@@ -6,7 +6,6 @@ import store from '@/store' // 导入Vuex store作为兼容层
 import plugins from './plugins'
 import '@/layouts/export'
 import { printLayoutsInfo } from '@/utils/printInfo'
-import { setupStoreCompat } from '@/utils/storeAdapter'
 
 /**
  * @author https://github.com/zxwk1998/vue-admin-better （不想保留author可删除）
@@ -22,9 +21,6 @@ app.use(pinia)
 
 // 为了兼容性保留Vuex
 app.use(store)
-
-// 设置Vuex和Pinia之间的兼容适配
-setupStoreCompat(app)
 
 app.use(router)
 // 初始化所有插件
