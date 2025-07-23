@@ -51,24 +51,7 @@ export const asyncRoutes = [
       },
     ],
   },
-  {
-    path: "/external-job",
-    component: Layout,
-    meta: {
-      title: "",
-      icon: "",
-    },
-    children: [
-      {
-        path: "https://job.vuejs-core.cn/posts",
-        meta: {
-          title: "找工作",
-          target: "_blank",
-          icon: "horse-head",
-        },
-      },
-    ],
-  },
+
   /* {
     path: "/test",
     component: Layout,
@@ -102,6 +85,24 @@ export const asyncRoutes = [
         meta: {
           title: "Vue 3 示例",
           permissions: ["admin"],
+        },
+      },
+    ],
+  },
+  {
+    path: "/external-job",
+    component: Layout,
+    meta: {
+      title: "",
+      icon: "",
+    },
+    children: [
+      {
+        path: "https://job.vuejs-core.cn/posts",
+        meta: {
+          title: "找工作",
+          target: "_blank",
+          icon: "horse-head",
         },
       },
     ],

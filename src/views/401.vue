@@ -4,21 +4,25 @@
       <el-row :gutter="20">
         <el-col :lg="12" :md="12" :sm="24" :xl="12" :xs="24">
           <div class="pic-error">
-            <img alt="401" class="pic-error-parent" src="/static/img/401.png" />
+            <img
+              alt="401"
+              class="pic-error-parent"
+              src="/vue3-admin-better/static/img/401.png"
+            />
             <img
               alt="401"
               class="pic-error-child left"
-              src="/static/img/cloud.png"
+              src="/vue3-admin-better/static/img/cloud.png"
             />
             <img
               alt="401"
               class="pic-error-child mid"
-              src="/static/img/cloud.png"
+              src="/vue3-admin-better/static/img/cloud.png"
             />
             <img
               alt="401"
               class="pic-error-child right"
-              src="/static/img/cloud.png"
+              src="/vue3-admin-better/static/img/cloud.png"
             />
           </div>
         </el-col>

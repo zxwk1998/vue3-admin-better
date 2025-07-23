@@ -155,7 +155,7 @@
 <script>
 import { mapActions, mapGetters } from "vuex";
 import { layout as defaultLayout } from "@/config";
-import { Brush, Picture, Grid, Setting, Laptop } from "@element-plus/icons-vue";
+import { Brush, Picture, Grid, Setting } from "@element-plus/icons-vue";
 
 export default {
   name: "VabTheme",
@@ -164,7 +164,6 @@ export default {
     Picture,
     Grid,
     Setting,
-    Laptop,
   },
   data() {
     return {

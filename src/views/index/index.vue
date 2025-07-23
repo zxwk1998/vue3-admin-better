@@ -304,11 +304,9 @@ import { getNoticeList } from "@/api/notice";
 import { random } from "lodash-es";
 import {
   View,
-  Heart,
   ArrowUp,
   User,
   Clock,
-  CheckCircle,
   Monitor,
   Bell,
   Reading,
@@ -326,11 +324,9 @@ export default {
   components: {
     VabChart,
     View,
-    Heart,
     ArrowUp,
     User,
     Clock,
-    CheckCircle,
     Monitor,
     Bell,
     Reading,
