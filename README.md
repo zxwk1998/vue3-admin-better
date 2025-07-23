@@ -1,15 +1,13 @@
 <div>
 
-简体中文 | [English](./README.en.md)
-
-<div align="center"><img width="200" src="https://gcore.jsdelivr.net/gh/zxwk1998/image/logo/vab.png"/>
-<h1> vue-admin-better</h1>
+<div align="center"><img width="200" src="https://assets.rspack.rs/rspack/rspack-logo.svg"/>
+<h1> vue3-admin-better 全新版本</h1>
 <p>瑞雪兆丰年，红梅报新春，愿您新的一年平安喜乐，万事顺意，所得皆所愿！</p>
 </div>
 
-[![stars](https://img.shields.io/github/stars/zxwk1998/vue-admin-better?style=flat-square&logo=GitHub)](https://github.com/zxwk1998/vue-admin-better)
-[![star](https://gitee.com/chu1204505056/vue-admin-better/badge/star.svg?theme=gray)](https://gitee.com/chu1204505056/vue-admin-better)
-[![license](https://img.shields.io/github/license/zxwk1998/vue-admin-better?style=flat-square)](https://en.wikipedia.org/wiki/MIT_License)
+[![stars](https://img.shields.io/github/stars/zxwk1998/vue3-admin-better?style=flat-square&logo=GitHub)](https://github.com/zxwk1998/vue-admin-better)
+[![star](https://gitee.com/chu1204505056/vue3-admin-better/badge/star.svg?theme=gray)](https://gitee.com/chu1204505056/vue-admin-better)
+[![license](https://img.shields.io/github/license/zxwk1998/vue3-admin-better?style=flat-square)](https://en.wikipedia.org/wiki/MIT_License)
 
 ---
 
@@ -65,10 +63,6 @@
 - [🎉 Vue Admin Better （vue2.x + element-ui 免费商用，支持 PC、平板、手机）](https://vuejs-core.cn/vue-admin-better)
 
 - [🎉 Vue3 Admin Better （vue3.x + element-plus 免费商用，支持 PC、平板、手机）](https://vuejs-core.cn/vue3-admin-better)
-
-<!-- - [⚡️ vue3.x + element-plus（alpha 版本，免费商用，支持 PC、平板、手机）](https://vuejs-core.cn/vue-admin-better-plus/) -->
-
-<!-- - [⚡️ Vue Admin Ant （vue3.x + ant-design-vue 免费商用，支持 PC、平板、手机）](https://vuejs-core.cn/vue-admin-better-antdv/) -->
 
 - [⚡️ Vue Admin Arco （vue3.x + vite5.x + arco2.x 免费商用，支持 PC）](https://vuejs-core.cn/vue-admin-arco/)
 
