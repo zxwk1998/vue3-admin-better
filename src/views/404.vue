@@ -7,22 +7,22 @@
             <img
               alt="404"
               class="pic-error-parent"
-              src="/vue3-admin-better/static/img/404.png"
+              src="@/assets/error_images/404.png"
             />
             <img
               alt="404"
               class="pic-error-child left"
-              src="/vue3-admin-better/static/img/cloud.png"
+              src="@/assets/error_images/cloud.png"
             />
             <img
               alt="404"
               class="pic-error-child mid"
-              src="/vue3-admin-better/static/img/cloud.png"
+              src="@/assets/error_images/cloud.png"
             />
             <img
               alt="404"
               class="pic-error-child right"
-              src="/vue3-admin-better/static/img/cloud.png"
+              src="@/assets/error_images/cloud.png"
             />
           </div>
         </el-col>

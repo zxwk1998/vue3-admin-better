@@ -36,8 +36,7 @@ module.exports = {
   },
   output: {
     path: resolve(outputDir),
-    publicPath:
-      mode === "production" ? "/vue3-admin-better/" : "/vue3-admin-better/",
+    publicPath: "",
     filename: "js/[name].[contenthash:8].js",
     chunkFilename: "js/[name].[contenthash:8].js",
     assetModuleFilename: `${assetsDir}/[name].[ext][query]`,
