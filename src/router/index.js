@@ -123,6 +123,60 @@ export const asyncRoutes = [
           permissions: ["admin"],
         },
       },
+      {
+        path: "chart",
+        name: "Chart",
+        component: () => import("@/views/vab/chart.vue"),
+        meta: {
+          title: "图表",
+          permissions: ["admin"],
+        },
+      },
+      {
+        path: "permissions",
+        name: "Permissions",
+        component: () => import("@/views/vab/permissions.vue"),
+        meta: {
+          title: "权限管理",
+          permissions: ["admin"],
+        },
+      },
+      {
+        path: "nested",
+        component: () => import("@/views/vab/nested.vue"),
+        name: "Nested",
+        redirect: "/vab/nested/menu1",
+        meta: {
+          title: "嵌套路由",
+          permissions: ["admin"],
+        },
+        children: [
+          {
+            path: "menu1",
+            component: () => import("@/views/vab/nested/menu1.vue"),
+            name: "Menu1",
+            redirect: "/vab/nested/menu1/menu2",
+            meta: { title: "一级菜单" },
+            children: [
+              {
+                path: "menu2",
+                component: () => import("@/views/vab/nested/menu1/menu2.vue"),
+                name: "Menu2",
+                redirect: "/vab/nested/menu1/menu2/menu3",
+                meta: { title: "二级菜单" },
+                children: [
+                  {
+                    path: "menu3",
+                    component: () => import("@/views/vab/nested/menu1/menu2/menu3.vue"),
+                    name: "Menu3",
+                    meta: { title: "三级菜单" },
+                  },
+                ],
+              },
+            ],
+          },
+        ],
+      },
     ],
   },
   {

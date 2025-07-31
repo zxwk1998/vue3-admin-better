@@ -9,7 +9,6 @@
       :default-active="activeMenu"
       :default-openeds="defaultOpens"
       text-color=" hsla(0, 0%, 100%, 0.95)"
-      :unique-opened="uniqueOpened"
       mode="vertical"
     >
       <template v-for="route in routes">
@@ -24,7 +23,7 @@ import variables from "@/styles/variables.scss";
 import { computed } from "vue";
 import { useStore } from "vuex";
 import { useRoute } from "vue-router";
-import { defaultOopeneds, uniqueOpened } from "@/config";
+import { defaultOopeneds } from "@/config";
 
 defineOptions({
   name: "VabSide",
@@ -35,6 +34,11 @@ const route = useRoute();
 
 const collapse = computed(() => store.getters["settings/collapse"]);
 const routes = computed(() => store.getters["routes/routes"]);
+
+const defaultOpens = computed(() => {
+  // 使用配置文件中的defaultOopeneds
+  return defaultOopeneds;
+});
 
 const activeMenu = computed(() => {
   const { meta, path } = route;
