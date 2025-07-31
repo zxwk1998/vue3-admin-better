@@ -36,13 +36,6 @@ const route = useRoute();
 const collapse = computed(() => store.getters["settings/collapse"]);
 const routes = computed(() => store.getters["routes/routes"]);
 
-const defaultOpens = computed(() => {
-  if (collapse.value) {
-    // 原代码这里是空的，保持一致
-  }
-  return defaultOopeneds;
-});
-
 const activeMenu = computed(() => {
   const { meta, path } = route;
   if (meta.activeMenu) {
