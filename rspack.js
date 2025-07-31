@@ -34,7 +34,7 @@ config.mode = mode;
 
 if (mode === "production") {
   // 生产环境配置
-  console.log("正在极速打包中，预计用时5秒，请稍后...");
+  console.log("正在极速打包中，预计用时3秒，请稍后...");
 
   // 生产环境下增加额外配置
   config.optimization = {
