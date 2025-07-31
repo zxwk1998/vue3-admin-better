@@ -177,6 +177,78 @@ export const asyncRoutes = [
           },
         ],
       },
+      {
+        path: "editor",
+        name: "Editor",
+        component: () => import("@/views/vab/editor.vue"),
+        meta: {
+          title: "富文本编辑器",
+          permissions: ["admin"],
+        },
+      },
+      {
+        path: "upload",
+        name: "Upload",
+        component: () => import("@/views/vab/upload.vue"),
+        meta: {
+          title: "文件上传",
+          permissions: ["admin"],
+        },
+      },
+      {
+        path: "settings",
+        name: "Settings",
+        component: () => import("@/views/vab/settings.vue"),
+        meta: {
+          title: "系统设置",
+          permissions: ["admin"],
+        },
+      },
+      {
+        path: "notification",
+        name: "Notification",
+        component: () => import("@/views/vab/notification.vue"),
+        meta: {
+          title: "通知中心",
+          permissions: ["admin"],
+        },
+      },
+      {
+        path: "calendar",
+        name: "Calendar",
+        component: () => import("@/views/vab/calendar.vue"),
+        meta: {
+          title: "日历",
+          permissions: ["admin"],
+        },
+      },
+      {
+        path: "task",
+        name: "Task",
+        component: () => import("@/views/vab/task.vue"),
+        meta: {
+          title: "任务管理",
+          permissions: ["admin"],
+        },
+      },
+      {
+        path: "statistics",
+        name: "Statistics",
+        component: () => import("@/views/vab/statistics.vue"),
+        meta: {
+          title: "数据统计",
+          permissions: ["admin"],
+        },
+      },
+      {
+        path: "help",
+        name: "Help",
+        component: () => import("@/views/vab/help.vue"),
+        meta: {
+          title: "帮助中心",
+          permissions: ["admin"],
+        },
+      },
     ],
   },
   {
