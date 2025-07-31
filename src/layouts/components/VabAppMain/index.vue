@@ -9,7 +9,7 @@
     <footer v-show="footerCopyright" class="footer-copyright">
       Copyright
       <el-icon><CopyDocument /></el-icon>
-      vue-admin-better 开源免费版 {{ fullYear }}
+      vue3-admin-better 开源免费版 {{ fullYear }}
     </footer>
   </div>
 </template>

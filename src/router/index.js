@@ -76,7 +76,7 @@ export const asyncRoutes = [
     redirect: "noRedirect",
     name: "Vab",
     alwaysShow: true,
-    meta: { title: "组件", icon: "box-open" },
+    meta: { title: "组件", icon: "box-open", defaultOpen: true },
     children: [
       {
         path: "vue3Demo",
@@ -84,6 +84,42 @@ export const asyncRoutes = [
         component: () => import("@/views/vab/vue3Demo/index.vue"),
         meta: {
           title: "Vue 3 示例",
+          permissions: ["admin"],
+        },
+      },
+      {
+        path: "table",
+        name: "Table",
+        component: () => import("@/views/vab/table.vue"),
+        meta: {
+          title: "表格",
+          permissions: ["admin"],
+        },
+      },
+      {
+        path: "tree",
+        name: "Tree",
+        component: () => import("@/views/vab/tree.vue"),
+        meta: {
+          title: "树形控件",
+          permissions: ["admin"],
+        },
+      },
+      {
+        path: "icon",
+        name: "Icon",
+        component: () => import("@/views/vab/icon.vue"),
+        meta: {
+          title: "图标",
+          permissions: ["admin"],
+        },
+      },
+      {
+        path: "form",
+        name: "Form",
+        component: () => import("@/views/vab/form.vue"),
+        meta: {
+          title: "表单",
           permissions: ["admin"],
         },
       },
