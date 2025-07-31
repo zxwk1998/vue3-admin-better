@@ -249,6 +249,78 @@ export const asyncRoutes = [
           permissions: ["admin"],
         },
       },
+      {
+        path: "project",
+        name: "Project",
+        component: () => import("@/views/vab/project.vue"),
+        meta: {
+          title: "项目管理",
+          permissions: ["admin"],
+        },
+      },
+      {
+        path: "team",
+        name: "Team",
+        component: () => import("@/views/vab/team.vue"),
+        meta: {
+          title: "团队管理",
+          permissions: ["admin"],
+        },
+      },
+      {
+        path: "workflow",
+        name: "Workflow",
+        component: () => import("@/views/vab/workflow.vue"),
+        meta: {
+          title: "工作流",
+          permissions: ["admin"],
+        },
+      },
+      {
+        path: "knowledge",
+        name: "Knowledge",
+        component: () => import("@/views/vab/knowledge.vue"),
+        meta: {
+          title: "知识库",
+          permissions: ["admin"],
+        },
+      },
+      {
+        path: "customer",
+        name: "Customer",
+        component: () => import("@/views/vab/customer.vue"),
+        meta: {
+          title: "客户管理",
+          permissions: ["admin"],
+        },
+      },
+      {
+        path: "product",
+        name: "Product",
+        component: () => import("@/views/vab/product.vue"),
+        meta: {
+          title: "产品管理",
+          permissions: ["admin"],
+        },
+      },
+      {
+        path: "order",
+        name: "Order",
+        component: () => import("@/views/vab/order.vue"),
+        meta: {
+          title: "订单管理",
+          permissions: ["admin"],
+        },
+      },
+      // {
+      //   path: "campaign",
+      //   name: "Campaign",
+      //   component: () => import("@/views/vab/campaign.vue"),
+      //   meta: {
+      //     title: "营销活动",
+      //     permissions: ["admin"],
+      //   },
+      // },
     ],
   },
   {
