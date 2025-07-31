@@ -6,7 +6,7 @@
   "homepage": "https://vuejs-core.cn",
   "scripts": {
     "serve:rspack": "node --no-deprecation rspack.js serve",
-    "build": "node --no-deprecation rspack.js build",
+    "build": "rimraf dist && node --no-deprecation rspack.js build",
     "print-info": "node -e \"require('./layouts').donationConsole()\"",
     "clear": "rimraf node_modules&&npm install  --registry=--registry=https://registry.npmmirror.com",
     "update": "ncu -u --reject chalk,sass,sass-loader --registry=https://registry.npmmirror.com&&pnpm i",
