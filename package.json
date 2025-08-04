@@ -7,6 +7,7 @@
   "scripts": {
     "serve:rspack": "node --no-deprecation rspack.js serve",
     "build": "rimraf dist && node --no-deprecation rspack.js build",
+    "build:zip": "rimraf dist && node --no-deprecation rspack.js build && node build-zip.cjs",
     "print-info": "node -e \"require('./layouts').donationConsole()\"",
     "clear": "rimraf node_modules&&npm install  --registry=--registry=https://registry.npmmirror.com",
     "update": "ncu -u --reject chalk,sass,sass-loader --registry=https://registry.npmmirror.com&&pnpm i",
@@ -55,6 +56,7 @@
     "@rspack/core": "^1.4.11",
     "@rspack/dev-server": "^1.1.3",
     "@vue/compiler-sfc": "^3.5.18",
+    "archiver": "^7.0.1",
     "babel-loader": "^10.0.0",
     "body-parser": "^2.2.0",
     "chalk": "4.1.2",
