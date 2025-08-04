@@ -30,8 +30,8 @@ importers:
         specifier: 6.0.0
         version: 6.0.0
       element-plus:
-        specifier: ^2.10.4
-        version: 2.10.4(@vue/composition-api@1.7.2(vue@3.5.18))(vue@3.5.18)
+        specifier: ^2.10.5
+        version: 2.10.5(@vue/composition-api@1.7.2(vue@3.5.18))(vue@3.5.18)
       jsencrypt:
         specifier: ^3.3.2
         version: 3.3.2
@@ -1319,8 +1319,8 @@ packages:
   electron-to-chromium@1.5.182:
     resolution: {integrity: sha512-Lv65Btwv9W4J9pyODI6EWpdnhfvrve/us5h1WspW8B2Fb0366REPtY3hX7ounk1CkV/TBjWCEvCBBbYbmV0qCA==}
 
-  element-plus@2.10.4:
-    resolution: {integrity: sha512-UD4elWHrCnp1xlPhbXmVcaKFLCRaRAY6WWRwemGfGW3ceIjXm9fSYc9RNH3AiOEA6Ds1p9ZvhCs76CR9J8Vd+A==}
+  element-plus@2.10.5:
+    resolution: {integrity: sha512-O9wTDu3Tm51ACVByWrThtBhH4Ygefg1HGY5pyAaxnoIrj8uMN0GtZ4IREwR3Yw/6sM2HyxjrsGI/D46iUVP97A==}
     peerDependencies:
       vue: ^3.2.0
 
@@ -3944,7 +3944,7 @@ snapshots:
 
   electron-to-chromium@1.5.182: {}
 
-  element-plus@2.10.4(@vue/composition-api@1.7.2(vue@3.5.18))(vue@3.5.18):
+  element-plus@2.10.5(@vue/composition-api@1.7.2(vue@3.5.18))(vue@3.5.18):
     dependencies:
       '@ctrl/tinycolor': 3.6.1
       '@element-plus/icons-vue': 2.3.1(vue@3.5.18)

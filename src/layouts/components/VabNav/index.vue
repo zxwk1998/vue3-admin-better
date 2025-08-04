@@ -3,10 +3,8 @@
     <el-row :gutter="15">
       <el-col :lg="12" :md="12" :sm="12" :xl="12" :xs="4">
         <div class="left-panel">
-          <!-- 直接使用图标组件，不再包裹在el-icon中 -->
           <component
-            :is="collapse ? 'Expand' : 'Fold'"
-            :title="collapse ? '展开' : '收起'"
+            :is="collapse ? 'DArrowRight' : 'DArrowLeft'"
             class="nav-icon"
             @click="handleCollapse"
           />
@@ -17,7 +15,6 @@
         <div class="right-panel">
           <vab-full-screen @refresh="refreshRoute" />
           <vab-theme class="hidden-xs-only" />
-          <!-- 直接使用图标组件，不再包裹在el-icon中 -->
           <Refresh
             :class="{ 'is-pulsing': pulse }"
             title="重载所有路由"
@@ -25,9 +22,6 @@
             class="nav-icon"
           />
           <vab-avatar />
-          <!--  <el-icon title="退出系统" @click="logout">
-            <SwitchButton />
-          </el-icon>-->
         </div>
       </el-col>
     </el-row>
@@ -37,7 +31,7 @@
 <script setup>
 import { ref, computed, onBeforeUnmount } from "vue";
 import { useStore } from "vuex";
-import { Refresh, SwitchButton, Expand, Fold } from "@element-plus/icons-vue";
+import { Refresh } from "@element-plus/icons-vue";
 
 defineOptions({
   name: "VabNav",
@@ -48,9 +42,6 @@ const pulse = ref(false);
 let timeOutID = null;
 
 const collapse = computed(() => store.getters["settings/collapse"]);
-const visitedRoutes = computed(() => store.getters["tabsBar/visitedRoutes"]);
-const device = computed(() => store.getters["settings/device"]);
-const routes = computed(() => store.getters["routes/routes"]);
 
 const handleCollapse = () => {
   store.dispatch("settings/changeCollapse");
@@ -83,22 +74,6 @@ onBeforeUnmount(() => {
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
     0 2px 4px -1px rgba(0, 0, 0, 0.06), inset 0 1px 0 rgba(255, 255, 255, 0.6);
-
-  &::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(
-      135deg,
-      rgba(255, 255, 255, 0.4) 0%,
-      rgba(255, 255, 255, 0.1) 50%,
-      rgba(255, 255, 255, 0.2) 100%
-    );
-    pointer-events: none;
-  }
 
   .left-panel {
     position: relative;
@@ -133,49 +108,59 @@ onBeforeUnmount(() => {
         transform: scale(1);
       }
     }
+  }
 
-    :deep() {
+  :deep() {
+    svg {
+      width: 1.2em;
+      height: 1.2em;
+      color: rgba(0, 0, 0, 0.7);
+      fill: rgba(0, 0, 0, 0.7) !important;
+      padding: 6px;
+      border-radius: 6px;
+      transition: all 0.3s ease;
+    }
+
+    svg:hover {
+      background: rgba(0, 0, 0, 0.05);
+      color: rgba(0, 0, 0, 0.9);
+      fill: rgba(0, 0, 0, 0.9) !important;
+      transform: scale(1.05);
+    }
+
+    button {
       svg {
-        width: 1em;
-        height: 1em;
-        color: rgba(0, 0, 0, 0.9);
-        fill: rgba(0, 0, 0, 0.9) !important;
-      }
+        margin-right: 0;
+        color: rgba(255, 255, 255, 0.9);
+        background: rgba(0, 122, 255, 0.8);
+        border-color: rgba(0, 122, 255, 0.9);
+        cursor: pointer;
+        fill: rgba(255, 255, 255, 0.9);
 
-      button {
-        svg {
-          margin-right: 0;
-          color: rgba(255, 255, 255, 0.9);
-          background: rgba(0, 122, 255, 0.8);
-          border-color: rgba(0, 122, 255, 0.9);
-          cursor: pointer;
-          fill: rgba(255, 255, 255, 0.9);
-
-          &:hover {
-            background: rgba(0, 122, 255, 0.9);
-            border-color: rgba(0, 122, 255, 1);
-          }
+        &:hover {
+          background: rgba(0, 122, 255, 0.9);
+          border-color: rgba(0, 122, 255, 1);
         }
       }
+    }
 
-      .el-badge {
-        margin-right: 0;
+    .el-badge {
+      margin-right: 0;
 
-        .el-button {
-          background: rgba(255, 255, 255, 0.6);
-          border: 1px solid rgba(255, 255, 255, 0.8);
-          border-radius: 12px;
-          backdrop-filter: blur(10px);
-          -webkit-backdrop-filter: blur(10px);
-          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      .el-button {
+        background: rgba(255, 255, 255, 0.6);
+        border: 1px solid rgba(255, 255, 255, 0.8);
+        border-radius: 12px;
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
-          &:hover {
-            background: rgba(255, 255, 255, 0.8);
-            border-color: rgba(255, 255, 255, 1);
-            transform: translateY(-1px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1),
-              0 2px 4px rgba(0, 0, 0, 0.05);
-          }
+        &:hover {
+          background: rgba(255, 255, 255, 0.8);
+          border-color: rgba(255, 255, 255, 1);
+          transform: translateY(-1px);
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1),
+            0 2px 4px rgba(0, 0, 0, 0.05);
         }
       }
     }

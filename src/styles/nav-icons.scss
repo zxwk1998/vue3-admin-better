@@ -16,6 +16,9 @@ body {
     backdrop-filter: blur(10px) !important;
     -webkit-backdrop-filter: blur(10px) !important;
     font-size: 0.9em !important;
+    background: rgba(255, 255, 255, 0.8) !important;
+    border-color: rgba(255, 255, 255, 1) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.05) !important;
 
     &:hover {
       background: rgba(255, 255, 255, 0.8) !important;

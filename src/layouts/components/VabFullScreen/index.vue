@@ -2,7 +2,7 @@
   <span :title="isFullscreen ? '退出全屏' : '进入全屏'">
     <!-- 直接使用图标组件，不再包裹在el-icon中 -->
     <component
-      :is="isFullscreen ? 'ScaleToOriginal' : 'FullScreen'"
+      :is="isFullscreen ? 'FullScreen' : 'FullScreen'"
       class="nav-icon"
       @click="click"
     />
