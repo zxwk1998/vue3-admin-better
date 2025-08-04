@@ -86,17 +86,48 @@ router.beforeEach(async (to, from, next) => {
       }
     }
   } else {
-    if (routesWhiteList.indexOf(to.path) !== -1) {
-      next();
-    } else {
-      if (recordRoute) {
-        next(`/login?redirect=${to.path}`);
-      } else {
-        next("/login");
+    // 检查是否有保存的路由信息（页面刷新场景）
+    const savedRoute = sessionStorage.getItem('currentRoute');
+    if (savedRoute) {
+      try {
+        const routeInfo = JSON.parse(savedRoute);
+        // 如果目标路由不在白名单中，仍然需要登录
+        if (routesWhiteList.indexOf(to.path) !== -1) {
+          next();
+        } else {
+          // 检查当前路径是否需要登录
+          if (recordRoute) {
+            next(`/login?redirect=${to.path}`);
+          } else {
+            next("/login");
+          }
+        }
+      } catch (e) {
+        console.error('解析保存的路由信息失败:', e);
+        // 继续正常的登录检查流程
+        if (routesWhiteList.indexOf(to.path) !== -1) {
+          next();
+        } else {
+          if (recordRoute) {
+            next(`/login?redirect=${to.path}`);
+          } else {
+            next("/login");
+          }
+        }
       }
-
-      if (progressBar) VabProgress.done();
+    } else {
+      if (routesWhiteList.indexOf(to.path) !== -1) {
+        next();
+      } else {
+        if (recordRoute) {
+          next(`/login?redirect=${to.path}`);
+        } else {
+          next("/login");
+        }
+      }
     }
+
+    if (progressBar) VabProgress.done();
   }
   document.title = getPageTitle(to.meta.title);
 });

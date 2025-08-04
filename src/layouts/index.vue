@@ -52,7 +52,7 @@
 </template>
 
 <script setup>
-import { ref, computed, onBeforeMount, onBeforeUnmount, nextTick } from "vue";
+import { ref, computed, onBeforeMount, onBeforeUnmount, onMounted, nextTick } from "vue";
 import { useStore } from "vuex";
 import { tokenName } from "@/config";
 
@@ -98,10 +98,48 @@ const handleResize = () => {
 
 onBeforeMount(() => {
   window.addEventListener("resize", handleResize);
+  
+  // 页面加载时检查是否有保存的路由信息
+  const savedRoute = sessionStorage.getItem('currentRoute');
+  if (savedRoute) {
+    try {
+      const routeInfo = JSON.parse(savedRoute);
+      // 这里可以添加恢复路由状态的逻辑，比如重新设置Vuex中的路由状态
+      console.log('恢复保存的路由信息:', routeInfo);
+      // 清除保存的路由信息
+      sessionStorage.removeItem('currentRoute');
+    } catch (e) {
+      console.error('解析保存的路由信息失败:', e);
+    }
+  }
+});
+
+// 页面刷新前保存当前路由信息
+const handleBeforeUnload = () => {
+  // 保存当前路由到 sessionStorage
+  sessionStorage.setItem('currentRoute', JSON.stringify({
+    path: window.location.hash.replace('#', ''),
+    fullPath: window.location.href
+  }));
+};
+
+// 监听页面可见性变化，处理页面切换
+const handleVisibilityChange = () => {
+  if (document.hidden) {
+    // 页面隐藏时保存路由信息
+    handleBeforeUnload();
+  }
+};
+
+onMounted(() => {
+  window.addEventListener('beforeunload', handleBeforeUnload);
+  document.addEventListener('visibilitychange', handleVisibilityChange);
 });
 
 onBeforeUnmount(() => {
   window.removeEventListener("resize", handleResize);
+  window.removeEventListener('beforeunload', handleBeforeUnload);
+  document.removeEventListener('visibilitychange', handleVisibilityChange);
   controller.value.abort();
   clearTimeout(timeOutID);
 });
