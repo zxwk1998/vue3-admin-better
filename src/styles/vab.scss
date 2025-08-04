@@ -448,9 +448,21 @@ html {
   }
 
   .side-container {
+    .el-menu--collapse {
+      .el-menu-item,
+      .el-sub-menu {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
     .el-menu-item,
-    .el-submenu {
-      margin: 7px !important;
+    .el-sub-menu > .el-sub-menu__title {
+      * {
+        box-sizing: border-box;
+      }
+      box-sizing: border-box;
+      margin: 7px;
       border-radius: 5px !important;
 
       &:hover {

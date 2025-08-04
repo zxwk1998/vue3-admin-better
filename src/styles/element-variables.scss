@@ -11,16 +11,3 @@
   --el-color-info: #909399;
 }
 
-// 元素图标样式
-body {
-  .el-icon {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-
-    svg {
-      height: 1em;
-      width: 1em;
-    }
-  }
-}

@@ -107,25 +107,12 @@ const activeMenu = computed(() => {
 
     .el-menu {
       border: 0;
-
-      .vab-fas-icon {
-        padding-right: 3px;
-        font-size: $base-font-size-default;
-        display: inline-block;
-        width: 14px;
-      }
-
-      .vab-remix-icon {
-        padding-right: 3px;
-        font-size: $base-font-size-default + 2;
-      }
     }
 
     .el-menu-item,
     .el-submenu__title {
       height: $base-menu-item-height;
       line-height: $base-menu-item-height;
-      vertical-align: middle;
     }
 
     .el-menu-item {
