@@ -10,6 +10,8 @@ import { registerLayoutComponents } from "@/layouts/export";
 import eventBus from "@/utils/eventBus";
 // 导入配置
 import { title } from "@/config";
+// 导入mock
+import { mockXHR } from "@/utils/static";
 
 /**
  * @author https://github.com/zxwk1998/vue-admin-better （不想保留author可删除）
@@ -40,24 +42,14 @@ app.config.globalProperties.$baseTitle = title;
 window.$eventBus = eventBus;
 window.$baseTitle = title;
 
-// 检测环境变量，永远启用mock
-const useMock = true; // 确保始终使用mock，无论是开发还是生产环境
-if (useMock) {
-  // 使用动态import替代require
-  import("@/utils/static").then(({ mockXHR }) => {
-    mockXHR();
-    console.log("已启用Mock拦截，所有接口请求将被Mock拦截");
-
-    // 打印layouts/index.js中的信息到控制台
-    printLayoutsInfo();
-
-    // 挂载应用
-    app.mount("#vue-admin-better");
-  });
-} else {
-  // 未启用Mock时直接打印layouts/index.js中的信息到控制台
-  printLayoutsInfo();
-
-  // 挂载应用
-  app.mount("#vue-admin-better");
+// 检测环境变量，生产环境启用mock
+if (process.env.NODE_ENV === "production") {
+  // 生产环境初始化mock
+  mockXHR();
+  console.log("生产环境已启用Mock拦截，所有接口请求将被Mock拦截");
 }
+// 打印layouts/index.js中的信息到控制台
+printLayoutsInfo();
+
+// 挂载应用
+app.mount("#vue-admin-better");

@@ -54,12 +54,12 @@ const actions = {
         hour < 8
           ? "早上好"
           : hour <= 11
-            ? "上午好"
-            : hour <= 13
-              ? "中午好"
-              : hour < 18
-                ? "下午好"
-                : "晚上好";
+          ? "上午好"
+          : hour <= 13
+          ? "中午好"
+          : hour < 18
+          ? "下午好"
+          : "晚上好";
       ElMessage.success(`欢迎登录${title}，${thisTime}！`);
     } else {
       ElMessage.error(`登录接口异常，未正确返回${tokenName}...`);
@@ -92,6 +92,7 @@ const actions = {
     await logout(state.accessToken);
     await dispatch("resetAccessToken");
     await resetRouter();
+    location.reload();
   },
   resetAccessToken({ commit }) {
     commit("setPermissions", []);
