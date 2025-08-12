@@ -15,8 +15,8 @@ importers:
         specifier: ^1.11.0
         version: 1.11.0
       caniuse-lite:
-        specifier: ^1.0.30001733
-        version: 1.0.30001733
+        specifier: ^1.0.30001734
+        version: 1.0.30001734
       clipboard:
         specifier: ^2.0.11
         version: 2.0.11
@@ -30,8 +30,8 @@ importers:
         specifier: 6.0.0
         version: 6.0.0
       element-plus:
-        specifier: ^2.10.6
-        version: 2.10.6(@vue/composition-api@1.7.2(vue@3.5.18))(vue@3.5.18)
+        specifier: ^2.10.7
+        version: 2.10.7(@vue/composition-api@1.7.2(vue@3.5.18))(vue@3.5.18)
       jsencrypt:
         specifier: ^3.3.2
         version: 3.3.2
@@ -1187,8 +1187,8 @@ packages:
     resolution: {integrity: sha512-YTd+6wGlNlPxSuri7Y6X8tY2dmm12UMH66RpKMhiX6rsk5wXXnYgbUcOt8kiS31/AjfoTOvCsE+w8nZQLQnzHA==}
     engines: {node: '>= 0.4'}
 
-  caniuse-lite@1.0.30001733:
-    resolution: {integrity: sha512-e4QKw/O2Kavj2VQTKZWrwzkt3IxOmIlU6ajRb6LP64LHpBo1J67k2Hi4Vu/TgJWsNtynurfS0uK3MaUTCPfu5Q==}
+  caniuse-lite@1.0.30001734:
+    resolution: {integrity: sha512-uhE1Ye5vgqju6OI71HTQqcBCZrvHugk0MjLak7Q+HfoBgoq5Bi+5YnwjP4fjDgrtYr/l8MVRBvzz9dPD4KyK0A==}
 
   chalk@4.1.2:
     resolution: {integrity: sha512-oKnbhFyRIXpUuez8iBMmyEa4nbj4IOQyuhc/wy9kY7/WVPcwIO9VA668Pu8RkO7+0G76SLROeyw9CpQ061i4mA==}
@@ -1406,8 +1406,8 @@ packages:
   electron-to-chromium@1.5.182:
     resolution: {integrity: sha512-Lv65Btwv9W4J9pyODI6EWpdnhfvrve/us5h1WspW8B2Fb0366REPtY3hX7ounk1CkV/TBjWCEvCBBbYbmV0qCA==}
 
-  element-plus@2.10.6:
-    resolution: {integrity: sha512-N1XfO+x46p9Df9KNHeRQiHW4ilt4k+Jh6jeA1Ip9WpVzwDW8CRz+NqaLLDEZmnez62bBdCuWGfV7lIRq3+FQyg==}
+  element-plus@2.10.7:
+    resolution: {integrity: sha512-bL4yhepL8/0NEQA5+N2Q6ZVKLipIDkiQjK2mqtSmGh6CxJk1yaBMdG5HXfYkbk1htNcT3ULk9g23lzT323JGcA==}
     peerDependencies:
       vue: ^3.2.0
 
@@ -4036,7 +4036,7 @@ snapshots:
 
   browserslist@4.25.1:
     dependencies:
-      caniuse-lite: 1.0.30001733
+      caniuse-lite: 1.0.30001734
       electron-to-chromium: 1.5.182
       node-releases: 2.0.19
       update-browserslist-db: 1.1.3(browserslist@4.25.1)
@@ -4068,7 +4068,7 @@ snapshots:
       call-bind-apply-helpers: 1.0.1
       get-intrinsic: 1.2.7
 
-  caniuse-lite@1.0.30001733: {}
+  caniuse-lite@1.0.30001734: {}
 
   chalk@4.1.2:
     dependencies:
@@ -4262,7 +4262,7 @@ snapshots:
 
   electron-to-chromium@1.5.182: {}
 
-  element-plus@2.10.6(@vue/composition-api@1.7.2(vue@3.5.18))(vue@3.5.18):
+  element-plus@2.10.7(@vue/composition-api@1.7.2(vue@3.5.18))(vue@3.5.18):
     dependencies:
       '@ctrl/tinycolor': 3.6.1
       '@element-plus/icons-vue': 2.3.2(vue@3.5.18)
