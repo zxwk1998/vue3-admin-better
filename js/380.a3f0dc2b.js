@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkvue_admin_better=self.webpackChunkvue_admin_better||[]).push([["380"],{58230:function(e,t,u){u.r(t),u.d(t,{getTreeList:function(){return r}});var n=u(29838);function r(e){return(0,n.default)({url:"/tree/list",method:"post",data:e})}}}]);

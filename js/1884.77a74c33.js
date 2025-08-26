@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkvue_admin_better=self.webpackChunkvue_admin_better||[]).push([["1884"],{96221:function(t,e,n){n.r(e),n.d(e,{getIconList:function(){return r}});var u=n(29838);function r(t){return(0,u.default)({url:"/icon/list",method:"post",data:t})}}}]);
