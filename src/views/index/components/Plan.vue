@@ -46,7 +46,7 @@ export default {
           title: "交个帅气的男朋友",
           endTIme: "2021-12-31",
           percentage: 76,
-          color: "#1890FF",
+          color: "#409EFF",
         },
         {
           title: "vue-admin-better标星过1K",

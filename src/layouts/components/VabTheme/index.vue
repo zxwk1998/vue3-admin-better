@@ -334,7 +334,7 @@ export default {
       i {
         margin-right: 8px;
         font-size: 16px;
-        color: #677ae4;
+        color: #409EFF;
       }
 
       span {
@@ -359,13 +359,13 @@ export default {
         transition: all 0.3s ease;
 
         &:hover {
-          border-color: #677ae4;
+          border-color: #409EFF;
           transform: translateY(-1px);
           box-shadow: 0 4px 12px rgba(64, 158, 255, 0.1);
         }
 
         &.active {
-          border-color: #677ae4;
+          border-color: #409EFF;
           background: rgba(64, 158, 255, 0.05);
           box-shadow: 0 4px 12px rgba(64, 158, 255, 0.15);
         }
@@ -403,7 +403,7 @@ export default {
 
           &.default-theme {
             .preview-header {
-              background: $base-color-default;
+              background: #409eff;
             }
             .preview-sidebar {
               background: #2c3e50;
@@ -461,13 +461,13 @@ export default {
         transition: all 0.3s ease;
 
         &:hover {
-          border-color: #677ae4;
+          border-color: #409EFF;
           transform: translateY(-1px);
           box-shadow: 0 4px 12px rgba(64, 158, 255, 0.1);
         }
 
         &.active {
-          border-color: #677ae4;
+          border-color: #409EFF;
           background: rgba(64, 158, 255, 0.05);
           box-shadow: 0 4px 12px rgba(64, 158, 255, 0.15);
         }
@@ -482,7 +482,7 @@ export default {
 
           .preview-header {
             height: 8px;
-            background: #677ae4;
+            background: #409EFF;
           }
 
           .preview-main {
@@ -505,7 +505,7 @@ export default {
           &.vertical-layout {
             .preview-header {
               height: 8px;
-              background: #677ae4;
+              background: #409EFF;
             }
 
             .preview-sidebar {

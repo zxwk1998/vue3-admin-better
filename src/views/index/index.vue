@@ -375,7 +375,7 @@ export default {
 
       //访问量
       fwl: {
-        color: ["#677AE4", "#8B5CF6", "#A855F7", "#C084FC", "#E879F9"],
+        color: ["#409EFF", "#8B5CF6", "#A855F7", "#C084FC", "#E879F9"],
         backgroundColor: "transparent",
         grid: {
           top: "15%",
@@ -441,13 +441,13 @@ export default {
                 x2: 0,
                 y2: 1,
                 colorStops: [
-                  { offset: 0, color: "#677AE4" },
+                  { offset: 0, color: "#409EFF" },
                   { offset: 1, color: "#8B5CF6" },
                 ],
               },
             },
             itemStyle: {
-              color: "#677AE4",
+              color: "#409EFF",
               borderWidth: 2,
               borderColor: "#fff",
             },
@@ -459,7 +459,7 @@ export default {
                 x2: 0,
                 y2: 1,
                 colorStops: [
-                  { offset: 0, color: "rgba(103, 122, 228, 0.3)" },
+                  { offset: 0, color: "rgba(64, 158, 255, 0.3)" },
                   { offset: 1, color: "rgba(139, 92, 246, 0.1)" },
                 ],
               },
@@ -469,7 +469,7 @@ export default {
       },
       //授权数
       sqs: {
-        color: ["#677AE4", "#8B5CF6", "#A855F7", "#C084FC", "#E879F9"],
+        color: ["#409EFF", "#8B5CF6", "#A855F7", "#C084FC", "#E879F9"],
         backgroundColor: "transparent",
         grid: {
           top: "15%",
@@ -531,12 +531,12 @@ export default {
                 x2: 0,
                 y2: 1,
                 colorStops: [
-                  { offset: 0, color: "#677AE4" },
+                  { offset: 0, color: "#409EFF" },
                   { offset: 1, color: "#8B5CF6" },
                 ],
               },
               borderRadius: [6, 6, 0, 0],
-              shadowColor: "rgba(103, 122, 228, 0.3)",
+              shadowColor: "rgba(64, 158, 255, 0.3)",
               shadowBlur: 10,
               shadowOffsetX: 0,
               shadowOffsetY: 5,
@@ -550,12 +550,12 @@ export default {
                   x2: 0,
                   y2: 1,
                   colorStops: [
-                    { offset: 0, color: "#5A67D8" },
-                    { offset: 1, color: "#7C3AED" },
-                  ],
+                  { offset: 0, color: "#409EFF" },
+                  { offset: 1, color: "#7C3AED" },
+                ],
                 },
                 shadowBlur: 15,
-                shadowColor: "rgba(103, 122, 228, 0.5)",
+                shadowColor: "rgba(64, 158, 255, 0.5)"
               },
             },
           },
@@ -564,7 +564,7 @@ export default {
 
       //用户活跃度
       userActivity: {
-        color: ["#677AE4", "#8B5CF6", "#A855F7", "#C084FC", "#E879F9"],
+        color: ["#409EFF", "#8B5CF6", "#A855F7", "#C084FC", "#E879F9"],
         backgroundColor: "transparent",
         grid: {
           top: "15%",
@@ -622,10 +622,10 @@ export default {
             symbolSize: 6,
             lineStyle: {
               width: 3,
-              color: "#677AE4",
+              color: "#409EFF",
             },
             itemStyle: {
-              color: "#677AE4",
+              color: "#409EFF",
               borderWidth: 2,
               borderColor: "#fff",
             },
@@ -648,7 +648,7 @@ export default {
 
       //系统性能
       systemPerformance: {
-        color: ["#677AE4", "#8B5CF6", "#A855F7", "#C084FC"],
+        color: ["#409EFF", "#8B5CF6", "#A855F7", "#C084FC"],
         backgroundColor: "transparent",
         grid: {
           top: "15%",
@@ -706,7 +706,7 @@ export default {
             barWidth: "50%",
             itemStyle: {
               color: function (params) {
-                const colors = ["#677AE4", "#8B5CF6", "#A855F7", "#C084FC"];
+                const colors = ["#409EFF", "#8B5CF6", "#A855F7", "#C084FC"];
                 return colors[params.dataIndex];
               },
               borderRadius: [4, 4, 0, 0],
@@ -1038,7 +1038,7 @@ export default {
           border-bottom: 2px solid #dee2e6;
 
           .vab-icon {
-            color: #677ae4;
+            color: #409EFF;
             margin-right: 3px;
             font-size: 1.1rem;
           }
@@ -1208,7 +1208,7 @@ export default {
           .stat-icon {
             width: 50px;
             height: 50px;
-            background: linear-gradient(45deg, #677ae4, #8b5cf6);
+            background: linear-gradient(45deg, #409EFF, #8b5cf6);
             border-radius: 12px;
             display: flex;
             align-items: center;
@@ -1277,7 +1277,7 @@ export default {
               }
 
               &.primary-btn {
-                background: #677ae4;
+                background: #409EFF;
                 border: none;
                 color: white;
 
@@ -1300,7 +1300,7 @@ export default {
             .premium-card {
               flex: 1;
               min-width: 180px;
-              background: linear-gradient(135deg, #677ae4 0%, #8b5cf6 100%);
+              background: linear-gradient(135deg, #409EFF 0%, #8b5cf6 100%);
               border-radius: 15px;
               padding: 20px;
               cursor: pointer;
@@ -1395,10 +1395,10 @@ export default {
         color: #2c3e50;
 
         .vab-icon {
-          color: #677ae4;
-          margin-right: 3px;
-          font-size: 1.1rem;
-        }
+            color: #409EFF;
+            margin-right: 3px;
+            font-size: 1.1rem;
+          }
       }
 
       .chart-stats {
@@ -1452,7 +1452,7 @@ export default {
           }
 
           .trend-icon {
-            color: #677ae4;
+            color: #409EFF;
             margin-right: 3px;
             font-size: 0.8rem;
           }
