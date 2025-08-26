@@ -323,6 +323,25 @@ export const asyncRoutes = [
       // },
     ],
   },
+
+  {
+    path: "/external-store",
+    component: Layout,
+    meta: {
+      title: "",
+      icon: "",
+    },
+    children: [
+      {
+        path: "https://vuejs-core.cn/store",
+        meta: {
+          title: "模板市场",
+          target: "_blank",
+          icon: "box-open",
+        },
+      },
+    ],
+  },
   {
     path: "/external-job",
     component: Layout,
