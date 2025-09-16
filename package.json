@@ -27,8 +27,8 @@
   },
   "dependencies": {
     "@element-plus/icons-vue": "^2.3.2",
-    "axios": "^1.11.0",
-    "caniuse-lite": "^1.0.30001741",
+    "axios": "^1.12.2",
+    "caniuse-lite": "^1.0.30001743",
     "clipboard": "^2.0.11",
     "core-js": "^3.45.1",
     "dayjs": "^1.11.18",
@@ -52,8 +52,8 @@
   "devDependencies": {
     "@babel/core": "^7.28.4",
     "@babel/preset-env": "^7.28.3",
-    "@rspack/cli": "^1.5.3",
-    "@rspack/core": "^1.5.3",
+    "@rspack/cli": "^1.5.4",
+    "@rspack/core": "^1.5.4",
     "@rspack/dev-server": "^1.1.4",
     "@vue/compiler-sfc": "^3.5.21",
     "archiver": "^7.0.1",
