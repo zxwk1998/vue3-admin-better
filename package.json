@@ -28,9 +28,9 @@
   "dependencies": {
     "@element-plus/icons-vue": "^2.3.2",
     "axios": "^1.12.2",
-    "caniuse-lite": "^1.0.30001748",
+    "caniuse-lite": "^1.0.30001750",
     "clipboard": "^2.0.11",
-    "core-js": "^3.45.1",
+    "core-js": "^3.46.0",
     "dayjs": "^1.11.18",
     "echarts": "6.0.0",
     "element-plus": "^2.11.4",
@@ -44,8 +44,8 @@
     "qs": "^6.14.0",
     "screenfull": "^6.0.2",
     "vue": "^3.5.22",
-    "vue-echarts": "^8.0.0",
-    "vue-router": "^4.5.1",
+    "vue-echarts": "^8.0.1",
+    "vue-router": "^4.6.2",
     "vuedraggable": "^2.24.3",
     "vuex": "^4.1.0"
   },
