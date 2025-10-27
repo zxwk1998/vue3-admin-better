@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkvue_admin_better=self.webpackChunkvue_admin_better||[]).push([["2605"],{66156:function(e,t,u){u.r(t),u.d(t,{getNoticeList:function(){return r}});var n=u(73694);function r(){return(0,n.default)({url:"https://api.vuejs-core.cn/getNotice",method:"get"})}}}]);
