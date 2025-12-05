@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkvue3_admin_better=self.webpackChunkvue3_admin_better||[]).push([["4899"],{78462:function(e,t,n){e.exports=n.p+"static/404..png"}}]);

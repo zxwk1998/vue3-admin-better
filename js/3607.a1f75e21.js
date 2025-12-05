@@ -1,1 +1,0 @@
-(self.webpackChunkvue_admin_better=self.webpackChunkvue_admin_better||[]).push([["3607"],{24810:function(e,t,n){let{setting:s,theme:u,network:a}=n(2879);e.exports=Object.assign({},s,u,a)}}]);
