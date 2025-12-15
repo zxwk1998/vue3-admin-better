@@ -10,8 +10,8 @@
     "build:zip": "rimraf dist && node --no-deprecation rspack.js build && node build-zip.cjs",
     "print-info": "node -e \"require('./layouts').donationConsole()\"",
     "clear": "rimraf node_modules&&npm install  --registry=--registry=https://registry.npmmirror.com",
-    "update": "ncu -u --reject chalk,sass,sass-loader --registry=https://registry.npmmirror.com&&pnpm i",
-    "module:update": "ncu -u --reject chalk,sass,sass-loader --registry=https://registry.npmmirror.com&&pnpm i",
+    "update": "ncu -u --reject chalk,sass,sass-loader --registry=https://registry.npmmirror.com&&pnpm i --no-frozen-lockfile",
+    "module:update": "ncu -u --reject chalk,sass,sass-loader --registry=https://registry.npmmirror.com&&pnpm i --no-frozen-lockfile",
     "push": "start ./push.sh"
   },
   "repository": {
@@ -46,7 +46,7 @@
     "screenfull": "^6.0.2",
     "vue": "^3.5.25",
     "vue-echarts": "^8.0.1",
-    "vue-router": "^4.6.3",
+    "vue-router": "^4.6.4",
     "vuedraggable": "^2.24.3",
     "vuex": "^4.1.0"
   },
