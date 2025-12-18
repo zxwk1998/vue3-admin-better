@@ -53,8 +53,8 @@
   "devDependencies": {
     "@babel/core": "^7.28.5",
     "@babel/preset-env": "^7.28.5",
-    "@rspack/cli": "^1.6.7",
-    "@rspack/core": "^1.6.7",
+    "@rspack/cli": "^1.6.8",
+    "@rspack/core": "^1.6.8",
     "@rspack/dev-server": "^1.1.4",
     "@vue/compiler-sfc": "^3.5.25",
     "archiver": "^7.0.1",
