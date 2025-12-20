@@ -65,7 +65,7 @@
 <table>
 <tr>
 <td>
-<img width="200px" src="https://gcore.jsdelivr.net/gh/zxwk1998/image/mynb.jpg">
+<img width="200px" src="src/assets/mynb.jpg">
 </td>
 </tr>
 </table>
