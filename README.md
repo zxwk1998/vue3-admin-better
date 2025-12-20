@@ -65,13 +65,7 @@
 <table>
 <tr>
 <td>
-<img width="200px" src="https://gcore.jsdelivr.net/gh/zxwk1998/image/zfb_kf.jpg">
-</td>
-<td>
-<img width="200px" src="https://gcore.jsdelivr.net/gh/zxwk1998/image/qq_group/vab-2.jpg">
-</td>
-<td>
-<img width="200px" src="https://gcore.jsdelivr.net/gh/zxwk1998/image/qq_group/vab-3.jpg">
+<img width="200px" src="https://gcore.jsdelivr.net/gh/zxwk1998/image/mynb.jpg">
 </td>
 </tr>
 </table>
