@@ -2,12 +2,7 @@
   <img width="200" src="https://assets.rspack.rs/rspack/rspack-logo.svg"/>
   <h1>Vue Admin Better + </h1>
   <p>拒绝过度封装，去除等待时间，让项目回归纯粹，让开发变得简单</p>
-  <p>致力于成为开源社区中运行速度最快、打包等待时间最短、上手难度最低的中后台前端框架</p>
 </div>
-
-[![stars](https://img.shields.io/github/stars/zxwk1998/vue-admin-better?style=flat-square&logo=GitHub)](https://github.com/zxwk1998/vue-admin-better)
-[![star](https://gitee.com/chu1204505056/vue-admin-better/badge/star.svg?theme=gray)](https://gitee.com/chu1204505056/vue-admin-better)
-[![license](https://img.shields.io/github/license/zxwk1998/vue-admin-better?style=flat-square)](https://en.wikipedia.org/wiki/MIT_License)
 
 ---
 
@@ -95,35 +90,6 @@ npm run dev
 
 ```
 
-## 🤝 友情链接
-
-- [OPSLI 基于 vue-admin-better 开源版的最佳实践](https://github.com/hiparker/opsli-boot)
-- [uView uni-app 生态最优秀的 UI 框架](https://github.com/YanxinNet/uView/)
-- [form-generator Element 表单设计代码生成器](https://github.com/JakHuang/form-generator/)
-- [wangEditor 国产最强开源富文本编辑](https://github.com/wangeditor-team/wangEditor)
-
-## 🏆 框架杰出贡献者
-
-<a href="https://github.com/fwfmiao" target="_blank">
-  <img width="50px" style="border-radius:999px" src="https://avatars.githubusercontent.com/u/29328241?s=50"/>
-</a>
-<a href="https://github.com/buuing" target="_blank">
-  <img width="50px" style="border-radius:999px" src="https://avatars.githubusercontent.com/u/36689704?s=50"/>
-</a>
-<a href="https://github.com/hipi" target="_blank">
-  <img width="50px" style="border-radius:999px" src="https://avatars.githubusercontent.com/u/22478003?s=50"/>
-</a>
-<a href="https://github.com/hdtopku" target="_blank">
-  <img width="50px" style="border-radius:999px" src="https://avatars.githubusercontent.com/u/14859466?s=50"/>
-</a>
-<a href="https://github.com/shaonialife" target="_blank">
-  <img width="50px" style="border-radius:999px" src="https://avatars.githubusercontent.com/u/16135960?s=50"/>
-</a>
-<a href="https://github.com/1511578084" target="_blank">
-  <img width="50px" style="border-radius:999px" src="https://avatars.githubusercontent.com/u/24790218?s=50"/>
-</a>
-<a href="https://github.com/Arooba-git" target="_blank">
-  <img width="50px" style="border-radius:999px" src="https://avatars.githubusercontent.com/u/56495631?s=50"/>
 </a>
 
 ## 🌟 优势亮点
