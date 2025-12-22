@@ -10,7 +10,7 @@
 
 ---
 
-## 🚀 2025 全新启程
+## 🚀 2026 全新启程
 
 - ⚡️ 项目运行速度提升 10-15 倍，打包速度提升 20-30 倍
 - 🕒 整体构建时间控制在 5 秒以内，带来飞一般的开发体验
@@ -31,10 +31,11 @@
 
 - [🎉 Admin Better - github 实时部署 （vue2.x + element-ui 免费商用，支持 PC、平板、手机）](https://zxwk1998.github.io/vue-admin-better/)
 - [🎉 Admin Better （vue2.x + element-ui 免费商用，支持 PC、平板、手机）](https://vuejs-core.cn/vue-admin-better)
-- [🎉 Admin Better （vue3.x + element-plus 免费商用，支持 PC、平板、手机）](https://vuejs-core.cn/vue3-admin-better)
+- [🎉 Admin Better Vue3 - github 实时部署 （vue2.x + element-ui 免费商用，支持 PC、平板、手机）](https://zxwk1998.github.io/vue3-admin-better/)
+- [🎉 Admin Better Vue3 （vue3.x + element-plus 免费商用，支持 PC、平板、手机）](https://vuejs-core.cn/vue3-admin-better)
 - [⚡️ Admin Arco （vue3.x + vite7.x + arco2.x 免费商用，支持 PC）](https://vuejs-core.cn/vue-admin-arco/)
 
-### 💰 FF 版演示
+### 💰 商业版演示
 
 - [🚀 Admin Pro （vue2.x + element-ui 2.x 支持 PC、平板、手机）](https://vuejs-core.cn/admin-pro/)
 - [🚀 Admin Plus （vue3.x + element-plus 2.x 支持 PC、平板、手机）](https://vuejs-core.cn/admin-plus/)
@@ -93,6 +94,10 @@ pnpm i --registry=http://mirrors.cloud.tencent.com/npm/
 npm run dev
 
 ```
+
+## 🍻 前端讨论 QQ 群
+
+- [点击加入](https://vuejs-core.cn/vue-admin-better/#/donate)
 
 ## 🌟 优势亮点
 
