@@ -1,8 +1,12 @@
 <div align="center">
   <img width="200" src="https://assets.rspack.rs/rspack/rspack-logo.svg"/>
-  <h1>Vue Admin Better + </h1>
+  <h1>Vue Admin Better</h1>
   <p>拒绝过度封装，去除等待时间，让项目回归纯粹，让开发变得简单</p>
 </div>
+
+[![stars](https://img.shields.io/github/stars/zxwk1998/vue-admin-better?style=flat-square&logo=GitHub)](https://github.com/zxwk1998/vue-admin-better)
+[![star](https://gitee.com/chu1204505056/vue-admin-better/badge/star.svg?theme=gray)](https://gitee.com/chu1204505056/vue-admin-better)
+[![license](https://img.shields.io/github/license/zxwk1998/vue-admin-better?style=flat-square)](https://en.wikipedia.org/wiki/MIT_License)
 
 ---
 
@@ -25,16 +29,16 @@
 
 ### 💡 社区版演示
 
-- [🎉 Vue Admin Better - github 实时部署 （vue2.x + element-ui 免费商用，支持 PC、平板、手机）](https://zxwk1998.github.io/vue-admin-better/)
-- [🎉 Vue Admin Better （vue2.x + element-ui 免费商用，支持 PC、平板、手机）](https://vuejs-core.cn/vue-admin-better)
-- [🎉 Vue3 Admin Better （vue3.x + element-plus 免费商用，支持 PC、平板、手机）](https://vuejs-core.cn/vue3-admin-better)
-- [⚡️ Vue Admin Arco （vue3.x + vite7.x + arco2.x 免费商用，支持 PC）](https://vuejs-core.cn/vue-admin-arco/)
+- [🎉 Admin Better - github 实时部署 （vue2.x + element-ui 免费商用，支持 PC、平板、手机）](https://zxwk1998.github.io/vue-admin-better/)
+- [🎉 Admin Better （vue2.x + element-ui 免费商用，支持 PC、平板、手机）](https://vuejs-core.cn/vue-admin-better)
+- [🎉 Admin Better （vue3.x + element-plus 免费商用，支持 PC、平板、手机）](https://vuejs-core.cn/vue3-admin-better)
+- [⚡️ Admin Arco （vue3.x + vite7.x + arco2.x 免费商用，支持 PC）](https://vuejs-core.cn/vue-admin-arco/)
 
 ### 💰 FF 版演示
 
-- [🚀 Vue Admin Pro （vue2.x + element-ui 2.x 支持 PC、平板、手机）](https://vuejs-core.cn/admin-pro/)
-- [🚀 Vue Admin Plus （vue3.x + element-plus 2.x 支持 PC、平板、手机）](https://vuejs-core.cn/admin-plus/)
-- [🚀 Vue Shop Vite （vue3.x + vite7.x + element-plus 2.x 支持 PC、平板、手机）](https://vuejs-core.cn/shop-vite/)
+- [🚀 Admin Pro （vue2.x + element-ui 2.x 支持 PC、平板、手机）](https://vuejs-core.cn/admin-pro/)
+- [🚀 Admin Plus （vue3.x + element-plus 2.x 支持 PC、平板、手机）](https://vuejs-core.cn/admin-plus/)
+- [🚀 Shop Vite （vue3.x + vite7.x + element-plus 2.x 支持 PC、平板、手机）](https://vuejs-core.cn/shop-vite/)
 
 ## 🌱 Vue 2.x (Element UI) - 当前仓库
 
@@ -90,8 +94,6 @@ npm run dev
 
 ```
 
-</a>
-
 ## 🌟 优势亮点
 
 ### 主要优势:
@@ -130,6 +132,6 @@ npm run dev
 
 ![img](https://gcore.jsdelivr.net/gh/zxwk1998/image/vip/flow.drawio.png)
 
-## 📄 商用注意事项
+## 📄 vue-admin-better 开源版商用注意事项
 
 开源版本可免费用于商业用途，如果方便就留个 Star 吧
