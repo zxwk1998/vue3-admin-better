@@ -34,7 +34,7 @@
     "core-js": "^3.47.0",
     "dayjs": "^1.11.19",
     "echarts": "6.0.0",
-    "element-plus": "^2.13.0",
+    "element-plus": "^2.13.1",
     "jsencrypt": "^3.5.4",
     "layouts": "file:layouts",
     "lodash": "^4.17.21",
