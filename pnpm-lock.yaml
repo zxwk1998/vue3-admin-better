@@ -27,8 +27,8 @@ dependencies:
     specifier: 6.0.0
     version: 6.0.0
   element-plus:
-    specifier: ^2.13.1
-    version: 2.13.1(vue@3.5.27)
+    specifier: ^2.13.2
+    version: 2.13.2(vue@3.5.27)
   jsencrypt:
     specifier: ^3.5.4
     version: 3.5.4
@@ -63,8 +63,8 @@ dependencies:
     specifier: ^8.0.1
     version: 8.0.1(echarts@6.0.0)(vue@3.5.27)
   vue-router:
-    specifier: ^5.0.0
-    version: 5.0.0(@vue/compiler-sfc@3.5.27)(vue@3.5.27)
+    specifier: ^5.0.1
+    version: 5.0.1(@vue/compiler-sfc@3.5.27)(vue@3.5.27)
   vuedraggable:
     specifier: ^2.24.3
     version: 2.24.3
@@ -2842,8 +2842,8 @@ packages:
     resolution: {integrity: sha512-0Drusm6MVRXSOJpGbaSVgcQsuB4hEkMpHXaVstcPmhu5LIedxs1xNK/nIxmQIU/RPC0+1/o0AVZfBTkTNJOdUw==}
     dev: true
 
-  /element-plus@2.13.1(vue@3.5.27):
-    resolution: {integrity: sha512-eG4BDBGdAsUGN6URH1PixzZb0ngdapLivIk1meghS1uEueLvQ3aljSKrCt5x6sYb6mUk8eGtzTQFgsPmLavQcA==}
+  /element-plus@2.13.2(vue@3.5.27):
+    resolution: {integrity: sha512-Zjzm1NnFXGhV4LYZ6Ze9skPlYi2B4KAmN18FL63A3PZcjhDfroHwhtM6RE8BonlOPHXUnPQynH0BgaoEfvhrGw==}
     peerDependencies:
       vue: ^3.3.0
     dependencies:
@@ -4862,8 +4862,8 @@ packages:
       webpack: 5.103.0
     dev: true
 
-  /vue-router@5.0.0(@vue/compiler-sfc@3.5.27)(vue@3.5.27):
-    resolution: {integrity: sha512-xWHlps4o1ScODWqvyapl0v1uGy0g7ozmsTSO/dguyGb/9RL6oSU2HfN/8oMXnoFOH1BuTaAkbiOz4OWdkfjcZg==}
+  /vue-router@5.0.1(@vue/compiler-sfc@3.5.27)(vue@3.5.27):
+    resolution: {integrity: sha512-t+lFugGXMdaq8lbn+vXG4j2H9UlsP205Tszz1wcDk9FyxqItBzcdJQ06IhpkQ2mHOfiTOHZeBshkskzPzHJkCw==}
     peerDependencies:
       '@pinia/colada': ^0.18.1
       '@vue/compiler-sfc': ^3.5.17
