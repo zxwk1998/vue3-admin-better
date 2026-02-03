@@ -29,7 +29,7 @@
   "dependencies": {
     "@element-plus/icons-vue": "^2.3.2",
     "axios": "^1.13.4",
-    "caniuse-lite": "^1.0.30001766",
+    "caniuse-lite": "^1.0.30001767",
     "clipboard": "^2.0.11",
     "core-js": "^3.48.0",
     "dayjs": "^1.11.19",
@@ -46,7 +46,7 @@
     "screenfull": "^6.0.2",
     "vue": "^3.5.27",
     "vue-echarts": "^8.0.1",
-    "vue-router": "^5.0.1",
+    "vue-router": "^5.0.2",
     "vuedraggable": "^2.24.3",
     "vuex": "^4.1.0"
   },
@@ -63,7 +63,7 @@
     "chalk": "4.1.2",
     "chokidar": "^5.0.0",
     "css-loader": "^7.1.3",
-    "html-rspack-plugin": "^6.1.6",
+    "html-rspack-plugin": "^6.1.7",
     "path-browserify": "^1.0.1",
     "rimraf": "^6.1.2",
     "sass": "1.71.1",
