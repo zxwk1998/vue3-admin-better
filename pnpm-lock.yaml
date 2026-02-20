@@ -63,8 +63,8 @@ dependencies:
     specifier: ^8.0.1
     version: 8.0.1(echarts@6.0.0)(vue@3.5.28)
   vue-router:
-    specifier: ^5.0.2
-    version: 5.0.2(@vue/compiler-sfc@3.5.28)(vue@3.5.28)
+    specifier: ^5.0.3
+    version: 5.0.3(@vue/compiler-sfc@3.5.28)(vue@3.5.28)
   vuedraggable:
     specifier: ^2.24.3
     version: 2.24.3
@@ -1875,16 +1875,16 @@ packages:
     resolution: {integrity: sha512-sGhTPMuXqZ1rVOk32RylztWkfXTRhuS7vgAKv0zjqk8gbsHkJ7xfFf+jbySxt7tWObEJwyKaHMikV/WGDiQm8g==}
     dev: false
 
-  /@vue/devtools-api@8.0.5:
-    resolution: {integrity: sha512-DgVcW8H/Nral7LgZEecYFFYXnAvGuN9C3L3DtWekAncFBedBczpNW8iHKExfaM559Zm8wQWrwtYZ9lXthEHtDw==}
+  /@vue/devtools-api@8.0.6:
+    resolution: {integrity: sha512-+lGBI+WTvJmnU2FZqHhEB8J1DXcvNlDeEalz77iYgOdY1jTj1ipSBaKj3sRhYcy+kqA8v/BSuvOz1XJucfQmUA==}
     dependencies:
-      '@vue/devtools-kit': 8.0.5
+      '@vue/devtools-kit': 8.0.6
     dev: false
 
-  /@vue/devtools-kit@8.0.5:
-    resolution: {integrity: sha512-q2VV6x1U3KJMTQPUlRMyWEKVbcHuxhqJdSr6Jtjz5uAThAIrfJ6WVZdGZm5cuO63ZnSUz0RCsVwiUUb0mDV0Yg==}
+  /@vue/devtools-kit@8.0.6:
+    resolution: {integrity: sha512-9zXZPTJW72OteDXeSa5RVML3zWDCRcO5t77aJqSs228mdopYj5AiTpihozbsfFJ0IodfNs7pSgOGO3qfCuxDtw==}
     dependencies:
-      '@vue/devtools-shared': 8.0.5
+      '@vue/devtools-shared': 8.0.6
       birpc: 2.9.0
       hookable: 5.5.3
       mitt: 3.0.1
@@ -1893,8 +1893,8 @@ packages:
       superjson: 2.2.6
     dev: false
 
-  /@vue/devtools-shared@8.0.5:
-    resolution: {integrity: sha512-bRLn6/spxpmgLk+iwOrR29KrYnJjG9DGpHGkDFG82UM21ZpJ39ztUT9OXX3g+usW7/b2z+h46I9ZiYyB07XMXg==}
+  /@vue/devtools-shared@8.0.6:
+    resolution: {integrity: sha512-Pp1JylTqlgMJvxW6MGyfTF8vGvlBSCAvMFaDCYa82Mgw7TT5eE5kkHgDvmOGHWeJE4zIDfCpCxHapsK2LtIAJg==}
     dependencies:
       rfdc: 1.4.1
     dev: false
@@ -4841,8 +4841,8 @@ packages:
       webpack: 5.103.0
     dev: true
 
-  /vue-router@5.0.2(@vue/compiler-sfc@3.5.28)(vue@3.5.28):
-    resolution: {integrity: sha512-YFhwaE5c5JcJpNB1arpkl4/GnO32wiUWRB+OEj1T0DlDxEZoOfbltl2xEwktNU/9o1sGcGburIXSpbLpPFe/6w==}
+  /vue-router@5.0.3(@vue/compiler-sfc@3.5.28)(vue@3.5.28):
+    resolution: {integrity: sha512-nG1c7aAFac7NYj8Hluo68WyWfc41xkEjaR0ViLHCa3oDvTQ/nIuLJlXJX1NUPw/DXzx/8+OKMng045HHQKQKWw==}
     peerDependencies:
       '@pinia/colada': '>=0.21.2'
       '@vue/compiler-sfc': ^3.5.17
@@ -4859,7 +4859,7 @@ packages:
       '@babel/generator': 7.29.0
       '@vue-macros/common': 3.1.2(vue@3.5.28)
       '@vue/compiler-sfc': 3.5.28
-      '@vue/devtools-api': 8.0.5
+      '@vue/devtools-api': 8.0.6
       ast-walker-scope: 0.8.3
       chokidar: 5.0.0
       json5: 2.2.3
