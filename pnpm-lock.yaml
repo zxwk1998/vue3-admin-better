@@ -9,8 +9,8 @@ dependencies:
     specifier: ^2.3.2
     version: 2.3.2(vue@3.5.29)
   axios:
-    specifier: ^1.13.5
-    version: 1.13.5
+    specifier: ^1.13.6
+    version: 1.13.6
   caniuse-lite:
     specifier: ^1.0.30001774
     version: 1.0.30001774
@@ -2231,8 +2231,8 @@ packages:
     resolution: {integrity: sha512-Oei9OH4tRh0YqU3GxhX79dM/mwVgvbZJaSNaRk+bshkj0S5cfHcgYakreBjrHwatXKbz+IoIdYLxrKim2MjW0Q==}
     dev: false
 
-  /axios@1.13.5:
-    resolution: {integrity: sha512-cz4ur7Vb0xS4/KUN0tPWe44eqxrIu31me+fbang3ijiNscE129POzipJJA6zniq2C/Z6sJCjMimjS8Lc/GAs8Q==}
+  /axios@1.13.6:
+    resolution: {integrity: sha512-ChTCHMouEe2kn713WHbQGcuYrr6fXTBiu460OTwWrWob16g1bXn4vtz07Ope7ewMozJAnEquLk5lWQWtBig9DQ==}
     dependencies:
       follow-redirects: 1.15.11
       form-data: 4.0.5
