@@ -29,7 +29,7 @@
   "dependencies": {
     "@element-plus/icons-vue": "^2.3.2",
     "axios": "^1.13.6",
-    "caniuse-lite": "^1.0.30001775",
+    "caniuse-lite": "^1.0.30001776",
     "clipboard": "^2.0.11",
     "core-js": "^3.48.0",
     "dayjs": "^1.11.19",
@@ -53,8 +53,8 @@
   "devDependencies": {
     "@babel/core": "^7.29.0",
     "@babel/preset-env": "^7.29.0",
-    "@rspack/cli": "^1.7.6",
-    "@rspack/core": "^1.7.6",
+    "@rspack/cli": "^1.7.7",
+    "@rspack/core": "^1.7.7",
     "@rspack/dev-server": "^1.2.1",
     "@vue/compiler-sfc": "^3.5.29",
     "archiver": "^7.0.1",
