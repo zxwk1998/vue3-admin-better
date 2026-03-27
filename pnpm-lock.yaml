@@ -110,8 +110,8 @@ devDependencies:
     specifier: ^7.1.4
     version: 7.1.4(@rspack/core@1.7.10)(webpack@5.103.0)
   html-rspack-plugin:
-    specifier: ^6.1.7
-    version: 6.1.7(@rspack/core@1.7.10)
+    specifier: ^6.1.8
+    version: 6.1.8(@rspack/core@1.7.10)
   path-browserify:
     specifier: ^1.0.1
     version: 1.0.1
@@ -3242,9 +3242,9 @@ packages:
     resolution: {integrity: sha512-H2iMtd0I4Mt5eYiapRdIDjp+XzelXQ0tFE4JS7YFwFevXXMmOp9myNrUvCg0D6ws8iqkRPBfKHgbwig1SmlLfg==}
     dev: true
 
-  /html-rspack-plugin@6.1.7(@rspack/core@1.7.10):
-    resolution: {integrity: sha512-T7vDfK/DChMvgy4ACyY26q2nKRjKlq7leysYu2Bq58/FXFbTsFDfWwKn+zd+0Yyf+wCaBj+umveUO+1MvHBRdQ==}
-    engines: {node: '>=16.0.0'}
+  /html-rspack-plugin@6.1.8(@rspack/core@1.7.10):
+    resolution: {integrity: sha512-lvcM0D7Bx0V4KI3Ixi5TDoAejtaj0/cGm2NczwsCTvk76rZt2DDIJwAkwfBQkK0j1PNeNTdvvUc1Zekamc8gpQ==}
+    engines: {node: '>=16.20.2'}
     peerDependencies:
       '@rspack/core': ^1.0.0 || ^2.0.0-0
     peerDependenciesMeta:
