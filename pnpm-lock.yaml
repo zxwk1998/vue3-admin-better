@@ -27,8 +27,8 @@ dependencies:
     specifier: 6.0.0
     version: 6.0.0
   element-plus:
-    specifier: ^2.13.6
-    version: 2.13.6(vue@3.5.32)
+    specifier: ^2.13.7
+    version: 2.13.7(vue@3.5.32)
   jsencrypt:
     specifier: ^3.5.4
     version: 3.5.4
@@ -2791,8 +2791,8 @@ packages:
     resolution: {integrity: sha512-0Drusm6MVRXSOJpGbaSVgcQsuB4hEkMpHXaVstcPmhu5LIedxs1xNK/nIxmQIU/RPC0+1/o0AVZfBTkTNJOdUw==}
     dev: true
 
-  /element-plus@2.13.6(vue@3.5.32):
-    resolution: {integrity: sha512-XHgwXr8Fjz6i+6BaqFhAbae/dJbG7bBAAlHrY3pWL7dpj+JcqcOyKYt4Oy5KP86FQwS1k4uIZDjCx2FyUR5lDg==}
+  /element-plus@2.13.7(vue@3.5.32):
+    resolution: {integrity: sha512-XdHATFZOyzVFL1DaHQ90IOJQSg9UnSAV+bhDW+YB5UoZ0Hxs50mwqjqfwXkuwpSag+VXXizVcErBR6Movo5daw==}
     peerDependencies:
       vue: ^3.3.0
     dependencies:
