@@ -11,13 +11,13 @@ const setting = {
   // 进行编译的依赖
   transpileDependencies: [],
   //标题 （包括初次加载雪花屏的标题 页面的标题 浏览器的标题）
-  title: "Vue3 Admin Better",
+  title: "民宿管理系统",
   //简写
-  abbreviation: "vab",
+  abbreviation: "homestay",
   //开发环境端口号
   devPort: "8091",
   //copyright
-  copyright: "zxwk1998",
+  copyright: "民宿管理系统",
   //是否显示页面底部自定义版权信息
   footerCopyright: true,
   //是否显示顶部进度条
@@ -33,13 +33,13 @@ const setting = {
   //token名称
   tokenName: "accessToken",
   //token在localStorage、sessionStorage存储的key的名称
-  tokenTableName: "vue-admin-better-2024",
+  tokenTableName: "homestay-admin-2026",
   //token存储位置localStorage sessionStorage
   storage: "localStorage",
   //token失效回退到登录页时是否记录本次的路由
   recordRoute: true,
   //是否显示logo，不显示时设置false，显示时请填写remixIcon图标名称，暂时只支持设置remixIcon
-  logo: "vuejs-fill",
+  logo: "home-5-fill",
   //是否显示在页面高亮错误
   errorLog: ["development"],
   //是否开启登录拦截
@@ -49,7 +49,7 @@ const setting = {
   //vertical布局时是否只保持一个子菜单的展开
   uniqueOpened: false,
   //vertical布局时默认展开的菜单path，使用逗号隔开建议只展开一个
-  defaultOopeneds: ["/vab"],
+  defaultOopeneds: ["/homestay"],
   //需要加loading层的请求，防止重复提交
   debounce: ["doEdit"],
   //需要自动注入并加载的模块
@@ -57,6 +57,6 @@ const setting = {
   //代码生成机生成在view下的文件夹名称
   templateFolder: "project",
   //是否显示终端donation打印
-  donation: true,
+  donation: false,
 };
 module.exports = setting;

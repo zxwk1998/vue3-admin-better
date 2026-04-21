@@ -71,12 +71,53 @@ export const asyncRoutes = [
   }, */
 
   {
+    path: "/homestay",
+    component: Layout,
+    redirect: "noRedirect",
+    name: "Homestay",
+    alwaysShow: true,
+    meta: { title: "民宿管理", icon: "home-5-fill", defaultOpen: true },
+    children: [
+      {
+        path: "room",
+        name: "Room",
+        component: () => import("@/views/homestay/room/index.vue"),
+        meta: {
+          title: "房源管理",
+          icon: "hotel-fill",
+          permissions: ["admin"],
+        },
+      },
+      {
+        path: "order",
+        name: "HomestayOrder",
+        component: () => import("@/views/homestay/order/index.vue"),
+        meta: {
+          title: "订单管理",
+          icon: "file-list-2-fill",
+          permissions: ["admin"],
+        },
+      },
+      {
+        path: "roomType",
+        name: "RoomType",
+        component: () => import("@/views/homestay/roomType/index.vue"),
+        meta: {
+          title: "房型分类",
+          icon: "list-check",
+          permissions: ["admin"],
+        },
+      },
+    ],
+  },
+
+  {
     path: "/vab",
     component: Layout,
     redirect: "noRedirect",
     name: "Vab",
     alwaysShow: true,
-    meta: { title: "组件", icon: "box-open", defaultOpen: true },
+    meta: { title: "组件示例", icon: "box-open" },
     children: [
       {
         path: "vue3Demo",
