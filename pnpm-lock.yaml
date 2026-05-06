@@ -77,8 +77,8 @@ devDependencies:
     specifier: ^7.29.0
     version: 7.29.0
   '@babel/preset-env':
-    specifier: ^7.29.3
-    version: 7.29.3(@babel/core@7.29.0)
+    specifier: ^7.29.5
+    version: 7.29.5(@babel/core@7.29.0)
   '@rspack/cli':
     specifier: ^2.0.1
     version: 2.0.1(@rspack/core@2.0.1)(@rspack/dev-server@2.0.1)
@@ -788,8 +788,8 @@ packages:
       - supports-color
     dev: true
 
-  /@babel/plugin-transform-modules-systemjs@7.29.0(@babel/core@7.29.0):
-    resolution: {integrity: sha512-PrujnVFbOdUpw4UHiVwKvKRLMMic8+eC0CuNlxjsyZUiBjhFdPsewdXCkveh2KqBA9/waD0W1b4hXSOBQJezpQ==}
+  /@babel/plugin-transform-modules-systemjs@7.29.4(@babel/core@7.29.0):
+    resolution: {integrity: sha512-N7QmZ0xRZfjHOfZeQLJjwgX2zS9pdGHSVl/cjSGlo4dXMqvurfxXDMKY4RqEKzPozV78VMcd0lxyG13mlbKc4w==}
     engines: {node: '>=6.9.0'}
     peerDependencies:
       '@babel/core': ^7.0.0-0
@@ -1083,8 +1083,8 @@ packages:
       '@babel/helper-plugin-utils': 7.28.6
     dev: true
 
-  /@babel/preset-env@7.29.3(@babel/core@7.29.0):
-    resolution: {integrity: sha512-ySZypNLAIH1ClygLDQzVMoGQRViATnkHkYYV6TcNDz+8+jwZCdsguGvsb3EY5d9wyWyhmF1iSuFM0Yh5XPnqSA==}
+  /@babel/preset-env@7.29.5(@babel/core@7.29.0):
+    resolution: {integrity: sha512-/69t2aEzGKHD76DyLbHysF/QH2LJOB8iFnYO37unDTKBTubzcMRv0f3H5EiN1Q6ajOd/eB7dAInF0qdFVS06kA==}
     engines: {node: '>=6.9.0'}
     peerDependencies:
       '@babel/core': ^7.0.0-0
@@ -1129,7 +1129,7 @@ packages:
       '@babel/plugin-transform-member-expression-literals': 7.27.1(@babel/core@7.29.0)
       '@babel/plugin-transform-modules-amd': 7.27.1(@babel/core@7.29.0)
       '@babel/plugin-transform-modules-commonjs': 7.28.6(@babel/core@7.29.0)
-      '@babel/plugin-transform-modules-systemjs': 7.29.0(@babel/core@7.29.0)
+      '@babel/plugin-transform-modules-systemjs': 7.29.4(@babel/core@7.29.0)
       '@babel/plugin-transform-modules-umd': 7.27.1(@babel/core@7.29.0)
       '@babel/plugin-transform-named-capturing-groups-regex': 7.29.0(@babel/core@7.29.0)
       '@babel/plugin-transform-new-target': 7.27.1(@babel/core@7.29.0)
