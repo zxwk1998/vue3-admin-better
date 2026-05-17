@@ -51,8 +51,8 @@ dependencies:
     specifier: ^0.2.0
     version: 0.2.0
   qs:
-    specifier: ^6.15.1
-    version: 6.15.1
+    specifier: ^6.15.2
+    version: 6.15.2
   screenfull:
     specifier: ^6.0.2
     version: 6.0.2
@@ -2048,7 +2048,7 @@ packages:
       http-errors: 2.0.1
       iconv-lite: 0.7.1
       on-finished: 2.4.1
-      qs: 6.15.1
+      qs: 6.15.2
       raw-body: 3.0.2
       type-is: 2.0.1
     transitivePeerDependencies:
@@ -3132,8 +3132,8 @@ packages:
     engines: {node: '>=10'}
     dev: false
 
-  /qs@6.15.1:
-    resolution: {integrity: sha512-6YHEFRL9mfgcAvql/XhwTvf5jKcOiiupt2FiJxHkiX1z4j7WL8J/jRHYLluORvc1XxB5rV20KoeK00gVJamspg==}
+  /qs@6.15.2:
+    resolution: {integrity: sha512-Rzq0KEyX/w/tEybncDgdkZrJgVUsUMk3xjh3t5bv3S1HTAtg+uOYt72+ZfwiQwKdysThkTBdL/rTi6HDmX9Ddw==}
     engines: {node: '>=0.6'}
     dependencies:
       side-channel: 1.1.0
