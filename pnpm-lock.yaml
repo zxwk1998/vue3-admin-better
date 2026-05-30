@@ -27,8 +27,8 @@ dependencies:
     specifier: 6.1.0
     version: 6.1.0
   element-plus:
-    specifier: ^2.14.0
-    version: 2.14.0(vue@3.5.35)
+    specifier: ^2.14.1
+    version: 2.14.1(vue@3.5.35)
   jsencrypt:
     specifier: ^3.5.4
     version: 3.5.4
@@ -81,13 +81,13 @@ devDependencies:
     version: 7.29.7(@babel/core@7.29.7)
   '@rspack/cli':
     specifier: ^2.0.5
-    version: 2.0.5(@rspack/core@2.0.5)(@rspack/dev-server@2.0.2)
+    version: 2.0.5(@rspack/core@2.0.5)(@rspack/dev-server@2.0.3)
   '@rspack/core':
     specifier: ^2.0.5
     version: 2.0.5
   '@rspack/dev-server':
-    specifier: ^2.0.2
-    version: 2.0.2(@rspack/core@2.0.5)
+    specifier: ^2.0.3
+    version: 2.0.3(@rspack/core@2.0.5)
   '@vue/compiler-sfc':
     specifier: ^3.5.35
     version: 3.5.35
@@ -1295,21 +1295,21 @@ packages:
     dev: true
     optional: true
 
-  /@floating-ui/core@1.7.3:
-    resolution: {integrity: sha512-sGnvb5dmrJaKEZ+LDIpguvdX3bDlEllmv4/ClQ9awcmCZrlx5jQyyMWFM5kBI+EyNOCDDiKk8il0zeuX3Zlg/w==}
+  /@floating-ui/core@1.7.5:
+    resolution: {integrity: sha512-1Ih4WTWyw0+lKyFMcBHGbb5U5FtuHJuujoyyr5zTaWS5EYMeT6Jb2AuDeftsCsEuchO+mM2ij5+q9crhydzLhQ==}
     dependencies:
-      '@floating-ui/utils': 0.2.10
+      '@floating-ui/utils': 0.2.11
     dev: false
 
-  /@floating-ui/dom@1.7.4:
-    resolution: {integrity: sha512-OOchDgh4F2CchOX94cRVqhvy7b3AFb+/rQXyswmzmGakRfkMgoWVjfnLWkRirfLEfuD4ysVW16eXzwt3jHIzKA==}
+  /@floating-ui/dom@1.7.6:
+    resolution: {integrity: sha512-9gZSAI5XM36880PPMm//9dfiEngYoC6Am2izES1FF406YFsjvyBMmeJ2g4SAju3xWwtuynNRFL2s9hgxpLI5SQ==}
     dependencies:
-      '@floating-ui/core': 1.7.3
-      '@floating-ui/utils': 0.2.10
+      '@floating-ui/core': 1.7.5
+      '@floating-ui/utils': 0.2.11
     dev: false
 
-  /@floating-ui/utils@0.2.10:
-    resolution: {integrity: sha512-aGTxbpbg8/b5JfU1HXSrbH3wXZuLPJcNEcZQFMxLs3oSzgtVu6nFPkbbGGUvBcUjKV2YyB9Wxxabo+HEH9tcRQ==}
+  /@floating-ui/utils@0.2.11:
+    resolution: {integrity: sha512-RiB/yIh78pcIxl6lLMG0CgBXAZ2Y0eVHqMPYugu+9U0AeT6YBeiJpf7lbdJNIugFP5SIjwNRgo4DhR1Qxi26Gg==}
     dev: false
 
   /@isaacs/cliui@9.0.0:
@@ -1460,7 +1460,7 @@ packages:
       '@rspack/binding-win32-x64-msvc': 2.0.5
     dev: true
 
-  /@rspack/cli@2.0.5(@rspack/core@2.0.5)(@rspack/dev-server@2.0.2):
+  /@rspack/cli@2.0.5(@rspack/core@2.0.5)(@rspack/dev-server@2.0.3):
     resolution: {integrity: sha512-AAyuY/8sfegb0IcsFEhn5gLOTxy1uDmwjP49RY81PENz2pCk/7NU0zDdt0ke5wmpOH5s6IxS+Kw4aWdvl8FGpQ==}
     hasBin: true
     peerDependencies:
@@ -1471,7 +1471,7 @@ packages:
         optional: true
     dependencies:
       '@rspack/core': 2.0.5
-      '@rspack/dev-server': 2.0.2(@rspack/core@2.0.5)
+      '@rspack/dev-server': 2.0.3(@rspack/core@2.0.5)
     dev: true
 
   /@rspack/core@2.0.5:
@@ -1501,8 +1501,8 @@ packages:
       '@rspack/core': 2.0.5
     dev: true
 
-  /@rspack/dev-server@2.0.2(@rspack/core@2.0.5):
-    resolution: {integrity: sha512-gE1FdeXtTX92t/5TIzOUxKV90UuyNfMT3PlSqrkGz7E0I3SbvnmLB0ewIJUEBA/up22m55rRxEG6jK9yajYCAw==}
+  /@rspack/dev-server@2.0.3(@rspack/core@2.0.5):
+    resolution: {integrity: sha512-S29nOxXQS9o+0uGNe7SgND2dAKnte5ZTD5tiT3/B4lKbviqpXD4tbH7NZWA3hGwlSkmOIbFlysYPL1bVHuBcSg==}
     engines: {node: ^20.19.0 || >=22.12.0}
     peerDependencies:
       '@rspack/core': ^2.0.0-0
@@ -1826,26 +1826,19 @@ packages:
       event-target-shim: 5.0.1
     dev: true
 
-  /acorn-import-phases@1.0.4(acorn@8.15.0):
+  /acorn-import-phases@1.0.4(acorn@8.16.0):
     resolution: {integrity: sha512-wKmbr/DDiIXzEOiWrTTUcDm24kQ2vGfZQvM2fwg2vXqR5uW6aapr7ObPtj1th32b9u90/Pf4AItvdTh42fBmVQ==}
     engines: {node: '>=10.13.0'}
     peerDependencies:
       acorn: ^8.14.0
     dependencies:
-      acorn: 8.15.0
-    dev: true
-
-  /acorn@8.15.0:
-    resolution: {integrity: sha512-NZyJarBfL7nWwIq+FDL6Zp/yHEhePMNnnJ0y3qfieCrmNvYct8uvtiV41UvlSe6apAfk0fY1FbWx+NwfmpvtTg==}
-    engines: {node: '>=0.4.0'}
-    hasBin: true
+      acorn: 8.16.0
     dev: true
 
   /acorn@8.16.0:
     resolution: {integrity: sha512-UVJyE9MttOsBQIDKw1skb9nAwQuR5wuGD3+82K6JgJlm/Y+KI92oNsMNGZCYdDsVtRHSak0pcV5Dno5+4jh9sw==}
     engines: {node: '>=0.4.0'}
     hasBin: true
-    dev: false
 
   /agent-base@6.0.2:
     resolution: {integrity: sha512-RZNwNclF7+MS/8bDg70amg32dyeZGZxiDuQmZxKLAlQjr3jGyLx+4Kkk58UO7D2QdgFIQCovuSuZESne6RG6XQ==}
@@ -2360,14 +2353,14 @@ packages:
     resolution: {integrity: sha512-0Drusm6MVRXSOJpGbaSVgcQsuB4hEkMpHXaVstcPmhu5LIedxs1xNK/nIxmQIU/RPC0+1/o0AVZfBTkTNJOdUw==}
     dev: true
 
-  /element-plus@2.14.0(vue@3.5.35):
-    resolution: {integrity: sha512-POgH+TtoreaEKWqYYAVQyE6i8rQMEFqAEublyF29dBA5yASWPLKY6EzfeqBTr2Uv26mPss4vSrMrNPyaK7LX5w==}
+  /element-plus@2.14.1(vue@3.5.35):
+    resolution: {integrity: sha512-UFnm1+BckNi+azkKJ7L32q1uXs9ekr99Z9pWTQPeDR05jqEWUwQq51ro4kZMVrANbjknX3Z7ukCZwTi2T6Tr9A==}
     peerDependencies:
       vue: ^3.3.7
     dependencies:
       '@ctrl/tinycolor': 4.2.0
       '@element-plus/icons-vue': 2.3.2(vue@3.5.35)
-      '@floating-ui/dom': 1.7.4
+      '@floating-ui/dom': 1.7.6
       '@popperjs/core': /@sxzz/popperjs-es@2.11.8
       '@types/lodash': 4.17.24
       '@types/lodash-es': 4.17.12
@@ -2380,7 +2373,7 @@ packages:
       memoize-one: 6.0.0
       normalize-wheel-es: 1.2.0
       vue: 3.5.35
-      vue-component-type-helpers: 3.2.8
+      vue-component-type-helpers: 3.3.2
     dev: false
 
   /enhanced-resolve@5.18.4:
@@ -3538,7 +3531,7 @@ packages:
     hasBin: true
     dependencies:
       '@jridgewell/source-map': 0.3.11
-      acorn: 8.15.0
+      acorn: 8.16.0
       commander: 2.20.3
       source-map-support: 0.5.21
     dev: true
@@ -3662,8 +3655,8 @@ packages:
     resolution: {integrity: sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==}
     dev: true
 
-  /vue-component-type-helpers@3.2.8:
-    resolution: {integrity: sha512-9689efAXhN/EV86plgkL/XFiJSXhGtWPG6JDboZ+QnjlUWUUQrQ0ILKQtw4iQsuwIwu5k6Aw+JnehDe7161e7A==}
+  /vue-component-type-helpers@3.3.2:
+    resolution: {integrity: sha512-l4Z2Y34m7nFMlx8vrslJaVtXxUpzgDMSESC7TakG/c5kwjYT/do+E0NcT2/vWDzaoIhsShg/2OKwX7Q4nbzC0g==}
     dev: false
 
   /vue-echarts@8.0.1(echarts@6.1.0)(vue@3.5.35):
@@ -3804,8 +3797,8 @@ packages:
       '@webassemblyjs/ast': 1.14.1
       '@webassemblyjs/wasm-edit': 1.14.1
       '@webassemblyjs/wasm-parser': 1.14.1
-      acorn: 8.15.0
-      acorn-import-phases: 1.0.4(acorn@8.15.0)
+      acorn: 8.16.0
+      acorn-import-phases: 1.0.4(acorn@8.16.0)
       browserslist: 4.28.1
       chrome-trace-event: 1.0.4
       enhanced-resolve: 5.18.4
