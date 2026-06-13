@@ -27,8 +27,8 @@ dependencies:
     specifier: 6.1.0
     version: 6.1.0
   element-plus:
-    specifier: ^2.14.1
-    version: 2.14.1(vue@3.5.38)
+    specifier: ^2.14.2
+    version: 2.14.2(vue@3.5.38)
   jsencrypt:
     specifier: ^3.5.4
     version: 3.5.4
@@ -2353,8 +2353,8 @@ packages:
     resolution: {integrity: sha512-0Drusm6MVRXSOJpGbaSVgcQsuB4hEkMpHXaVstcPmhu5LIedxs1xNK/nIxmQIU/RPC0+1/o0AVZfBTkTNJOdUw==}
     dev: true
 
-  /element-plus@2.14.1(vue@3.5.38):
-    resolution: {integrity: sha512-UFnm1+BckNi+azkKJ7L32q1uXs9ekr99Z9pWTQPeDR05jqEWUwQq51ro4kZMVrANbjknX3Z7ukCZwTi2T6Tr9A==}
+  /element-plus@2.14.2(vue@3.5.38):
+    resolution: {integrity: sha512-eNH9uP3wQoNqieEIHXiNvIVv+zO5sZDU0CAZq5b0zqSN06DD0/V9xIq1R/qm3rw5k3nBTM1JvpxhCfRbaFLzDQ==}
     peerDependencies:
       vue: ^3.3.7
     dependencies:
@@ -2373,7 +2373,7 @@ packages:
       memoize-one: 6.0.0
       normalize-wheel-es: 1.2.0
       vue: 3.5.38
-      vue-component-type-helpers: 3.3.2
+      vue-component-type-helpers: 3.3.4
     dev: false
 
   /enhanced-resolve@5.18.4:
@@ -3655,8 +3655,8 @@ packages:
     resolution: {integrity: sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==}
     dev: true
 
-  /vue-component-type-helpers@3.3.2:
-    resolution: {integrity: sha512-l4Z2Y34m7nFMlx8vrslJaVtXxUpzgDMSESC7TakG/c5kwjYT/do+E0NcT2/vWDzaoIhsShg/2OKwX7Q4nbzC0g==}
+  /vue-component-type-helpers@3.3.4:
+    resolution: {integrity: sha512-joip1uZTaQR0nD23N400gIdJ7xY+WiiiMA/BCKz842gvGBknqDQAzklUvDEhqFvvrhQY8S2ZANBMu4X70VMFGw==}
     dev: false
 
   /vue-echarts@8.0.1(echarts@6.1.0)(vue@3.5.38):
