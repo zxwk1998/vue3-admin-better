@@ -51,8 +51,8 @@
     "vuex": "^4.1.0"
   },
   "devDependencies": {
-    "@babel/core": "^8.0.0",
-    "@babel/preset-env": "^8.0.0",
+    "@babel/core": "^8.0.1",
+    "@babel/preset-env": "^8.0.1",
     "@rspack/cli": "^2.0.8",
     "@rspack/core": "^2.0.8",
     "@rspack/dev-server": "^2.0.3",
