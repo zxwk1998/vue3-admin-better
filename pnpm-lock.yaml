@@ -81,13 +81,13 @@ devDependencies:
     version: 8.0.2(@babel/core@8.0.1)
   '@rspack/cli':
     specifier: ^2.0.8
-    version: 2.0.8(@rspack/core@2.0.8)(@rspack/dev-server@2.0.3)
+    version: 2.0.8(@rspack/core@2.0.8)(@rspack/dev-server@2.1.0)
   '@rspack/core':
     specifier: ^2.0.8
     version: 2.0.8
   '@rspack/dev-server':
-    specifier: ^2.0.3
-    version: 2.0.3(@rspack/core@2.0.8)
+    specifier: ^2.1.0
+    version: 2.1.0(@rspack/core@2.0.8)
   '@vue/compiler-sfc':
     specifier: ^3.5.38
     version: 3.5.38
@@ -1321,7 +1321,7 @@ packages:
       '@rspack/binding-win32-x64-msvc': 2.0.8
     dev: true
 
-  /@rspack/cli@2.0.8(@rspack/core@2.0.8)(@rspack/dev-server@2.0.3):
+  /@rspack/cli@2.0.8(@rspack/core@2.0.8)(@rspack/dev-server@2.1.0):
     resolution: {integrity: sha512-b7MrVE9kvCs8L7hhPdHR6AvQ5wyD3KeBYD+DZMynt+545rvJYnT11LVNjqQJqAYHrgBTmf+9CNPYmeJvEZesWw==}
     hasBin: true
     peerDependencies:
@@ -1332,7 +1332,7 @@ packages:
         optional: true
     dependencies:
       '@rspack/core': 2.0.8
-      '@rspack/dev-server': 2.0.3(@rspack/core@2.0.8)
+      '@rspack/dev-server': 2.1.0(@rspack/core@2.0.8)
     dev: true
 
   /@rspack/core@2.0.8:
@@ -1350,11 +1350,11 @@ packages:
       '@rspack/binding': 2.0.8
     dev: true
 
-  /@rspack/dev-middleware@2.0.1(@rspack/core@2.0.8):
-    resolution: {integrity: sha512-cXSubf5/C+dvkWV2/+rGTtiZ93wSLd3OlTQhwMvsmsmGDdPlkYqIvQ+BTkOk9UCXxKIaF0DDYYmCpBeRRYJfJw==}
+  /@rspack/dev-middleware@2.0.3(@rspack/core@2.0.8):
+    resolution: {integrity: sha512-GxnGj9jy76G3eCPyZei81fwKLAMLZaPEEqFz1/QDYquhwi/qYZX5fekFJ1XVpuwxGEK9KSX3hxZylfwrs4cmLA==}
     engines: {node: ^20.19.0 || >=22.12.0}
     peerDependencies:
-      '@rspack/core': ^2.0.0-0
+      '@rspack/core': ^2.0.0
     peerDependenciesMeta:
       '@rspack/core':
         optional: true
@@ -1362,18 +1362,18 @@ packages:
       '@rspack/core': 2.0.8
     dev: true
 
-  /@rspack/dev-server@2.0.3(@rspack/core@2.0.8):
-    resolution: {integrity: sha512-S29nOxXQS9o+0uGNe7SgND2dAKnte5ZTD5tiT3/B4lKbviqpXD4tbH7NZWA3hGwlSkmOIbFlysYPL1bVHuBcSg==}
+  /@rspack/dev-server@2.1.0(@rspack/core@2.0.8):
+    resolution: {integrity: sha512-WkCi6bWThVX5Ziv04srPaRoCoUY5FJolO4gqzE7xPO0XbXShsGnwn0vGD0DFfnYFcw9VSsxlmeCDV799lNYclA==}
     engines: {node: ^20.19.0 || >=22.12.0}
     peerDependencies:
-      '@rspack/core': ^2.0.0-0
+      '@rspack/core': ^2.0.0
       selfsigned: ^5.0.0
     peerDependenciesMeta:
       selfsigned:
         optional: true
     dependencies:
       '@rspack/core': 2.0.8
-      '@rspack/dev-middleware': 2.0.1(@rspack/core@2.0.8)
+      '@rspack/dev-middleware': 2.0.3(@rspack/core@2.0.8)
     dev: true
 
   /@rspack/lite-tapable@1.1.0:
