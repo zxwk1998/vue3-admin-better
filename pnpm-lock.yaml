@@ -81,13 +81,13 @@ devDependencies:
     version: 8.0.2(@babel/core@8.0.1)
   '@rspack/cli':
     specifier: ^2.1.10
-    version: 2.1.10(@rspack/core@2.1.10)(@rspack/dev-server@2.2.0)
+    version: 2.1.10(@rspack/core@2.1.10)(@rspack/dev-server@2.2.1)
   '@rspack/core':
     specifier: ^2.1.10
     version: 2.1.10
   '@rspack/dev-server':
-    specifier: ^2.2.0
-    version: 2.2.0(@rspack/core@2.1.10)
+    specifier: ^2.2.1
+    version: 2.2.1(@rspack/core@2.1.10)
   '@vue/compiler-sfc':
     specifier: ^3.5.41
     version: 3.5.41
@@ -1340,7 +1340,7 @@ packages:
       '@rspack/binding-win32-ia32-msvc': 2.1.10
       '@rspack/binding-win32-x64-msvc': 2.1.10
 
-  /@rspack/cli@2.1.10(@rspack/core@2.1.10)(@rspack/dev-server@2.2.0):
+  /@rspack/cli@2.1.10(@rspack/core@2.1.10)(@rspack/dev-server@2.2.1):
     resolution: {integrity: sha512-qkuQQ3PzD2sTS2tBAWyWNeOeZmPxRBzB+eNDBhCZmbm8DoMPujW2VQj0k9CulrkBq9sBxU8fQ+5Z/ELzbz5S8g==}
     hasBin: true
     peerDependencies:
@@ -1351,7 +1351,7 @@ packages:
         optional: true
     dependencies:
       '@rspack/core': 2.1.10
-      '@rspack/dev-server': 2.2.0(@rspack/core@2.1.10)
+      '@rspack/dev-server': 2.2.1(@rspack/core@2.1.10)
     dev: true
 
   /@rspack/core@2.1.10:
@@ -1380,8 +1380,8 @@ packages:
       '@rspack/core': 2.1.10
     dev: true
 
-  /@rspack/dev-server@2.2.0(@rspack/core@2.1.10):
-    resolution: {integrity: sha512-Bd0DNphOJ5/KAm3bFpUUZeP7O6jvVDNdXJEmlpsVZLfdSgjmrd6Ut/EHCBv95tmiwOQN0M41SdvlUU4f855HFA==}
+  /@rspack/dev-server@2.2.1(@rspack/core@2.1.10):
+    resolution: {integrity: sha512-Il8HbYGK3rH5rM0XmUOsOGZVw69BKRpBZ61P28Fy8ry35CtfniDBWtbo/rvJtIT/sK0qwijmNrhF498ltsV+uA==}
     engines: {node: ^20.19.0 || >=22.12.0}
     peerDependencies:
       '@rspack/core': ^2.0.0
