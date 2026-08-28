@@ -46,15 +46,15 @@
     "screenfull": "^6.0.2",
     "vue": "^3.5.42",
     "vue-echarts": "^8.1.0",
-    "vue-router": "^5.2.0",
+    "vue-router": "^5.3.0",
     "vuedraggable": "^2.24.3",
     "vuex": "^4.1.0"
   },
   "devDependencies": {
     "@babel/core": "^8.0.1",
     "@babel/preset-env": "^8.0.2",
-    "@rspack/cli": "^2.2.0",
-    "@rspack/core": "^2.2.0",
+    "@rspack/cli": "^2.2.1",
+    "@rspack/core": "^2.2.1",
     "@rspack/dev-server": "^2.2.1",
     "@vue/compiler-sfc": "^3.5.42",
     "archiver": "^8.0.0",
