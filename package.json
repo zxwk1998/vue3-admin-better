@@ -42,10 +42,10 @@
     "mitt": "^3.0.1",
     "mockjs": "^1.1.0",
     "nprogress": "^0.2.0",
-    "qs": "^6.15.3",
+    "qs": "^6.16.0",
     "screenfull": "^6.0.2",
     "vue": "^3.5.42",
-    "vue-echarts": "^8.1.0",
+    "vue-echarts": "^8.2.0",
     "vue-router": "^5.3.0",
     "vuedraggable": "^2.24.3",
     "vuex": "^4.1.0"
