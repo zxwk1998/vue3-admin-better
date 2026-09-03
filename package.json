@@ -46,7 +46,7 @@
     "screenfull": "^6.0.2",
     "vue": "^3.5.42",
     "vue-echarts": "^8.2.0",
-    "vue-router": "^5.3.0",
+    "vue-router": "^5.3.1",
     "vuedraggable": "^2.24.3",
     "vuex": "^4.1.0"
   },
