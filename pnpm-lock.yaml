@@ -60,8 +60,8 @@ dependencies:
     specifier: ^3.5.42
     version: 3.5.42
   vue-echarts:
-    specifier: ^8.2.0
-    version: 8.2.0(echarts@6.1.0)(vue@3.5.42)
+    specifier: ^8.3.0
+    version: 8.3.0(echarts@6.1.0)(vue@3.5.42)
   vue-router:
     specifier: ^5.3.1
     version: 5.3.1(@rspack/core@2.2.2)(@vue/compiler-sfc@3.5.42)(vue@3.5.42)(webpack@5.103.0)
@@ -3432,8 +3432,8 @@ packages:
     resolution: {integrity: sha512-3c/UfMe0SqyEfcGTyH7mfshHagJ9QTCbppCb0/uGpHZpFug7+If3GeGZN7I0YheKEExemx3xldQPoO7PQSOLQg==}
     dev: false
 
-  /vue-echarts@8.2.0(echarts@6.1.0)(vue@3.5.42):
-    resolution: {integrity: sha512-oUc4HgWYrUUac9AipF4Aas2R7CpGyZtSJk+pF/eFCZ47GkTmAly4mK2wx8lDg/q9Sd4gcLaoRGdGFXyXQUnjDQ==}
+  /vue-echarts@8.3.0(echarts@6.1.0)(vue@3.5.42):
+    resolution: {integrity: sha512-gqOZ5uuBF4x4KTXQpTmgH5BuAwUSO+y9U7L1pHCIESQvgnTitXtnyjrfePH+9YXMRhmTLjchEx3EnsPhoiIX/A==}
     peerDependencies:
       echarts: ^6.0.0
       vue: ^3.3.0
