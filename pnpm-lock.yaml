@@ -110,8 +110,8 @@ devDependencies:
     specifier: ^7.1.5
     version: 7.1.5(@rspack/core@2.2.6)(webpack@5.103.0)
   html-rspack-plugin:
-    specifier: ^6.1.9
-    version: 6.1.9(@rspack/core@2.2.6)
+    specifier: ^6.1.11
+    version: 6.1.11(@rspack/core@2.2.6)
   path-browserify:
     specifier: ^1.0.1
     version: 1.0.1
@@ -1454,8 +1454,8 @@ packages:
       '@rspack/dev-middleware': 2.0.3(@rspack/core@2.2.6)
     dev: true
 
-  /@rspack/lite-tapable@1.1.0:
-    resolution: {integrity: sha512-E2B0JhYFmVAwdDiG14+DW0Di4Ze4Jg10Pc4/lILUrd5DRCaklduz2OvJ5HYQ6G+hd+WTzqQb3QnDNfK4yvAFYw==}
+  /@rspack/lite-tapable@1.2.0:
+    resolution: {integrity: sha512-Pab0fdnd2KPt4Nz4e8aLx/73dt4nRVmn/4robI0tdgOQ4ym6WsgFX6dL2L76HRpB/5yOe3CA2Ah6lSxeLRvIug==}
     dev: true
 
   /@sxzz/popperjs-es@2.11.8:
@@ -2526,17 +2526,17 @@ packages:
     resolution: {integrity: sha512-Yc+BQe8SvoXH1643Qez1zqLRmbA5rCL+sSmk6TVos0LWVfNIB7PGncdlId77WzLGSIB5KaWgTaNTs2lNVEI6VQ==}
     dev: false
 
-  /html-rspack-plugin@6.1.9(@rspack/core@2.2.6):
-    resolution: {integrity: sha512-GWdHEsyXrP4b2SSCzJfYKO/+r6DkNBeJytk2VKQwlrFuKCeCneIXpY1Cty3uYgH7jsAuPKkR1I1Cr2sOeX5KBg==}
+  /html-rspack-plugin@6.1.11(@rspack/core@2.2.6):
+    resolution: {integrity: sha512-aWPstu/jzOFh0BoY9eHtUp3yJp+01CdHuTxnw3RR5Uv9wAl8pAtokzaF7SWYivqZWAA2P+DYCZVmLnp23HfuGQ==}
     engines: {node: '>=16.20.2'}
     peerDependencies:
-      '@rspack/core': ^1.0.0 || ^2.0.0-0
+      '@rspack/core': ^1.0.0 || ^2.0.0
     peerDependenciesMeta:
       '@rspack/core':
         optional: true
     dependencies:
       '@rspack/core': 2.2.6
-      '@rspack/lite-tapable': 1.1.0
+      '@rspack/lite-tapable': 1.2.0
     dev: true
 
   /http-errors@2.0.1:
