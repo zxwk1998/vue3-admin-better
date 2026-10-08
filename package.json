@@ -29,7 +29,7 @@
   "dependencies": {
     "@element-plus/icons-vue": "^2.3.2",
     "axios": "^1.20.0",
-    "caniuse-lite": "^1.0.30001814",
+    "caniuse-lite": "^1.0.30001815",
     "clipboard": "^2.0.11",
     "core-js": "^3.50.0",
     "dayjs": "^1.11.23",
@@ -46,13 +46,13 @@
     "screenfull": "^6.0.2",
     "vue": "^3.5.43",
     "vue-echarts": "^8.3.1",
-    "vue-router": "^5.3.1",
+    "vue-router": "^5.4.0",
     "vuedraggable": "^2.24.3",
     "vuex": "^4.1.0"
   },
   "devDependencies": {
-    "@babel/core": "^8.0.6",
-    "@babel/preset-env": "^8.0.6",
+    "@babel/core": "^8.0.7",
+    "@babel/preset-env": "^8.0.7",
     "@rspack/cli": "^2.2.8",
     "@rspack/core": "^2.2.8",
     "@rspack/dev-server": "^2.2.1",
